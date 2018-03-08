@@ -2092,25 +2092,19 @@ for <code>RemarkCommandParser</code>.</p>
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is <code>VetterAppointments</code> and the <strong>Actor</strong> is the <code>vet</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-add-vet-technician" class="discrete">Use case: Add Vet Technician</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>Vet requests to add Vet Technician</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
-</li>
-<li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>VetterAppointments adds the Vet Technician to the system</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2119,6 +2113,103 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-add-client" class="discrete">Use case: Add client</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to add client (owner)</p>
+</li>
+<li>
+<p>VetterAppointments adds client to the system</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-client" class="discrete">Use case: Delete client</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to list clients</p>
+</li>
+<li>
+<p>VetterAppointments shows a list of clients</p>
+</li>
+<li>
+<p>Vet requests to delete a specific client in the list</p>
+</li>
+<li>
+<p>VetterAppointments deletes the client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="ulist none">
 <ul class="none">
@@ -2133,7 +2224,7 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. VetterAppointments shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -2143,8 +2234,577 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-add-pet" class="discrete">Use case: Add pet</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to add pet</p>
+</li>
+<li>
+<p>VetterAppointments provides a list of clients to add the pet to</p>
+</li>
+<li>
+<p>Vet enters the index of the associated client</p>
+</li>
+<li>
+<p>VetterAppointments adds a pet associated with a client in the system</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The client index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-pet" class="discrete">Use case: Delete pet</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to list pets</p>
+</li>
+<li>
+<p>VetterAppointments shows a list of pets</p>
+</li>
+<li>
+<p>Vet requests to delete a specific pet in the list</p>
+</li>
+<li>
+<p>VetterAppointments deletes the pet</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. VetterAppointments shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-add-appointment" class="discrete">Use case: Add appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to add an appointment</p>
+</li>
+<li>
+<p>VetterAppointments provides a list of pets to add the appointment to</p>
+</li>
+<li>
+<p>Vet enters the index of the pet that the appointment is tied to</p>
+</li>
+<li>
+<p>VetterAppointments provides a list of Vet Technicians to add the appointment to</p>
+</li>
+<li>
+<p>Vet enters the index of the Vet Technician that the appointment is assigned to, or leaves it blank if he/she wants to add it later</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. The assigned timeslot already has an existing appointment</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. VetterAppointments asks the Vet if he/she wishes to override the existing appointment</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1a. Vet types 'yes'</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+<li>
+<p>1b1b. Vet types 'no'</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The pet index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5a. The Vet Technician index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>5a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 4.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-assign-vet-technician-to-appointment" class="discrete">Use case: Assign Vet Technician to appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to assign a Vet Technician to a specific appointment</p>
+</li>
+<li>
+<p>VetterAppointments provides a list of Vet Technicians to assign the appointment to</p>
+</li>
+<li>
+<p>Vet enters the index of the associated Vet Technician</p>
+</li>
+<li>
+<p>VetterAppointments assigns the Vet Technician to the appointment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The Vet Technician index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-reschedule-appointment" class="discrete">Use case: Reschedule appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to reschedule a specific appointment</p>
+</li>
+<li>
+<p>VetterAppointments updates the date/time of the appointment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b. The newly assigned timeslot already has an existing appointment</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. VetterAppointments asks the Vet if he/she wishes to override the existing appointment</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1a. Vet types 'yes'</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+<li>
+<p>1b1b. Vet types 'no'</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-appointment" class="discrete">Use case: Delete appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to list appointments</p>
+</li>
+<li>
+<p>VetterAppointments shows a list of appointments</p>
+</li>
+<li>
+<p>Vet requests to delete a specific appointment in the list</p>
+</li>
+<li>
+<p>VetterAppointments deletes the appointment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. VetterAppointments shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-find-appointment-by-date" class="discrete">Use case: Find appointment by date</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to find appointments for a specific date</p>
+</li>
+<li>
+<p>VetterAppointments shows a list of appointments on that date</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-find-appointment-by-client" class="discrete">Use case: Find appointment by client</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to list clients</p>
+</li>
+<li>
+<p>VetterAppointments shows a list of clients</p>
+</li>
+<li>
+<p>Vet requests to find appointments for a specific client index</p>
+</li>
+<li>
+<p>VetterAppointments shows a list of appointments for that client</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. VetterAppointments shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2384,7 +3044,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-08 15:33:19 UTC
+Last updated 2018-03-08 16:05:30 UTC
 </div>
 </div>
 </body>
