@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.sun.org.apache.bcel.internal.generic.DUP;
 import javafx.collections.ObservableList;
 import seedu.address.model.client.Client;
 import seedu.address.model.person.Person;
@@ -17,6 +18,10 @@ import seedu.address.model.person.PersonRole;
 import seedu.address.model.person.UniquePersonList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
+import seedu.address.model.pet.Pet;
+import seedu.address.model.pet.UniquePetList;
+import seedu.address.model.pet.exceptions.DuplicatePetException;
+import seedu.address.model.pet.exceptions.PetNotFoundException;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.vettechnician.VetTechnician;
@@ -28,6 +33,7 @@ import seedu.address.model.vettechnician.VetTechnician;
 public class AddressBook implements ReadOnlyAddressBook {
 
     private final UniquePersonList persons;
+    private final UniquePetList pets;
     private final UniqueTagList tags;
 
     /*
@@ -39,6 +45,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     {
         persons = new UniquePersonList();
+        pets = new UniquePetList();
         tags = new UniqueTagList();
     }
 
@@ -56,6 +63,10 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     public void setPersons(List<Person> persons) throws DuplicatePersonException {
         this.persons.setPersons(persons);
+    }
+
+    public void setPets(List<Pet> pets) throws DuplicatePetException {
+        this.pets.setPets(pets);
     }
 
     public void setTags(Set<Tag> tags) {
@@ -158,6 +169,44 @@ public class AddressBook implements ReadOnlyAddressBook {
         } else {
             throw new PersonNotFoundException();
         }
+    }
+
+
+    //// pet-level operations
+
+    /**
+     * Adds a pet to the address book.
+     * Also checks the new pet's tags and updates {@link #tags} with any new tags found,
+     * and updates the Tag objects in the pet to point to those in {@link #tags}.
+     *
+     * @throws DuplicatePetException if an equivalent pet already exists.
+     */
+    public void addPet(Pet p) throws DuplicatePetException {
+        Pet pet = syncWithMasterBreedTagList(pet);
+        pets.add(pet);
+    }
+
+    /**
+     * TODO
+     * @param target
+     * @param editedPet
+     * @throws DuplicatePetException
+     * @throws PetNotFoundException
+     */
+    public void updatePet(Pet target, Pet editedPet)
+        throws DuplicatePetException, PetNotFoundException {
+        requireNonNull(editedPet);
+
+        Pet syncedEditedPet = syncWithMasterBreedTagList(editedPet);
+
+        pets.setPet(target, syncedEditedPet);
+    }
+
+    private Pet syncWithMasterBreedTagList(Pet pet) {
+        Pet syncedPet;
+
+        final UniqueBreedTagList petTags = new UniqueBreedTagList(pet.getTags());
+        
     }
 
     //// tag-level operations
