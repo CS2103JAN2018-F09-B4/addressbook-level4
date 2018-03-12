@@ -6,9 +6,9 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.address.model.appointment.Appointment;
+import seedu.address.model.breedtag.BreedTag;
+import seedu.address.model.breedtag.UniqueBreedTagList;
 import seedu.address.model.client.Client;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.tag.UniqueTagList;
 
 /**
  * Represents a Pet in the applications.
@@ -23,13 +23,13 @@ public class Pet {
     private final Client petClient;
     private final Appointment petAppointment;
 
-    private final UniqueTagList tags;
+    private final UniqueBreedTagList tags;
 
     /**
      * Every field must be present and not null
      */
     public Pet(PetName petName, PetAge petAge, Species species, PetGender petGender,
-               Client petClient, Appointment petAppointment, Set<Tag> tags) {
+               Client petClient, Appointment petAppointment, Set<BreedTag> tags) {
         requireAllNonNull(petName, petAge, species, petGender, tags);
         this.petName = petName;
         this.petAge = petAge;
@@ -39,7 +39,7 @@ public class Pet {
         this.petAppointment = petAppointment;
 
         //protect internal tags from changes in the arg lis
-        this.tags = new UniqueTagList(tags);
+        this.tags = new UniqueBreedTagList(tags);
     }
 
     public PetName getPetName() {
@@ -70,7 +70,7 @@ public class Pet {
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
      * if modification is attempted.
      */
-    public Set<Tag> getTags() {
+    public Set<BreedTag> getBreedTags() {
         return Collections.unmodifiableSet(tags.toSet());
     }
 
@@ -114,7 +114,7 @@ public class Pet {
                 .append(getPetClient())
                 .append(" Appointment Date: ")
                 .append(getPetAppointment());
-        getTags().forEach(builder::append);
+        getBreedTags().forEach(builder::append);
         return builder.toString();
     }
 
