@@ -3,6 +3,10 @@ package seedu.address.model.breedtag;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents a Breed Tag in the program
+ * Guarantees: immutable; name is valid as declared in {@link #isValidBreedTagName(String)}
+ */
 public class BreedTag {
 
     public static final String MESSAGE_BREEDTAG_CONSTRAINTS = "Tags names should be alphanumeric";
