@@ -10,8 +10,10 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.sun.org.apache.bcel.internal.generic.DUP;
 import javafx.collections.ObservableList;
+
+import seedu.address.model.breedtag.BreedTag;
+import seedu.address.model.breedtag.UniqueBreedTagList;
 import seedu.address.model.client.Client;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonRole;
@@ -35,6 +37,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     private final UniquePersonList persons;
     private final UniquePetList pets;
     private final UniqueTagList tags;
+    private final UniqueBreedTagList breedTags;
 
     /*
      * The 'unusual' code block below is an non-static initialization block, sometimes used to avoid duplication
@@ -47,6 +50,7 @@ public class AddressBook implements ReadOnlyAddressBook {
         persons = new UniquePersonList();
         pets = new UniquePetList();
         tags = new UniqueTagList();
+        breedTags = new UniqueBreedTagList();
     }
 
     public AddressBook() {}
@@ -73,12 +77,18 @@ public class AddressBook implements ReadOnlyAddressBook {
         this.tags.setTags(tags);
     }
 
+    public void setBreedTags(Set<BreedTag> breedTags) {
+        this.breedTags.setTags(breedTags);
+    }
+
     /**
      * Resets the existing data of this {@code AddressBook} with {@code newData}.
      */
     public void resetData(ReadOnlyAddressBook newData) {
         requireNonNull(newData);
         setTags(new HashSet<>(newData.getTagList()));
+        setBreedTags(new HashSet<>(newData.getBreedTagList()));
+
         List<Person> syncedPersonList = newData.getPersonList().stream()
                 .map(this::syncWithMasterTagList)
                 .collect(Collectors.toList());
@@ -86,7 +96,17 @@ public class AddressBook implements ReadOnlyAddressBook {
         try {
             setPersons(syncedPersonList);
         } catch (DuplicatePersonException e) {
-            throw new AssertionError("AddressBooks should not have duplicate persons");
+            throw new AssertionError("Program should not have duplicate persons");
+        }
+
+        List<Pet> syncedPetList = newData.getPetList().stream()
+                .map(this::syncWithMasterBreedTagList)
+                .collect(Collectors.toList());
+
+        try {
+            setPets(syncedPetList);
+        } catch (DuplicatePetException e) {
+            throw new AssertionError("Program should not have duplicate pets");
         }
     }
 
@@ -182,7 +202,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * @throws DuplicatePetException if an equivalent pet already exists.
      */
     public void addPet(Pet p) throws DuplicatePetException {
-        Pet pet = syncWithMasterBreedTagList(pet);
+        Pet pet = syncWithMasterBreedTagList(p);
         pets.add(pet);
     }
 
@@ -202,17 +222,51 @@ public class AddressBook implements ReadOnlyAddressBook {
         pets.setPet(target, syncedEditedPet);
     }
 
+    /**
+     * TODO
+     * @param pet
+     * @return
+     */
     private Pet syncWithMasterBreedTagList(Pet pet) {
         Pet syncedPet;
 
-        final UniqueBreedTagList petTags = new UniqueBreedTagList(pet.getTags());
+        final UniqueBreedTagList petTags = new UniqueBreedTagList(pet.getBreedTags());
+        breedTags.mergeFrom(petTags);
 
+        final Map<BreedTag, BreedTag> masterBreedTagObjects = new HashMap<>();
+        breedTags.forEach(breedTag -> masterBreedTagObjects.put(breedTag, breedTag));
+
+        final Set<BreedTag> correctBreedTagReferences = new HashSet<>();
+        petTags.forEach(breedTag -> correctBreedTagReferences.add(masterBreedTagObjects.get(breedTag)));
+
+        syncedPet = new Pet(pet.getPetName(), pet.getPetAge(), pet.getSpecies(), pet.getPetGender(),
+                pet.getPetClient(), pet.getPetAppointment(), correctBreedTagReferences);
+        return syncedPet;
+    }
+
+    /**
+     * TODO
+     * @param key
+     * @return
+     * @throws PetNotFoundException
+     */
+    public boolean removePet(Pet key) throws PetNotFoundException {
+        if (pets.remove(key)) {
+            return true;
+        } else {
+            throw new PetNotFoundException();
+        }
     }
 
     //// tag-level operations
 
     public void addTag(Tag t) throws UniqueTagList.DuplicateTagException {
         tags.add(t);
+    }
+
+    //// breed-tag-level operations
+    public void addBreedTag(BreedTag t) throws UniqueBreedTagList.DuplicateBreedTagException {
+        breedTags.add(t);
     }
 
     //// util methods
@@ -229,8 +283,18 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     @Override
+    public ObservableList<Pet> getPetList() {
+        return pets.asOberservableList();
+    }
+
+    @Override
     public ObservableList<Tag> getTagList() {
         return tags.asObservableList();
+    }
+
+    @Override
+    public ObservableList<BreedTag> getBreedTagList() {
+        return breedTags.asObservableList();
     }
 
     @Override
