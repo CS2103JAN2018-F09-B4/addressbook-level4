@@ -52,7 +52,10 @@ public class AddressBookTest {
         // Repeat ALICE twice
         List<Person> newPersons = Arrays.asList(ALICE, ALICE);
         List<Tag> newTags = new ArrayList<>(ALICE.getTags());
-        AddressBookStub newData = new AddressBookStub(newPersons, newTags);
+        List<Pet> newPets = Arrays.asList(GARFIELD);
+        List<BreedTag> newBreedTags = new ArrayList<>(GARFIELD.getBreedTags());
+
+        AddressBookStub newData = new AddressBookStub(newPersons, newTags, newPets, newBreedTags);
 
         thrown.expect(AssertionError.class);
         addressBook.resetData(newData);
@@ -79,9 +82,12 @@ public class AddressBookTest {
         private final ObservableList<Pet> pets = FXCollections.observableArrayList();
         private final ObservableList<BreedTag> breedTags = FXCollections.observableArrayList();
 
-        AddressBookStub(Collection<Person> persons, Collection<? extends Tag> tags) {
+        AddressBookStub(Collection<Person> persons, Collection<? extends Tag> tags,
+                        Collection<Pet> pets, Collection<? extends BreedTag> breedTags) {
             this.persons.setAll(persons);
             this.tags.setAll(tags);
+            this.pets.setAll(pets);
+            this.breedTags.setAll(breedTags);
         }
 
         @Override
@@ -92,6 +98,16 @@ public class AddressBookTest {
         @Override
         public ObservableList<Tag> getTagList() {
             return tags;
+        }
+
+        @Override
+        public ObservableList<Pet> getPetList() {
+            return pets;
+        }
+
+        @Override
+        public ObservableList<BreedTag> getBreedTagList() {
+            return breedTags;
         }
 
 
