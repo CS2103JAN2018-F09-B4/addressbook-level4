@@ -48,7 +48,8 @@ An example of a command format: +
 
 * The first word of the command format `add` states the *type* of the command. Other *type* of commands includes but not limited to, `delete`, `list`, `undo`, `redo` and etc.
 
-* Following the `add` are the parameters or the arguments that the command needs. In this case, the `add` command require these parameters from the user: +
+* Following the `add` are the parameters or the arguments that the command needs. In this case, the `add` command require these parameters from the user:
++
 *ROLE* - Role of the person being added into the program. +
 *NAME* - The name of the person being added into the program. +
 *PHONE* - The phone number of the person being added. +
