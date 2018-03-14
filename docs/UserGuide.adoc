@@ -68,7 +68,7 @@ If the user chooses to do, he or she *should not* omit the prefix of the argumen
 * Parameters of the commands can be typed in any order that the user chooses as long as the prefix of the argument is not omitted.
 
 ====
-
+'''
 === Viewing help : `help`
 
 Command format: `help` +
@@ -118,6 +118,24 @@ The user chooses to add Garfield of age 10 and is a male to Alice Peterson. Garf
 * `addpetto n/Alice Peterson pn/Scooby Doo pa/5 pg/M t/dog t/great_dane` +
 The user chooses to add another pet called Scooby Doo of age 5 and is a male to Alice Peterson. Scooby Doo is a dog and a great dane.
 
+=== Adding an appointment to a pet: `addapptto'
+
+Command format: `addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS` +
+
+The `addapptto` command adds an appointment to a pet in the program. A pet should have only one appointment linked to it. +
+The command expects these parameters when adding an appointment to a pet: +
+
+*CLIENT NAME* - The name of the client of the pet name +
+*PET NAME* - The name of an existing pet must be supplied by the user. +
+*DATE* - The date of the appointment must be supplied by the user in this format: DD/MM/YYYY +
+*TIME* - The time of the appointment must be supplied by the user in this format: HHMM +
+*VET TECHNICIAN NAME* - The name of the vet technician that is in-charge of the appointment. +
+*COMMENTS* - Comments must be supplied by the user to describe the kind of appointment. +
+
+Here are some valid examples on using the `addapptto` command: +
+
+* `addapptto n/Alice Peterson pn/Garfield date/01.02.2018 time/1430 vettech/Bob cmt/Sterilize the cat` +
+The user chooses to add an appointment to Alice Peterson's pet called Garfield on 01.02.2018 at 1430HRS. Bob is the vet tech in-charge of this appointment, which is to sterilize Garfield.
 
 === Listing all persons : `list`
 
