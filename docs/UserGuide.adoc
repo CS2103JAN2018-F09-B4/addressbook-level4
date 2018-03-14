@@ -41,12 +41,31 @@ image::Ui.png[width="790"]
 == Features
 
 ====
-*Command Format*
+*Understanding the Command Format*
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
-* Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
-* Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+An example of a command format: +
+add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...
+
+* The first word of the command format `add` states the *type* of the command. Other *type* of commands includes but not limited to, `delete`, `list`, `undo`, `redo` and etc.
+
+* Following the `add` are the parameters or the arguments that the command needs. In this case, the `add` command require these parameters from the user: +
+*ROLE* - Role of the person being added into the program. +
+*NAME* - The name of the person being added into the program. +
+*PHONE* - The phone number of the person being added. +
+*EMAIL* - A valid email consisting of existing domain and proper format of the person. +
+*ADDRESS* - The address of the person being added. +
+*TAGS* - (OPTIONAL)
+
+* Parameters in uppercase states that the argument needs to be supplied by the user. They have a prefix on them like r/, n/, p/, e/, a/ and t/ that needs to be typed by the user. These prefixes tells the program the different parameter types.
+
+* Parameters enclosed by square brackets like [t/TAG] suggests that the argument is *optional*. +
+The user may choose to omit the parameter or add it.
+
+* Parameters with ... appended to it, for example [t/TAG]... suggests that the parameter can be added multiple times. +
+If the user chooses to do, he or she *should not* omit the prefix of the argument, for this instance, t/. +
+
+* Parameters of the commands can be typed in any order that the user chooses as long as the prefix of the argument is not omitted.
+
 ====
 
 === Viewing help : `help`
