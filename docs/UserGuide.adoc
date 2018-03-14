@@ -97,7 +97,25 @@ The user adds multiple tags.
 * `add r/VetTechnician p/91234567 n/Carley Riady a/Blk 123, Bedok Reservoir St24 t/friend t/part_timer e/carlyriady@email.com` +
 The user chooses to re-order the parameter of the command. +
 
+=== Adding a pet to a client: `addpetto`
 
+Command format: `addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG...` +
+
+The `addpetto` command adds a pet to an existing client. A client can have multiple pets but adding a pet to a client should be done sequentially. +
+The command expects these parameters when adding a pet to a client: +
+
+*CLIENT NAME* - The name of an existing client must be supplied by the user. +
+*PET NAME* - The name of the pet to be added to a client must be supplied by the user. +
+*PET AGE* - The age of the pet must be supplied by the user. It must contain only numbers. +
+*PET GENDER* - The gender of the pet must be supplied by the user. It can only be male or female. +
+*PET TAGS* - The pet tags should be supplied by the user. Pet tags will represent the species and breed of the pet.
+
+Here are some valid examples on how to use the `addpetto` command: +
+
+* `addpetto n/Alice Peterson pn/Garfield pa/10 pg/M t/cat t/tabby` +
+The user chooses to add Garfield of age 10 and is a male to Alice Peterson. Garfield is a cat and a tabby. +
+* `addpetto n/Alice Peterson pn/Scooby Doo pa/5 pg/M t/dog t/great_dane` +
+The user chooses to add another pet called Scooby Doo of age 5 and is a male to Alice Peterson. Scooby Doo is a dog and a great dane.
 
 
 === Listing all persons : `list`
