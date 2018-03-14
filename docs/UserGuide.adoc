@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+= VetterAppointments- User Guide
 :toc:
 :toc-title:
 :toc-placement: preamble
@@ -13,11 +13,15 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/CS2103JAN2018-F09-B4/main
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `F09-B4`      Since: `March 2018`      Licence: `MIT`
 
 == Introduction
 
-AddressBook Level 4 (AB4) is for those who *prefer to use a desktop app for managing contacts*. More importantly, AB4 is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
+VetterAppointments is a program for vets who prefer to use a desktop app for managing their Clients, Pets and Appointments. +
+
+The app is optimized for Vets who prefer to work with the *Command Line Interface (CLI)* while still having a Graphical User Interface (GUI) that clearly lists out what is important to him or her. +
+
+VetterAppointments allows a vet to manage and complete his tasks faster than the traditional GUI app provided he or she is a fast typer. To get started with the app, head down to <<Quick Start>> to get started!
 
 == Quick Start
 
@@ -27,8 +31,8 @@ AddressBook Level 4 (AB4) is for those who *prefer to use a desktop app for mana
 Having any Java 8 version is not enough. +
 This app will not work with earlier versions of Java 8.
 +
-.  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
-.  Copy the file to the folder you want to use as the home folder for your Address Book.
+.  Download the latest `VetterAppointments.jar` link:{repoURL}/releases[here].
+.  Copy the file to the folder you want to use as the home folder for your VetterAppointments.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
 image::Ui.png[width="790"]
