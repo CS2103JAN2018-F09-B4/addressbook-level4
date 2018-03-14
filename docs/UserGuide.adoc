@@ -125,7 +125,7 @@ Command format: `addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time
 The `addapptto` command adds an appointment to a pet in the program. A pet should have only one appointment linked to it. +
 The command expects these parameters when adding an appointment to a pet: +
 
-*CLIENT NAME* - The name of the client of the pet name +
+*CLIENT NAME* - The name of the client of the pet name. +
 *PET NAME* - The name of an existing pet must be supplied by the user. +
 *DATE* - The date of the appointment must be supplied by the user in this format: DD/MM/YYYY +
 *TIME* - The time of the appointment must be supplied by the user in this format: HHMM +
