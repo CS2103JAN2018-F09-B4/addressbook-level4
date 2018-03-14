@@ -44,7 +44,7 @@ image::Ui.png[width="790"]
 *Understanding the Command Format*
 
 An example of a command format: +
-add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...
+`add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
 
 * The first word of the command format `add` states the *type* of the command. Other *type* of commands includes but not limited to, `delete`, `list`, `undo`, `redo` and etc.
 
@@ -70,20 +70,35 @@ If the user chooses to do, he or she *should not* omit the prefix of the argumen
 
 === Viewing help : `help`
 
-Format: `help`
+Command format: `help` +
+
+Upon entering the `help` command, a User Guide manual will pop up displaying the available commands for the user.
 
 === Adding a person: `add`
 
-Adds a person to the address book +
-Format: `add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
+Command format: `add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
 
-[TIP]
-A person can have any number of tags (including 0)
 
-Examples:
+The `add` command will insert a new person's details into the program. The command expects these parameters when adding a new person: +
 
-* `add r/Client n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add r/Technician n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+*ROLE* - VetterAppointment expects a role to be either a *VetTechnician* or a *Client*. +
+*NAME* - A name must be provided by the user for the person to be added. +
+*PHONE* - A phone number consisting of only numbers must be supplied by the user. +
+*EMAIL* - A valid email address must be provided with a valid domain and format. +
+*ADDRESS* - An address for the person to be added must be supplied by the user. +
+*TAGS* - The tags for the person to be added. This field can be omitted and used multiple times and should not contain any spaces. +
+
+Here are some valid examples on how to use the `add` command:
+
+* `add r/Client n/Alice Peterson p/91234567 e/alicepeter@email.com a/Blk 123, Bedok Reservoir St24` +
+The user omits the tag parameters.
+* `add r/Client n/Bradly Cooper p/91234567 e/bradlycooper@email.com t/friend t/dog_whisperer a/Blk 123, Bedok Reservoir St24` +
+The user adds multiple tags.
+* `add r/VetTechnician p/91234567 n/Carley Riady a/Blk 123, Bedok Reservoir St24 t/friend t/part_timer e/carlyriady@email.com` +
+The user chooses to re-order the parameter of the command. +
+
+
+
 
 === Listing all persons : `list`
 
