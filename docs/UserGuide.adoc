@@ -293,46 +293,40 @@ The `editappt` command edits the appointment date and detail of an existing pet.
 *COMMENTS*:: The new comments for the appointment. It need not be supplied by the user.
 
 
+=== Finding clients by name: `findc`
 
-=== Locating persons by name: `find`
+Command format: `findc KEYWORD`
 
-Finds persons whose names contain any of the given keywords. +
-Format: `find KEYWORD [MORE_KEYWORDS]`
+The `findc` command displays all existing clients containing the keyword. The command expeccts these parameters: +
 
-****
-* The search is case insensitive. e.g `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
-* Only the name is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
-****
+[horizontal]
+*KEYWORD*:: The keyword to find the client. It must be supplied by the user.
 
-Examples:
+Here is an example on how to use the `findc` command: +
 
-* `find John` +
-Returns `john` and `John Doe`
-* `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+* `findc alice` +
+The user used the keyword alice to find all clients containing the word alice in their names.
 
-=== Deleting a person : `delete`
+[TIP]
+The keyword is case insensitive.This means typing, "ALICE", "alice" or 'AlIcE" will result in the same output.
 
-Deletes the specified person from the address book. +
-Format: `delete INDEX`
+=== Finding pets by name: `findp`
 
-****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the most recent listing.
-* The index *must be a positive integer* 1, 2, 3, ...
-****
+Command format: `findp KEY_WORD`
 
-Examples:
+The `findp` command is similar to the `findc` command. See <<Finding clients by name: `findc`>>. The `findp` command displays all existing pets containing the keyword. The command expects these parameters:
 
-* `list` +
-`delete 2` +
-Deletes the 2nd person in the address book.
-* `find Betsy` +
-`delete 1` +
-Deletes the 1st person in the results of the `find` command.
+[horizontal]
+*KEYWORD*:: The keyword to find the pet. It must be supplied by the user.
+
+Here is an example on how to use the command: +
+
+* `findp Garf`
+The user used the keyword Garf to find all pets containing the word Garf. 
+
+[TIP]
+The keyword is case insensitive. This means typing, "GARF", "garf" or "GaRf" will result in the same output.
+
 
 === Selecting a person : `select`
 
