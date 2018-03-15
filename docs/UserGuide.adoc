@@ -155,6 +155,12 @@ Command format: `listappt` +
 
 The `listappt` command will display all appointments that are pending for the user. The list sorts upcoming appointments by date and then by time.
 
+=== Listing all vet technicians: `listv`
+
+Command format: `listv` +
+
+The `listv` command will display all vet technicians in the program. It automatically switches to the vet technician tab upon calling the command.
+
 === Listing all information: `listall`
 
 Command format: `listall INDEX` +
