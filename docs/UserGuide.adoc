@@ -166,15 +166,68 @@ The `listv` command will display all vet technicians in the program. It automati
 Command format: `listall INDEX` +
 
 The `listall` command will display all clients, pets and appointments that are tagged to them.
-The command expects these parameters when called: +
+The command expects this parameter when called: +
 
 *INDEX* - The index of the client that you wish to view the details of. This must be supplied by the user. +
 
-Here are some examples of using the command `listall`. +
-Suppose there is only one client in the program and is stored at index 1. +
+Here is an example of using the command `listall`: +
 
 * `listall 1`  +
-* `listall 20`
+Suppose there is only one client in the program and is stored at index 1. This command will then display all the information regarding the person at index one. +
+
+=== Sorting clients in alphabetical order: `sort`
+
+Command format: `sort` +
+
+The `sort` command will sort all existing clients in the program in alphabetical order. By default, the program displays the list clients in chronological order. +
+
+=== Sorting clients in chronological order: `sortc`
+
+Command format: `sortc` +
+
+The `sortc` command will sort all existing clients in the program in most recently added. This is the default ordering that is displayed in the program. +
+
+=== Removing a client: `rmc`
+
+Command format: `rmc INDEX` +
+
+The `rmc` command will remove a client from the program. Executing this command will remove all the pets associated to the client. +
+The command expects this parameter when called: +
+
+*INDEX* - The client's index in the program. This must be supplied by the user.
+
+Here is an example of using the command `rmc`: +
+
+* `rmc 1` +
+Suppose there is only one person in the program called Alice Peterson and she has Garfield and Scooby Doo as her associated pets. This command will remove Alice, Garfield and Scooby Doo from the program.
+
+=== Removing a pet from a client: `rmpetfrom`
+
+Command format: `rmpetfrom n/CLIENT_NAME pn/PET_NAME` +
+
+The `rmpetfrom` command will remove a pet from a client. Once a pet is removed, the appointment (if any) associated to that pet will also be removed. The command expects these parameters when called: +
+
+*CLIENT NAME* - The pet's client name to be removed. This must be supplied by the user. +
+*PET NAME* - The pet name of the specified client's name. This must be supplied by the user. +
+
+Here is an example of using the command `rmpetfrom`: +
+
+* `rmpetfrom n/Alice Peterson pn/Garfield` +
+When this command is executed, Garfield, which is Alice Peterson's pet will be removed from the program. The appointment associated to Garfield will also be removed.
+
+=== Removing an appointment from a pet: `rmapptfrom`
+
+Command format: `rmapptfrom n/CLIENT_NAME pn/PET_NAME`
+
+The `rmapptfrom` command removes an associated appointment from a pet. The command parameters are the same as `rmpetfrom`, see <<Removing a pet from a client: `rmpetfrom`>>. The command expects these parameters: +
+
+*CLIENT NAME* - The pet's client name to be removed. This must be supplied by the user. +
+*PET NAME* - The pet name of the specified client's name. This must be supplied by the user. +
+
+Here is an exammple of using the command `rmapptfrom`: +
+
+* `rmpetfrom n/Bradly Cooper pn/Scooby Doo` +
+When this command is executed, Scooby's Doo which is Bradly Cooper's pet's appointment will be removed.
 
 === Editing a person : `edit`
 
