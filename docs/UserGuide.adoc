@@ -276,7 +276,23 @@ Similar to the `edit` command, the `editp` command amends the details of a speci
 Here is an example of using the `editp` command: +
 
 * `editp 1 pn/Jerry pa/2 pg/M` +
-The user chooses to edit the pet of the first index and changed the existing name, age and gender to Jerry, 2 and male. 
+The user chooses to edit the pet of the first index and changed the existing name, age and gender to Jerry, 2 and male.
+
+=== Editing a pet's appointment: `editappt`
+
+Command format: `editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]`
+
+The `editappt` command edits the appointment date and detail of an existing pet. The command expects these parameters when executing: +
+
+[horizontal]
+*CLIENT NAME*:: The name of the pet's owner. This must be supplied by the user.
+*PET NAME*:: The name of the pet. This must be supplied by the user.
+*DATE*:: The new date of the new appointment in DD.MM.YYYY format. It need not be supplied by the user.
+*TIME*:: The time of the new appointment in HHMM format. It need not be supplied by the user.
+*VET TECHNICIAN*:: The name of the new vet technician in-charged of the new appointment. It need not be supplied by the user.
+*COMMENTS*:: The new comments for the appointment. It need not be supplied by the user.
+
+
 
 === Locating persons by name: `find`
 
