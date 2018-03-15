@@ -50,12 +50,14 @@ An example of a command format: +
 
 * Following the `add` are the parameters or the arguments that the command needs. In this case, the `add` command require these parameters from the user:
 +
-*ROLE* - Role of the person being added into the program. +
-*NAME* - The name of the person being added into the program. +
-*PHONE* - The phone number of the person being added. +
-*EMAIL* - A valid email consisting of existing domain and proper format of the person. +
-*ADDRESS* - The address of the person being added. +
-*TAGS* - (OPTIONAL)
+
+[horizontal]
+*ROLE*:: Role of the person being added into the program. +
+*NAME*:: The name of the person being added into the program. +
+*PHONE*:: The phone number of the person being added. +
+*EMAIL*:: A valid email consisting of existing domain and proper format of the person. +
+*ADDRESS*:: The address of the person being added. +
+*TAGS*:: (OPTIONAL)
 
 * Parameters in uppercase states that the argument needs to be supplied by the user. They have a prefix on them like r/, n/, p/, e/, a/ and t/ that needs to be typed by the user. These prefixes tells the program the different parameter types.
 
@@ -82,12 +84,13 @@ Command format: `add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` 
 
 The `add` command will insert a new person's details into the program. The command expects these parameters when adding a new person: +
 
-*ROLE* - VetterAppointment expects a role to be either a *VetTechnician* or a *Client*. +
-*NAME* - A name must be provided by the user for the person to be added. +
-*PHONE* - A phone number consisting of only numbers must be supplied by the user. +
-*EMAIL* - A valid email address must be provided with a valid domain and format. +
-*ADDRESS* - An address for the person to be added must be supplied by the user. +
-*TAGS* - The tags for the person to be added. This field can be omitted and used multiple times and should not contain any spaces. +
+[horizontal]
+*ROLE*:: VetterAppointment expects a role to be either a *VetTechnician* or a *Client*. +
+*NAME*:: A name must be provided by the user for the person to be added. +
+*PHONE*:: A phone number consisting of only numbers must be supplied by the user. +
+*EMAIL*:: A valid email address must be provided with a valid domain and format. +
+*ADDRESS*:: An address for the person to be added must be supplied by the user. +
+*TAGS*:: The tags for the person to be added. This field can be omitted and used multiple times and should not contain any spaces. +
 
 Here are some valid examples on how to use the `add` command:
 
@@ -105,11 +108,12 @@ Command format: `addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/P
 The `addpetto` command adds a pet to an existing client. A client can have multiple pets but adding a pet to a client should be done sequentially. +
 The command expects these parameters when adding a pet to a client: +
 
-*CLIENT NAME* - The name of an existing client must be supplied by the user. +
-*PET NAME* - The name of the pet to be added to a client must be supplied by the user. +
-*PET AGE* - The age of the pet must be supplied by the user. It must contain only numbers. +
-*PET GENDER* - The gender of the pet must be supplied by the user. It can only be male or female. +
-*PET TAGS* - The pet tags should be supplied by the user. Pet tags will represent the species and breed of the pet.
+[horizontal]
+*CLIENT NAME*:: The name of an existing client must be supplied by the user. +
+*PET NAME*:: The name of the pet to be added to a client must be supplied by the user. +
+*PET AGE*:: The age of the pet must be supplied by the user. It must contain only numbers. +
+*PET GENDER*:: The gender of the pet must be supplied by the user. It can only be male or female. +
+*PET TAGS*:: The pet tags should be supplied by the user. Pet tags will represent the species and breed of the pet.
 
 Here are some valid examples on how to use the `addpetto` command: +
 
@@ -125,12 +129,13 @@ Command format: `addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time
 The `addapptto` command adds an appointment to a pet in the program. A pet should have only one appointment linked to it. +
 The command expects these parameters when adding an appointment to a pet: +
 
-*CLIENT NAME* - The name of the client of the pet name. +
-*PET NAME* - The name of an existing pet must be supplied by the user. +
-*DATE* - The date of the appointment must be supplied by the user in this format: DD/MM/YYYY +
-*TIME* - The time of the appointment must be supplied by the user in this format: HHMM +
-*VET TECHNICIAN NAME* - The name of the vet technician that is in-charge of the appointment. +
-*COMMENTS* - Comments must be supplied by the user to describe the kind of appointment. +
+[horizontal]
+*CLIENT NAME*:: The name of the client of the pet name. +
+*PET NAME*:: The name of an existing pet must be supplied by the user. +
+*DATE*:: The date of the appointment must be supplied by the user in this format: DD/MM/YYYY +
+*TIME*:: The time of the appointment must be supplied by the user in this format: HHMM +
+*VET TECHNICIAN NAME*:: The name of the vet technician that is in-charge of the appointment. +
+*COMMENTS*:: Comments must be supplied by the user to describe the kind of appointment. +
 
 Here are some valid examples on using the `addapptto` command: +
 
@@ -168,7 +173,8 @@ Command format: `listall INDEX` +
 The `listall` command will display all clients, pets and appointments that are tagged to them.
 The command expects this parameter when called: +
 
-*INDEX* - The index of the client that you wish to view the details of. This must be supplied by the user. +
+[horizontal]
+*INDEX*:: The index of the client that you wish to view the details of. This must be supplied by the user. +
 
 Here is an example of using the command `listall`: +
 
@@ -194,7 +200,8 @@ Command format: `rmc INDEX` +
 The `rmc` command will remove a client from the program. Executing this command will remove all the pets associated to the client. +
 The command expects this parameter when called: +
 
-*INDEX* - The client's index in the program. This must be supplied by the user.
+[horizontal]
+*INDEX*:: The client's index in the program. This must be supplied by the user.
 
 Here is an example of using the command `rmc`: +
 
@@ -207,8 +214,9 @@ Command format: `rmpetfrom n/CLIENT_NAME pn/PET_NAME` +
 
 The `rmpetfrom` command will remove a pet from a client. Once a pet is removed, the appointment (if any) associated to that pet will also be removed. The command expects these parameters when called: +
 
-*CLIENT NAME* - The pet's client name to be removed. This must be supplied by the user. +
-*PET NAME* - The pet name of the specified client's name. This must be supplied by the user. +
+[horizontal]
+*CLIENT NAME*:: The pet's client name to be removed. This must be supplied by the user. +
+*PET NAME*:: The pet name of the specified client's name. This must be supplied by the user. +
 
 Here is an example of using the command `rmpetfrom`: +
 
@@ -221,8 +229,9 @@ Command format: `rmapptfrom n/CLIENT_NAME pn/PET_NAME`
 
 The `rmapptfrom` command removes an associated appointment from a pet. The command parameters are the same as `rmpetfrom`, see <<Removing a pet from a client: `rmpetfrom`>>. The command expects these parameters: +
 
-*CLIENT NAME* - The pet's client name to be removed. This must be supplied by the user. +
-*PET NAME* - The pet name of the specified client's name. This must be supplied by the user. +
+[horizontal]
+*CLIENT NAME*:: The pet's client name to be removed. This must be supplied by the user. +
+*PET NAME*:: The pet name of the specified client's name. This must be supplied by the user. +
 
 Here is an exammple of using the command `rmapptfrom`: +
 
