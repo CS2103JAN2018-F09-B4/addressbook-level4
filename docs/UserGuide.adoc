@@ -78,7 +78,7 @@ Command format: `help` +
 Upon entering the `help` command, a User Guide manual will pop up displaying the available commands for the user. +
 
 .A User Guide display upon entering `help` command. +
-image::user_guide.png[width="790"]
+image::user_guide.PNG[width="790"]
 
 
 === Adding a person: `add`
