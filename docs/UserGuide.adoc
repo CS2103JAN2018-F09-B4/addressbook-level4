@@ -46,7 +46,7 @@ image::Ui.png[width="790"]
 An example of a command format: +
 `add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
 
-* The first word of the command format `add` states the *type* of the command. Other *type* of commands includes but not limited to, `delete`, `list`, `undo`, `redo` and etc.
+* The first word of the command format `add` states the *type* of the command. Other *types* of commands includes but not limited to, `delete`, `list`, `undo`, `redo` and etc.
 
 * Following the `add` are the parameters or the arguments that the command needs. In this case, the `add` command require these parameters from the user:
 +
@@ -75,7 +75,11 @@ If the user chooses to do, he or she *should not* omit the prefix of the argumen
 
 Command format: `help` +
 
-Upon entering the `help` command, a User Guide manual will pop up displaying the available commands for the user.
+Upon entering the `help` command, a User Guide manual will pop up displaying the available commands for the user. +
+
+.A User Guide display upon entering `help` command.
+image::user_guide_ss.png[width="790"]
+
 
 === Adding a person: `add`
 
