@@ -238,27 +238,45 @@ Here is an exammple of using the command `rmapptfrom`: +
 * `rmpetfrom n/Bradly Cooper pn/Scooby Doo` +
 When this command is executed, Scooby's Doo which is Bradly Cooper's pet's appointment will be removed.
 
-=== Editing a person : `edit`
 
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+=== Editing a client or vet tech's details : `edit`
 
-****
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the last person listing. The index *must be a positive integer* 1, 2, 3, ...
-* At least one of the optional fields must be provided.
-* Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `t/` without specifying any tags after it.
-****
+Command format: `edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
 
-Examples:
+The `edit` command amends the detail of an existing person. The details of the specified person's index will be replaced with the supplied parameters from the user. The existing details will be override. The command expects these parameters: +
+[horizontal]
+*INDEX*:: The index of the person that the user wants to edit. It must be supplied by the user.
+*ROLE*:: The new role of the person that the user wants. It need not be supplied by the user.
+*NAME*:: The new name of the person that the user wants. It need not be supplied by the user.
+*PHONE*:: The new phone number of the person that the user wants. It need not be supplied by the user.
+*EMAIL*:: The new email of the person that the user wants. It need not be supplied by the user.
+*ADDRESS*:: The new address of the person that the user wants. It need not be supplied by the user.
+*TAGS*:: (OPTIONAL)
 
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-* `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
-* `edit 3 r/client` +
-Edits the role of the 3rd person to be a client.
+The `edit` command is very similar to the `add` command. Here are some examples on using the command: +
+
+* `edit 1 n/VetTechnician e/newemail@email.com a/Blk 123, Clementi Ave 3 t/friend t/part_timer` +
+Here the user chooses to amend person 1 and changed the person's role, email, address and tags.
+* `edit 1 n/Client` +
+Here the user chooses to only change the role of the person specified at index 1 and omits the remaining parameters.
+
+=== Editing a pet's details: `editp`
+
+Command format: `editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]...`
+
+Similar to the `edit` command, the `editp` command amends the details of a specified pet of the specified owner. The command expects these parameters when executing: +
+
+[horizontal]
+*INDEX*:: The index of the pet that the user wants to amend. This must be supplied by the user.
+*PET NAME*:: The new pet name the user wants to change. It need not be supplied by the user.
+*PET AGE*:: The new pet age the user wants to change. It need not be supplied by the user.
+*PET GENDER*:: The new pet gender the user wants to change. It need not be supplied by the user.
+*PET TAGS*:: (OPTIONAL)
+
+Here is an example of using the `editp` command: +
+
+* `editp 1 pn/Jerry pa/2 pg/M` +
+The user chooses to edit the pet of the first index and changed the existing name, age and gender to Jerry, 2 and male. 
 
 === Locating persons by name: `find`
 
