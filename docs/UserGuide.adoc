@@ -118,7 +118,7 @@ The user chooses to add Garfield of age 10 and is a male to Alice Peterson. Garf
 * `addpetto n/Alice Peterson pn/Scooby Doo pa/5 pg/M t/dog t/great_dane` +
 The user chooses to add another pet called Scooby Doo of age 5 and is a male to Alice Peterson. Scooby Doo is a dog and a great dane.
 
-=== Adding an appointment to a pet: `addapptto'
+=== Adding an appointment to a pet: `addapptto`
 
 Command format: `addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS` +
 
@@ -137,10 +137,38 @@ Here are some valid examples on using the `addapptto` command: +
 * `addapptto n/Alice Peterson pn/Garfield date/01.02.2018 time/1430 vettech/Bob cmt/Sterilize the cat` +
 The user chooses to add an appointment to Alice Peterson's pet called Garfield on 01.02.2018 at 1430HRS. Bob is the vet tech in-charge of this appointment, which is to sterilize Garfield.
 
-=== Listing all persons : `list`
+=== Listing all clients: `listc`
 
-Shows a list of all persons in the address book. +
-Format: `list`
+Command format: `listc` +
+
+The `listc` command will display all clients that are stored in the program. It automatically switches to the client view tab so you can view all your clients at a glance.
+
+=== Listing all pets: `listp`
+
+Command format: `listp` +
+
+The `listp` command will display all pets that are stored in the program. It automatically switches to the pet view tab so you can view all your pets at a glance.
+
+=== Listing all appointments: `listappt`
+
+Command format: `listappt` +
+
+The `listappt` command will display all appointments that are pending for the user. The list sorts upcoming appointments by date and then by time.
+
+=== Listing all information: `listall`
+
+Command format: `listall INDEX` +
+
+The `listall` command will display all clients, pets and appointments that are tagged to them.
+The command expects these parameters when called: +
+
+*INDEX* - The index of the client that you wish to view the details of. This must be supplied by the user. +
+
+Here are some examples of using the command and the display output of calling `listall`. +
+Suppose there is only one client in the program and is stored at index 1. +
+
+* `listall 1`  +
+* `listall 20`
 
 === Editing a person : `edit`
 
