@@ -407,32 +407,32 @@ Exiting the program in the middle of a command will save the state. So there's n
 
 [width="100%"]
 |=======
-|*Command* |*Command Format* |*Example*
-|help |`help` |help
-|add |`add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…` |help
-|addpetto |`addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |help
-|addapptto |`addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS` |help
-|listc |`listc` |help
-|listp |`listp` |help
-|listappt |`listappt` |help
-|listv |`listv` |help
-|listall |`listall INDEX` |help
-|sort |`sort` |help
-|sortc |`sortc` |help
-|rmc |`rmc INDEX` |help
-|rmpetfrom |`rmpetfrom n/CLIENT_NAME pn/PET_NAME` |help
-|rmapptfrom |`rmapptfrom n/CLIENT_NAME pn/PET_NAME` |help
-|edit |`edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` |help
-|editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |help
-|editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |help
-|findc |`findc KEYWORD` |help
-|findp |`findp KEYWORD` |help
-|select |`select INDEX` |help
-|history |`history` |help
-|undo |`undo` |help
-|redo |`redo` |help
-|clear |`clear` |help
-|exit |`exit` |help
+|*Command* |*Command Format* |*Description*
+|help |`help` |Displays the user guide.
+|add |`add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…` |Adds a person into the program.
+|addpetto |`addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a cient.
+|addapptto |`addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS` |Adds an appointment to a pet.
+|listc |`listc` |Lists all clients.
+|listp |`listp` |Lists all pets.
+|listappt |`listappt` |Lists all appointments.
+|listv |`listv` |Lists all vet technicians.
+|listall |`listall INDEX` |Lists all details for a particular client.
+|sort |`sort` |Sorts the client list alphabetically.
+|sortc |`sortc` |Sorts the client list chronologically.
+|rmc |`rmc INDEX` |Remove a client.
+|rmpetfrom |`rmpetfrom n/CLIENT_NAME pn/PET_NAME` |Removes a pet from a client.
+|rmapptfrom |`rmapptfrom n/CLIENT_NAME pn/PET_NAME` |Removes an appointment from a pet.
+|edit |`edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` |Edits a person's details.
+|editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
+|editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |Edits an appointment's details.
+|findc |`findc KEYWORD` |Finds a client with keyword.
+|findp |`findp KEYWORD` |finds a pet with keyword.
+|select |`select INDEX` |Selects an index.
+|history |`history` |Lists the history of commands executed.
+|undo |`undo` |Undo the previous command executed.
+|redo |`redo` |Redo the undo command executed.
+|clear |`clear` |Deletes all data of the program.
+|exit |`exit` |Exits the program.
 
 |=======
 
