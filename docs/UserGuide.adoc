@@ -312,7 +312,7 @@ The keyword is case insensitive.This means typing, "ALICE", "alice" or 'AlIcE" w
 
 === Finding pets by name: `findp`
 
-Command format: `findp KEY_WORD`
+Command format: `findp KEYWORD`
 
 The `findp` command is similar to the `findc` command. See <<Finding clients by name: `findc`>>. The `findp` command displays all existing pets containing the keyword. The command expects these parameters:
 
@@ -424,14 +424,15 @@ Exiting the program in the middle of a command will save the state. So there's n
 |rmapptfrom |`rmapptfrom n/CLIENT_NAME pn/PET_NAME` |help
 |edit |`edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` |help
 |editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |help
-|find |help |help
-|delete |help |help
-|select |help |help
-|history |help |help
-|undo |help |help
-|redo |help |help
-|clear |help |help
-|exit |help |help
+|editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |help
+|findc |`findc KEYWORD` |help
+|findp |`findp KEYWORD` |help
+|select |`select INDEX` |help
+|history |`history` |help
+|undo |`undo` |help
+|redo |`redo` |help
+|clear |`clear` |help
+|exit |`exit` |help
 
 |=======
 
