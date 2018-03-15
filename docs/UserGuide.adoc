@@ -170,7 +170,7 @@ The command expects these parameters when called: +
 
 *INDEX* - The index of the client that you wish to view the details of. This must be supplied by the user. +
 
-Here are some examples of using the command and the display output of calling `listall`. +
+Here are some examples of using the command `listall`. +
 Suppose there is only one client in the program and is stored at index 1. +
 
 * `listall 1`  +
