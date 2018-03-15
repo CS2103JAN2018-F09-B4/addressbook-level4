@@ -77,7 +77,7 @@ Command format: `help` +
 
 Upon entering the `help` command, a User Guide manual will pop up displaying the available commands for the user. +
 
-.A User Guide display upon entering `help` command.
+.A User Guide display upon entering `help` command. +
 image::user_guide_ss.png[width="790"]
 
 
