@@ -16,20 +16,19 @@ public class Appointment {
 
     private final Date date;
     private final Time time;
-    private final Client client; //dummy variable, class to be created
-    private final Pet pet; //dummy variable, class to be created
-    private final VetTechnician vetTech; //dummy variable, class to be created
+    private Client client; //dummy variable, class to be created
+    private Pet pet; //dummy variable, class to be created
+    private VetTechnician vetTech; //dummy variable, class to be created
+    private final AppointmentUid uid;
 
     /**
      * Every field must be present and not null.
      */
-    public Appointment(Date date, Time time, Client client, Pet pet, VetTechnician vetTech) {
-        requireAllNonNull(date, time, client, pet, vetTech);
+    public Appointment(Date date, Time time) {
+        requireAllNonNull(date, time);
         this.date = date;
         this.time = time;
-        this.client = client;
-        this.pet = pet;
-        this.vetTech = vetTech;
+        uid = new AppointmentUid();
     }
 
     public Date getDate() {
@@ -38,6 +37,18 @@ public class Appointment {
 
     public Time getTime() {
         return time;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
+    public void setVetTech(VetTechnician vetTech) {
+        this.vetTech = vetTech;
     }
 
     public Client getClient() {
@@ -64,20 +75,33 @@ public class Appointment {
 
         Appointment otherAppointment = (Appointment) other;
         return otherAppointment.getDate().equals(this.getDate())
-                && otherAppointment.getTime().equals(this.getTime())
-                && otherAppointment.getClient().equals(this.getClient())
-                && otherAppointment.getPet().equals(this.getPet())
-                && otherAppointment.getVetTech().equals(this.getVetTech());
+                && otherAppointment.getTime().equals(this.getTime());
+
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(date, time, client, pet, vetTech);
+        return Objects.hash(date, time);
+
     }
 
     @Override
     public String toString() {
+        final StringBuilder builder = new StringBuilder();
+
+        builder.append(" Date: ")
+                .append(getDate())
+                .append(" Time: ")
+                .append(getTime());
+
+        return builder.toString();
+    }
+
+    /**
+     * @return String of full details of the appointment
+     */
+    public String toStringFull() {
         final StringBuilder builder = new StringBuilder();
 
         builder.append(" Date: ")
@@ -91,6 +115,13 @@ public class Appointment {
                 .append(" Vet Tech: ")
                 .append(getVetTech());
         return builder.toString();
+    }
+
+    /**
+     * Returns the uid of the appointment as a {@code AppointmentUid}
+     */
+    public AppointmentUid getAppointmentUid() {
+        return uid;
     }
 
 }

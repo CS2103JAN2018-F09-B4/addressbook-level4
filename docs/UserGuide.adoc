@@ -345,6 +345,21 @@ Here is an example on using the command: +
 
 * `select 1`
 
+=== Scheduling an appointment : `schedule`
+
+Schedules an appointment by specifying the date and time.
+Format: schedule da/DATE tm/TIME
+
+[NOTE]
+====
+The format for date should follow DD/MM/YYYY and for time should follow HHMM.
+====
+
+Examples:
+
+* `schedule da/10/10/2018 tm/1500` +
+Schedules an appointment on 10th October 2018 at 15:00.
+
 === Listing entered commands : `history`
 
 Command format: `history` +
@@ -439,5 +454,3 @@ Exiting the program in the middle of a command will save the state. So there's n
 |exit |`exit` |Exits the program.
 
 |=======
-
-
