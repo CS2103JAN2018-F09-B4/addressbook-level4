@@ -154,8 +154,10 @@
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Command format: <code>undo</code><br></p>
+</div>
+<div class="paragraph">
+<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -165,75 +167,235 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
+<code>add</code> <code>addpetto</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>rmc</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
 <h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Format: <code>redo</code><br></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Reverses the most recent <code>undo</code> command.<br></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
+<code>add</code> <code>addpetto</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>rmc</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Command format: <code>clear</code><br></p>
+</div>
+<div class="paragraph">
+<p>Clears all entries from the address book.<br></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>clear</code> command will remove <strong>all</strong> existing clients, pets, appointments and vet technicians stored in the program.
+</td>
+</tr>
+</table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>exit</code><br></p>
+</div>
+<div class="paragraph">
+<p>Exits the program.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Exiting the program in the middle of a command will save the state. So there&#8217;s nothing to worry about.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br></p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous VetterAppointments folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Command</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Command Format</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the user guide.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a person into the program.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addpetto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a pet to a cient.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addapptto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds an appointment to a pet.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all clients.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all pets.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listappt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listappt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all appointments.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all vet technicians.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listall</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listall INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all details for a particular client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts the client list alphabetically.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sortc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts the client list chronologically.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmc INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove a client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmpetfrom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmpetfrom n/CLIENT_NAME pn/PET_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes a pet from a client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmapptfrom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmapptfrom n/CLIENT_NAME pn/PET_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes an appointment from a pet.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a person&#8217;s details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a pet&#8217;s details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editappt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits an appointment&#8217;s details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">findc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findc KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finds a client with keyword.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">findp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findp KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">finds a pet with keyword.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selects an index.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists the history of commands executed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo the previous command executed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo the undo command executed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes all data of the program.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exits the program.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -561,7 +723,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-15 18:51:53 UTC
+Last updated 2018-03-16 03:01:09 UTC
 </div>
 </div>
 </body>

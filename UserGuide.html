@@ -5,20 +5,20 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>AddressBook Level 4 - User Guide</title>
+<title>VetterAppointments- User Guide</title>
 <link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>AddressBook Level 4 - User Guide</h1>
+<h1>VetterAppointments- User Guide</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>F09-B4</code>      Since: <code>March 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -30,19 +30,30 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#scheduling-an-appointment-code-schedule-code">3.8. Scheduling an appointment : <code>schedule</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.14. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#adding-a-pet-to-a-client-code-addpetto-code">3.3. Adding a pet to a client: <code>addpetto</code></a></li>
+<li><a href="#adding-an-appointment-to-a-pet-code-addapptto-code">3.4. Adding an appointment to a pet: <code>addapptto</code></a></li>
+<li><a href="#listing-all-clients-code-listc-code">3.5. Listing all clients: <code>listc</code></a></li>
+<li><a href="#listing-all-pets-code-listp-code">3.6. Listing all pets: <code>listp</code></a></li>
+<li><a href="#listing-all-appointments-code-listappt-code">3.7. Listing all appointments: <code>listappt</code></a></li>
+<li><a href="#listing-all-vet-technicians-code-listv-code">3.8. Listing all vet technicians: <code>listv</code></a></li>
+<li><a href="#listing-all-information-code-listall-code">3.9. Listing all information: <code>listall</code></a></li>
+<li><a href="#sorting-clients-in-alphabetical-order-code-sort-code">3.10. Sorting clients in alphabetical order: <code>sort</code></a></li>
+<li><a href="#sorting-clients-in-chronological-order-code-sortc-code">3.11. Sorting clients in chronological order: <code>sortc</code></a></li>
+<li><a href="#removing-a-client-code-rmc-code">3.12. Removing a client: <code>rmc</code></a></li>
+<li><a href="#removing-a-pet-from-a-client-code-rmpetfrom-code">3.13. Removing a pet from a client: <code>rmpetfrom</code></a></li>
+<li><a href="#removing-an-appointment-from-a-pet-code-rmapptfrom-code">3.14. Removing an appointment from a pet: <code>rmapptfrom</code></a></li>
+<li><a href="#editing-a-client-or-vet-tech-s-details-code-edit-code">3.15. Editing a client or vet tech&#8217;s details : <code>edit</code></a></li>
+<li><a href="#editing-a-pet-s-details-code-editp-code">3.16. Editing a pet&#8217;s details: <code>editp</code></a></li>
+<li><a href="#editing-a-pet-s-appointment-code-editappt-code">3.17. Editing a pet&#8217;s appointment: <code>editappt</code></a></li>
+<li><a href="#finding-clients-by-name-code-findc-code">3.18. Finding clients by name: <code>findc</code></a></li>
+<li><a href="#finding-pets-by-name-code-findp-code">3.19. Finding pets by name: <code>findp</code></a></li>
+<li><a href="#selecting-a-client-code-select-code">3.20. Selecting a client : <code>select</code></a></li>
+<li><a href="#scheduling-an-appointment-code-schedule-code">3.21. Scheduling an appointment : <code>schedule</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.22. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.23. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.24. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.25. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.26. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -54,7 +65,13 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 4 (AB4) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB4 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>VetterAppointments is a program for vets who prefer to use a desktop app for managing their Clients, Pets and Appointments.<br></p>
+</div>
+<div class="paragraph">
+<p>The app is optimized for Vets who prefer to work with the <strong>Command Line Interface (CLI)</strong> while still having a Graphical User Interface (GUI) that clearly lists out what is important to him or her.<br></p>
+</div>
+<div class="paragraph">
+<p>VetterAppointments allows a vet to manage and complete his tasks faster than the traditional GUI app provided he or she is a fast typer. To get started with the app, head down to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
 </div>
 </div>
 </div>
@@ -80,10 +97,10 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103JAN2018-F09-B4/main/releases">here</a>.</p>
+<p>Download the latest <code>VetterAppointments.jar</code> <a href="https://github.com/CS2103JAN2018-F09-B4/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your VetterAppointments.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -92,32 +109,6 @@ This app will not work with earlier versions of Java 8.
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
 </div>
-</li>
-<li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
-</li>
-<li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
@@ -129,37 +120,767 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong></p>
+<p><strong>Understanding the Command Format</strong></p>
+</div>
+<div class="paragraph">
+<p>An example of a command format:<br>
+<code>add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>The first word of the command format <code>add</code> states the <strong>type</strong> of the command. Other <strong>types</strong> of commands includes but not limited to, <code>delete</code>, <code>list</code>, <code>undo</code>, <code>redo</code> and etc.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Following the <code>add</code> are the parameters or the arguments that the command needs. In this case, the <code>add</code> command require these parameters from the user:</p>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>ROLE</strong>
+</td>
+<td class="hdlist2">
+<p>Role of the person being added into the program.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the person being added into the program.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PHONE</strong>
+</td>
+<td class="hdlist2">
+<p>The phone number of the person being added.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>EMAIL</strong>
+</td>
+<td class="hdlist2">
+<p>A valid email consisting of existing domain and proper format of the person.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>ADDRESS</strong>
+</td>
+<td class="hdlist2">
+<p>The address of the person being added.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>TAGS</strong>
+</td>
+<td class="hdlist2">
+<p>(OPTIONAL)</p>
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Parameters in uppercase states that the argument needs to be supplied by the user. They have a prefix on them like r/, n/, p/, e/, a/ and t/ that needs to be typed by the user. These prefixes tells the program the different parameter types.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters enclosed by square brackets like [t/TAG] suggests that the argument is <strong>optional</strong>.<br>
+The user may choose to omit the parameter or add it.</p>
+</li>
+<li>
+<p>Parameters with &#8230;&#8203; appended to it, for example [t/TAG]&#8230;&#8203; suggests that the parameter can be added multiple times.<br>
+If the user chooses to do, he or she <strong>should not</strong> omit the prefix of the argument, for this instance, t/.<br></p>
+</li>
+<li>
+<p>Parameters of the commands can be typed in any order that the user chooses as long as the prefix of the argument is not omitted.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<hr>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Command format: <code>help</code><br></p>
+</div>
+<div class="paragraph">
+<p>Upon entering the <code>help</code> command, a User Guide manual will pop up displaying the available commands for the user.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/user_guide.PNG" alt="user guide" width="790">
+</div>
+<div class="title">Figure 1. A User Guide display upon entering <code>help</code> command.<br></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+<p>Command format: <code>add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>add</code> command will insert a new person&#8217;s details into the program. The command expects these parameters when adding a new person:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>ROLE</strong>
+</td>
+<td class="hdlist2">
+<p>VetterAppointment expects a role to be either a <strong>VetTechnician</strong> or a <strong>Client</strong>.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>NAME</strong>
+</td>
+<td class="hdlist2">
+<p>A name must be provided by the user for the person to be added.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PHONE</strong>
+</td>
+<td class="hdlist2">
+<p>A phone number consisting of only numbers must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>EMAIL</strong>
+</td>
+<td class="hdlist2">
+<p>A valid email address must be provided with a valid domain and format.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>ADDRESS</strong>
+</td>
+<td class="hdlist2">
+<p>An address for the person to be added must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>TAGS</strong>
+</td>
+<td class="hdlist2">
+<p>The tags for the person to be added. This field can be omitted and used multiple times and should not contain any spaces.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some valid examples on how to use the <code>add</code> command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add r/Client n/Alice Peterson p/91234567 e/alicepeter@email.com a/Blk 123, Bedok Reservoir St24</code><br>
+The user omits the tag parameters.</p>
+</li>
+<li>
+<p><code>add r/Client n/Bradly Cooper p/91234567 e/bradlycooper@email.com t/friend t/dog_whisperer a/Blk 123, Bedok Reservoir St24</code><br>
+The user adds multiple tags.</p>
+</li>
+<li>
+<p><code>add r/VetTechnician p/91234567 n/Carley Riady a/Blk 123, Bedok Reservoir St24 t/friend t/part_timer e/carlyriady@email.com</code><br>
+The user chooses to re-order the parameter of the command.<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-pet-to-a-client-code-addpetto-code"><a class="link" href="#adding-a-pet-to-a-client-code-addpetto-code">3.3. Adding a pet to a client: <code>addpetto</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG&#8230;&#8203;</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>addpetto</code> command adds a pet to an existing client. A client can have multiple pets but adding a pet to a client should be done sequentially.<br>
+The command expects these parameters when adding a pet to a client:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>CLIENT NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of an existing client must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the pet to be added to a client must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET AGE</strong>
+</td>
+<td class="hdlist2">
+<p>The age of the pet must be supplied by the user. It must contain only numbers.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET GENDER</strong>
+</td>
+<td class="hdlist2">
+<p>The gender of the pet must be supplied by the user. It can only be male or female.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET TAGS</strong>
+</td>
+<td class="hdlist2">
+<p>The pet tags should be supplied by the user. Pet tags will represent the species and breed of the pet.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some valid examples on how to use the <code>addpetto</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addpetto n/Alice Peterson pn/Garfield pa/10 pg/M t/cat t/tabby</code><br>
+The user chooses to add Garfield of age 10 and is a male to Alice Peterson. Garfield is a cat and a tabby.<br></p>
+</li>
+<li>
+<p><code>addpetto n/Alice Peterson pn/Scooby Doo pa/5 pg/M t/dog t/great_dane</code><br>
+The user chooses to add another pet called Scooby Doo of age 5 and is a male to Alice Peterson. Scooby Doo is a dog and a great dane.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-appointment-to-a-pet-code-addapptto-code"><a class="link" href="#adding-an-appointment-to-a-pet-code-addapptto-code">3.4. Adding an appointment to a pet: <code>addapptto</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>addapptto</code> command adds an appointment to a pet in the program. A pet should have only one appointment linked to it.<br>
+The command expects these parameters when adding an appointment to a pet:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>CLIENT NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the client of the pet name.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of an existing pet must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>DATE</strong>
+</td>
+<td class="hdlist2">
+<p>The date of the appointment must be supplied by the user in this format: DD/MM/YYYY<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>TIME</strong>
+</td>
+<td class="hdlist2">
+<p>The time of the appointment must be supplied by the user in this format: HHMM<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>VET TECHNICIAN NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the vet technician that is in-charge of the appointment.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>COMMENTS</strong>
+</td>
+<td class="hdlist2">
+<p>Comments must be supplied by the user to describe the kind of appointment.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some valid examples on using the <code>addapptto</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addapptto n/Alice Peterson pn/Garfield date/01.02.2018 time/1430 vettech/Bob cmt/Sterilize the cat</code><br>
+The user chooses to add an appointment to Alice Peterson&#8217;s pet called Garfield on 01.02.2018 at 1430HRS. Bob is the vet tech in-charge of this appointment, which is to sterilize Garfield.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-clients-code-listc-code"><a class="link" href="#listing-all-clients-code-listc-code">3.5. Listing all clients: <code>listc</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>listc</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>listc</code> command will display all clients that are stored in the program. It automatically switches to the client view tab so you can view all your clients at a glance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-pets-code-listp-code"><a class="link" href="#listing-all-pets-code-listp-code">3.6. Listing all pets: <code>listp</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>listp</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>listp</code> command will display all pets that are stored in the program. It automatically switches to the pet view tab so you can view all your pets at a glance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-appointments-code-listappt-code"><a class="link" href="#listing-all-appointments-code-listappt-code">3.7. Listing all appointments: <code>listappt</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>listappt</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>listappt</code> command will display all appointments that are pending for the user. The list sorts upcoming appointments by date and then by time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-vet-technicians-code-listv-code"><a class="link" href="#listing-all-vet-technicians-code-listv-code">3.8. Listing all vet technicians: <code>listv</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>listv</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>listv</code> command will display all vet technicians in the program. It automatically switches to the vet technician tab upon calling the command.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-information-code-listall-code"><a class="link" href="#listing-all-information-code-listall-code">3.9. Listing all information: <code>listall</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>listall INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>listall</code> command will display all clients, pets and appointments that are tagged to them.
+The command expects this parameter when called:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The index of the client that you wish to view the details of. This must be supplied by the user.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the command <code>listall</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>listall 1</code> <br>
+Suppose there is only one client in the program and is stored at index 1. This command will then display all the information regarding the person at index one.<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-clients-in-alphabetical-order-code-sort-code"><a class="link" href="#sorting-clients-in-alphabetical-order-code-sort-code">3.10. Sorting clients in alphabetical order: <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>sort</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>sort</code> command will sort all existing clients in the program in alphabetical order. By default, the program displays the list clients in chronological order.<br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-clients-in-chronological-order-code-sortc-code"><a class="link" href="#sorting-clients-in-chronological-order-code-sortc-code">3.11. Sorting clients in chronological order: <code>sortc</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>sortc</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>sortc</code> command will sort all existing clients in the program in most recently added. This is the default ordering that is displayed in the program.<br></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-a-client-code-rmc-code"><a class="link" href="#removing-a-client-code-rmc-code">3.12. Removing a client: <code>rmc</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>rmc INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>rmc</code> command will remove a client from the program. Executing this command will remove all the pets associated to the client.<br>
+The command expects this parameter when called:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The client&#8217;s index in the program. This must be supplied by the user.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the command <code>rmc</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rmc 1</code><br>
+Suppose there is only one person in the program called Alice Peterson and she has Garfield and Scooby Doo as her associated pets. This command will remove Alice, Garfield and Scooby Doo from the program.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-a-pet-from-a-client-code-rmpetfrom-code"><a class="link" href="#removing-a-pet-from-a-client-code-rmpetfrom-code">3.13. Removing a pet from a client: <code>rmpetfrom</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>rmpetfrom n/CLIENT_NAME pn/PET_NAME</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>rmpetfrom</code> command will remove a pet from a client. Once a pet is removed, the appointment (if any) associated to that pet will also be removed. The command expects these parameters when called:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>CLIENT NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The pet&#8217;s client name to be removed. This must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The pet name of the specified client&#8217;s name. This must be supplied by the user.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the command <code>rmpetfrom</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rmpetfrom n/Alice Peterson pn/Garfield</code><br>
+When this command is executed, Garfield, which is Alice Peterson&#8217;s pet will be removed from the program. The appointment associated to Garfield will also be removed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="removing-an-appointment-from-a-pet-code-rmapptfrom-code"><a class="link" href="#removing-an-appointment-from-a-pet-code-rmapptfrom-code">3.14. Removing an appointment from a pet: <code>rmapptfrom</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>rmapptfrom n/CLIENT_NAME pn/PET_NAME</code></p>
+</div>
+<div class="paragraph">
+<p>The <code>rmapptfrom</code> command removes an associated appointment from a pet. The command parameters are the same as <code>rmpetfrom</code>, see <a href="#removing-a-pet-from-a-client-code-rmpetfrom-code">Section 3.13, &#8220;Removing a pet from a client: <code>rmpetfrom</code>&#8221;</a>. The command expects these parameters:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>CLIENT NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The pet&#8217;s client name to be removed. This must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The pet name of the specified client&#8217;s name. This must be supplied by the user.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an exammple of using the command <code>rmapptfrom</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rmpetfrom n/Bradly Cooper pn/Scooby Doo</code><br>
+When this command is executed, Scooby&#8217;s Doo which is Bradly Cooper&#8217;s pet&#8217;s appointment will be removed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-client-or-vet-tech-s-details-code-edit-code"><a class="link" href="#editing-a-client-or-vet-tech-s-details-code-edit-code">3.15. Editing a client or vet tech&#8217;s details : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>The <code>edit</code> command amends the detail of an existing person. The details of the specified person&#8217;s index will be replaced with the supplied parameters from the user. The existing details will be override. The command expects these parameters:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The index of the person that the user wants to edit. It must be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>ROLE</strong>
+</td>
+<td class="hdlist2">
+<p>The new role of the person that the user wants. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The new name of the person that the user wants. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PHONE</strong>
+</td>
+<td class="hdlist2">
+<p>The new phone number of the person that the user wants. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>EMAIL</strong>
+</td>
+<td class="hdlist2">
+<p>The new email of the person that the user wants. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>ADDRESS</strong>
+</td>
+<td class="hdlist2">
+<p>The new address of the person that the user wants. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>TAGS</strong>
+</td>
+<td class="hdlist2">
+<p>(OPTIONAL)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>edit</code> command is very similar to the <code>add</code> command. Here are some examples on using the command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit 1 n/VetTechnician e/newemail@email.com a/Blk 123, Clementi Ave 3 t/friend t/part_timer</code><br>
+Here the user chooses to amend person 1 and changed the person&#8217;s role, email, address and tags.</p>
+</li>
+<li>
+<p><code>edit 1 n/Client</code><br>
+Here the user chooses to only change the role of the person specified at index 1 and omits the remaining parameters.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-pet-s-details-code-editp-code"><a class="link" href="#editing-a-pet-s-details-code-editp-code">3.16. Editing a pet&#8217;s details: <code>editp</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Similar to the <code>edit</code> command, the <code>editp</code> command amends the details of a specified pet of the specified owner. The command expects these parameters when executing:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The index of the pet that the user wants to amend. This must be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The new pet name the user wants to change. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET AGE</strong>
+</td>
+<td class="hdlist2">
+<p>The new pet age the user wants to change. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET GENDER</strong>
+</td>
+<td class="hdlist2">
+<p>The new pet gender the user wants to change. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET TAGS</strong>
+</td>
+<td class="hdlist2">
+<p>(OPTIONAL)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the <code>editp</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editp 1 pn/Jerry pa/2 pg/M</code><br>
+The user chooses to edit the pet of the first index and changed the existing name, age and gender to Jerry, 2 and male.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-pet-s-appointment-code-editappt-code"><a class="link" href="#editing-a-pet-s-appointment-code-editappt-code">3.17. Editing a pet&#8217;s appointment: <code>editappt</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]</code></p>
+</div>
+<div class="paragraph">
+<p>The <code>editappt</code> command edits the appointment date and detail of an existing pet. The command expects these parameters when executing:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>CLIENT NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the pet&#8217;s owner. This must be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>PET NAME</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the pet. This must be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>DATE</strong>
+</td>
+<td class="hdlist2">
+<p>The new date of the new appointment in DD.MM.YYYY format. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>TIME</strong>
+</td>
+<td class="hdlist2">
+<p>The time of the new appointment in HHMM format. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>VET TECHNICIAN</strong>
+</td>
+<td class="hdlist2">
+<p>The name of the new vet technician in-charged of the new appointment. It need not be supplied by the user.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>COMMENTS</strong>
+</td>
+<td class="hdlist2">
+<p>The new comments for the appointment. It need not be supplied by the user.</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-clients-by-name-code-findc-code"><a class="link" href="#finding-clients-by-name-code-findc-code">3.18. Finding clients by name: <code>findc</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>findc KEYWORD</code></p>
+</div>
+<div class="paragraph">
+<p>The <code>findc</code> command displays all existing clients containing the keyword. The command expeccts these parameters:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>KEYWORD</strong>
+</td>
+<td class="hdlist2">
+<p>The keyword to find the client. It must be supplied by the user.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example on how to use the <code>findc</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findc alice</code><br>
+The user used the keyword alice to find all clients containing the word alice in their names.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -168,210 +889,89 @@ Format: <code>add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+The keyword is case insensitive.This means typing, "ALICE", "alice" or 'AlIcE" will result in the same output.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-pets-by-name-code-findp-code"><a class="link" href="#finding-pets-by-name-code-findp-code">3.19. Finding pets by name: <code>findp</code></a></h3>
+<div class="paragraph">
+<p>Command format: <code>findp KEYWORD</code></p>
+</div>
+<div class="paragraph">
+<p>The <code>findp</code> command is similar to the <code>findc</code> command. See <a href="#finding-clients-by-name-code-findc-code">Section 3.18, &#8220;Finding clients by name: <code>findc</code>&#8221;</a>. The <code>findp</code> command displays all existing pets containing the keyword. The command expects these parameters:</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>KEYWORD</strong>
+</td>
+<td class="hdlist2">
+<p>The keyword to find the pet. It must be supplied by the user.</p>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Here is an example on how to use the command:<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add r/Client n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add r/Technician n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p><code>findp Garf</code>
+The user used the keyword Garf to find all pets containing the word Garf.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The keyword is case insensitive. This means typing, "GARF", "garf" or "GaRf" will result in the same output.
+</td>
+</tr>
+</table>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="selecting-a-client-code-select-code"><a class="link" href="#selecting-a-client-code-select-code">3.20. Selecting a client : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
-<div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
-</li>
-</ul>
-</div>
-</div>
+<p>Command format: <code>select INDEX</code><br></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>The <code>select</code> command selects the client identified by the index number. The command expects this parameter:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The index of the client that the user wants to amend. It must be supplied by the user.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example on using the command:<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
-</li>
-<li>
-<p><code>edit 3 r/client</code><br>
-Edits the role of the 3rd person to be a client.</p>
+<p><code>select 1</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
-<div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">3.7. Selecting a person : <code>select</code></a></h3>
-<div class="paragraph">
-<p>Selects the person identified by the index number used in the last person listing.<br>
-Format: <code>select INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the most recent listing.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>select 2</code><br>
-Selects the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>select 1</code><br>
-Selects the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="scheduling-an-appointment-code-schedule-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code">3.8. Scheduling an appointment : <code>schedule</code></a></h3>
+<h3 id="scheduling-an-appointment-code-schedule-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code">3.21. Scheduling an appointment : <code>schedule</code></a></h3>
 <div class="paragraph">
 <p>Schedules an appointment by specifying the date and time.
 Format: schedule da/DATE tm/TIME</p>
@@ -403,16 +1003,18 @@ Schedules an appointment on 10th October 2018 at 15:00.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.9. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.22. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Command format: <code>history</code><br></p>
 </div>
-<div class="admonitionblock note">
+<div class="paragraph">
+<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
+</div>
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
 <div class="paragraph">
@@ -424,10 +1026,12 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.10. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.23. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Command format: <code>undo</code><br></p>
+</div>
+<div class="paragraph">
+<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -437,94 +1041,78 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
+<code>add</code> <code>addpetto</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>rmc</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
+<div class="sect2">
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.24. Redoing the previously undone command : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>redo</code><br></p>
+</div>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
+<code>add</code> <code>addpetto</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>rmc</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.11. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.25. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Command format: <code>clear</code><br></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Clears all entries from the address book.<br></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<code>clear</code> command will remove <strong>all</strong> existing clients, pets, appointments and vet technicians stored in the program.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.12. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.26. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Command format: <code>exit</code><br></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Exits the program.<br></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.14. Saving the data</a></h3>
-<div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.15. Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Exiting the program in the middle of a command will save the state. So there&#8217;s nothing to worry about.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -533,66 +1121,161 @@ There is no need to save manually.</p>
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br></p>
+</div>
+<div class="paragraph">
+<p><strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous VetterAppointments folder.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
-</li>
-<li>
-<p><strong>Schedule</strong> : <code>schedule</code><br>
-e.g. <code>schedule da/05/05/2018 tm/1000</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code></p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Command</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Command Format</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">help</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the user guide.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a person into the program.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addpetto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addpetto n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds a pet to a cient.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">addapptto</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>addapptto n/CLIENT_NAME pn/PET_NAME date/DATE (DD.MM.YYYY) time/TIME (HHMM) vettech/VET_TECHNICIAN_NAME cmt/COMMENTS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adds an appointment to a pet.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all clients.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all pets.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listappt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listappt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all appointments.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listv</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listv</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all vet technicians.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">listall</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listall INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all details for a particular client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts the client list alphabetically.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sortc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sorts the client list chronologically.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmc INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove a client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmpetfrom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmpetfrom n/CLIENT_NAME pn/PET_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes a pet from a client.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rmapptfrom</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmapptfrom n/CLIENT_NAME pn/PET_NAME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes an appointment from a pet.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">edit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a person&#8217;s details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits a pet&#8217;s details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">editappt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Edits an appointment&#8217;s details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">findc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findc KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finds a client with keyword.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">findp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>findp KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">finds a pet with keyword.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selects an index.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists the history of commands executed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo the previous command executed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo the undo command executed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletes all data of the program.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Exits the program.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-15 18:51:53 UTC
+Last updated 2018-03-16 03:01:09 UTC
 </div>
 </div>
 </body>
