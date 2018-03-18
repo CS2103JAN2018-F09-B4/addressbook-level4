@@ -39,6 +39,7 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private BrowserPanel browserPanel;
     private PersonListPanel personListPanel;
+    private VetTechnicianListPanel vetTechnicianListPanel;
     private PetListPanel petListPanel;
     private Config config;
     private UserPrefs prefs;
@@ -54,6 +55,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane personListPanelPlaceholder;
+
+    @FXML
+    private StackPane vetTechnicianListPanelPlaceholder;
 
     @FXML
     private StackPane petListPanelPlaceholder;
@@ -132,6 +136,9 @@ public class MainWindow extends UiPart<Stage> {
 
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
         personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+
+        vetTechnicianListPanel = new VetTechnicianListPanel(logic.getFilteredVetTechnicianList());
+        vetTechnicianListPanelPlaceholder.getChildren().add(vetTechnicianListPanel.getRoot());
 
         petListPanel = new PetListPanel(logic.getFilteredPetList());
         petListPanelPlaceholder.getChildren().add(petListPanel.getRoot());
