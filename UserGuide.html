@@ -32,10 +32,10 @@
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#adding-a-pet-to-a-client-code-addpetto-code">3.3. Adding a pet to a client: <code>addpetto</code></a></li>
 <li><a href="#adding-an-appointment-to-a-pet-code-addapptto-code">3.4. Adding an appointment to a pet: <code>addapptto</code></a></li>
-<li><a href="#listing-all-clients-code-listc-code">3.5. Listing all clients: <code>listc</code></a></li>
-<li><a href="#listing-all-pets-code-listp-code">3.6. Listing all pets: <code>listp</code></a></li>
-<li><a href="#listing-all-appointments-code-listappt-code">3.7. Listing all appointments: <code>listappt</code></a></li>
-<li><a href="#listing-all-vet-technicians-code-listv-code">3.8. Listing all vet technicians: <code>listv</code></a></li>
+<li><a href="#listing-all-clients-code-list-client-code">3.5. Listing all clients: <code>list client</code></a></li>
+<li><a href="#listing-all-pets-code-list-pet-code">3.6. Listing all pets: <code>list pet</code></a></li>
+<li><a href="#listing-all-vet-technicians-code-list-vettech-code">3.7. Listing all vet technicians: <code>list vettech</code></a></li>
+<li><a href="#listing-all-appointments-code-list-appt-code">3.8. Listing all appointments: <code>list appt</code></a></li>
 <li><a href="#listing-all-information-code-listall-code">3.9. Listing all information: <code>listall</code></a></li>
 <li><a href="#sorting-clients-in-alphabetical-order-code-sort-code">3.10. Sorting clients in alphabetical order: <code>sort</code></a></li>
 <li><a href="#sorting-clients-in-chronological-order-code-sortc-code">3.11. Sorting clients in chronological order: <code>sortc</code></a></li>
@@ -443,39 +443,43 @@ The user chooses to add an appointment to Alice Peterson&#8217;s pet called Garf
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-clients-code-listc-code"><a class="link" href="#listing-all-clients-code-listc-code">3.5. Listing all clients: <code>listc</code></a></h3>
+<h3 id="listing-all-clients-code-list-client-code"><a class="link" href="#listing-all-clients-code-list-client-code">3.5. Listing all clients: <code>list client</code></a></h3>
 <div class="paragraph">
-<p>Command format: <code>listc</code><br></p>
+<p>Command format: <code>list client</code><br></p>
 </div>
 <div class="paragraph">
-<p>The <code>listc</code> command will display all clients that are stored in the program. It automatically switches to the client view tab so you can view all your clients at a glance.</p>
+<p>The <code>list client</code> command will display all clients that are stored in the program.
+It automatically switches to the client view tab so you can view all your clients at a glance.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-pets-code-listp-code"><a class="link" href="#listing-all-pets-code-listp-code">3.6. Listing all pets: <code>listp</code></a></h3>
+<h3 id="listing-all-pets-code-list-pet-code"><a class="link" href="#listing-all-pets-code-list-pet-code">3.6. Listing all pets: <code>list pet</code></a></h3>
 <div class="paragraph">
-<p>Command format: <code>listp</code><br></p>
+<p>Command format: <code>list pet</code><br></p>
 </div>
 <div class="paragraph">
-<p>The <code>listp</code> command will display all pets that are stored in the program. It automatically switches to the pet view tab so you can view all your pets at a glance.</p>
+<p>The <code>list pet</code> command will display all pets that are stored in the program.
+It automatically switches to the pet view tab so you can view all your pets at a glance.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-appointments-code-listappt-code"><a class="link" href="#listing-all-appointments-code-listappt-code">3.7. Listing all appointments: <code>listappt</code></a></h3>
+<h3 id="listing-all-vet-technicians-code-list-vettech-code"><a class="link" href="#listing-all-vet-technicians-code-list-vettech-code">3.7. Listing all vet technicians: <code>list vettech</code></a></h3>
 <div class="paragraph">
-<p>Command format: <code>listappt</code><br></p>
+<p>Command format: <code>list vettech</code><br></p>
 </div>
 <div class="paragraph">
-<p>The <code>listappt</code> command will display all appointments that are pending for the user. The list sorts upcoming appointments by date and then by time.</p>
+<p>The <code>list vettech</code> command will display all vet technicians that are stored in the program.
+It automatically switches to the vet technician tab so that you can view them at a glance.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-vet-technicians-code-listv-code"><a class="link" href="#listing-all-vet-technicians-code-listv-code">3.8. Listing all vet technicians: <code>listv</code></a></h3>
+<h3 id="listing-all-appointments-code-list-appt-code"><a class="link" href="#listing-all-appointments-code-list-appt-code">3.8. Listing all appointments: <code>list appt</code></a></h3>
 <div class="paragraph">
-<p>Command format: <code>listv</code><br></p>
+<p>Command format: <code>list appt</code><br></p>
 </div>
 <div class="paragraph">
-<p>The <code>listv</code> command will display all vet technicians in the program. It automatically switches to the vet technician tab upon calling the command.</p>
+<p>The <code>list appt</code> command will display all appointments that are pending for the user.
+The list sorts upcoming appointments by date and then by time.</p>
 </div>
 </div>
 <div class="sect2">
@@ -484,7 +488,7 @@ The user chooses to add an appointment to Alice Peterson&#8217;s pet called Garf
 <p>Command format: <code>listall INDEX</code><br></p>
 </div>
 <div class="paragraph">
-<p>The <code>listall</code> command will display all clients, pets and appointments that are tagged to them.
+<p>The <code>listall</code> command will display all pets and appointments that are tagged to a client.
 The command expects this parameter when called:<br></p>
 </div>
 <div class="hdlist">
@@ -1164,24 +1168,24 @@ Exiting the program in the middle of a command will save the state. So there&#82
 <td class="tableblock halign-left valign-top"><p class="tableblock">Adds an appointment to a pet.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">listc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list client</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list client</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lists all clients.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">listp</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list pet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list pet</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lists all pets.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">listappt</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listappt</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all appointments.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list vettech</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list vettech</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all vet technicians.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">listv</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>listv</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all vet technicians.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list appt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list appt</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists all appointments.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">listall</p></td>
@@ -1275,7 +1279,7 @@ Exiting the program in the middle of a command will save the state. So there&#82
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-17 15:30:32 UTC
+Last updated 2018-03-18 14:32:12 UTC
 </div>
 </div>
 </body>
