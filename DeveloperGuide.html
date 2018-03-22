@@ -48,8 +48,9 @@
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#add-pet-to-client-feature">4.2. Add pet to client feature</a></li>
 <li><a href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">4.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.5. Configuration</a></li>
+<li><a href="#list-and-display-clients-pets-and-vet-technicians">4.4. List and display clients, pets and vet technicians</a></li>
+<li><a href="#logging">4.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -992,14 +993,128 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.4. Logging</a></h3>
+<h3 id="list-and-display-clients-pets-and-vet-technicians"><a class="link" href="#list-and-display-clients-pets-and-vet-technicians">4.4. List and display clients, pets and vet technicians</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The side bar of the user interface implements a <code>TabPane</code> with three tabs,
+'Client', 'Pet' and 'Vet Tech' where clicking on each tab will show the
+corresponding list. We will use the pet list to demonstrate the implementation.</p>
+</div>
+<div class="paragraph">
+<p>The 'Pet' <code>Tab</code> consists of a <code>StackPane</code> called <code>petListPanelPlaceholder</code> in the <code>MainWindow.fxml</code> file.</p>
+</div>
+<div class="paragraph">
+<p>In the <code>MainWindow.java</code> file, the <code>petListPanel</code>
+retrieves the updated list of pets from <code>logic</code>, and the <code>petListPanel</code> is added to <code>petListPanelPlaceholder</code> to be displayed like so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MainWindow</span> <span class="directive">extends</span> UiPart&lt;Stage&gt; {
+    <span class="type">void</span> fillInnerParts() {
+        petListPanel = <span class="keyword">new</span> PetListPanel(logic.getFilteredPetList());
+        petListPanelPlaceholder.getChildren().add(petListPanel.getRoot());
+        <span class="comment">// ...other placeholders...</span>
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>PetListPanel</code> is a <code>ListView</code> which contains a list of <code>PetCard</code> which is implemented like so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class PetListPanel extends UiPart&lt;Region&gt; {
+
+    @FXML
+    private ListView&lt;PetCard&gt; petListView;
+
+    private void setConnections(ObservableList&lt;Pet&gt; petList) {
+        ObservableList&lt;PetCard&gt; mappedList = EasyBind.map(
+                petList, (pet) -&gt; new PetCard(pet, petList.indexOf(pet) + 1));
+        petListView.setItems(mappedList);
+        petListView.setCellFactory(listView -&gt; new PetListViewCell());
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>PetCard</code> contains a single pet and sets the pet&#8217;s details and the layout of the display of details.</p>
+</div>
+<div class="paragraph">
+<p>Figure 11 below is a screenshot of the final displayed pet list, where each pet, for example 'Garfield',
+is contained in a <code>PetCard</code>, and the cards of all pets are presented in a list form by using <code>PetListPanel</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/list_pet.png" alt="list pet" width="350">
+</div>
+<div class="title">Figure 14. Screenshot of a List of Pets</div>
+</div>
+<div class="paragraph">
+<p>Aside from toggling the lists by clicking on the tabs, the <code>list</code> command is implemented to take in a parameter
+of either 'client', 'pet' or 'vettech' so that the list view updates appropriately when the <code>list</code> command is used.</p>
+</div>
+<div class="paragraph">
+<p>To implement this, depending on the parameter, the <code>ListCommand</code> creates and adds <code>ChangeListTabEvent</code>
+to <code>EventCenter</code> like so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ListCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+        <span class="directive">public</span> CommandResult execute() <span class="directive">throws</span> CommandException {
+
+            <span class="keyword">switch</span> (targetType) {
+            <span class="keyword">case</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">pet</span><span class="delimiter">&quot;</span></span>:
+                model.updateFilteredPetList(PREDICATE_SHOW_ALL_PET);
+                EventsCenter.getInstance().post(<span class="keyword">new</span> ChangeListTabEvent(<span class="integer">1</span>));
+                <span class="keyword">break</span>;
+                <span class="comment">// ...other cases...</span>
+            }
+            <span class="comment">// ...return...</span>
+        }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>MainWindow</code> then handles the <code>ChangeListTabEvent</code> by changing to the corresponding list on the UI display,
+and updates <code>logic</code> with the index of the current list so that other commands like <code>edit</code> and <code>delete</code>
+can perform the command on the correct list, like so:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">MainWindow</span> <span class="directive">extends</span> UiPart&lt;Stage&gt; {
+    <span class="annotation">@Subscribe</span>
+    <span class="directive">private</span> <span class="type">void</span> handleChangeListTabEvent(ChangeListTabEvent event) {
+        changeTo(event.targetList);
+        logic.setCurrentList(event.targetList);
+    }
+    <span class="directive">private</span> <span class="type">void</span> changeTo(<span class="type">int</span> list) {
+        Platform.runLater(() -&gt; {
+            listPanel.getSelectionModel().select(list);
+        });
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>With this implementation, whether changing list by mouse-click or by command,
+the application always contains the index of the current list being viewed,
+so that the correct list will be displayed, and so that all other commands will
+be executed on the correct list.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1030,7 +1145,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1096,7 +1211,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 14. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3365,7 +3480,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-22 15:49:00 UTC
+Last updated 2018-03-22 17:06:12 UTC
 </div>
 </div>
 </body>
