@@ -435,7 +435,7 @@ The `UniquePetList` class ensures that no duplicates of the same pet are stored 
 The figure below shows a simple overview of the `Pet` class. +
 
 .Pet class diagram snippet
-image::pet_diagram_snippet.PNG[width="790"]
+image::pet_diagram_snippet.png[width="790"]
 
 ==== Logic component
 The `Pet` object interacts with several commands in the program. +
