@@ -47,10 +47,11 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
 <li><a href="#pet-component-feature">4.2. Pet Component Feature</a></li>
-<li><a href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></li>
-<li><a href="#list-and-display-clients-pets-and-vet-technicians">4.4. List and display clients, pets and vet technicians</a></li>
-<li><a href="#logging">4.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
+<li><a href="#add-pet-to-client-feature">4.3. Add pet to client feature</a></li>
+<li><a href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></li>
+<li><a href="#list-and-display-clients-pets-and-vet-technicians">4.5. List and display clients, pets and vet technicians</a></li>
+<li><a href="#logging">4.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1043,15 +1044,118 @@ The <code>UniquePetList</code> class ensures that no duplicates of the same pet 
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></h3>
+<h3 id="add-pet-to-client-feature"><a class="link" href="#add-pet-to-client-feature">4.3. Add pet to client feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The <code>AddPetToClientCommand</code> allows the user to add an existing pet to and existing client. A user can execute the command by providing the index of the pet and the index of the client in the following format <code>addpettoclient p/PET_INDEX c/CLIENT_INDEX</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addpettoclient_logic_command_class_diagram.png" alt="addpettoclient logic command class diagram" width="800">
+</div>
+<div class="title">Figure 12. Structure of part of Logic Component</div>
+</div>
+<div class="paragraph">
+<p>As can be seen from the diagram, the <code>AddPetToClientCommand</code> is implemented to extend an <code>UndoableCommand</code> which enables the user to undo and redo the <code>AddPetToClientCommand</code> that is executed.
+The <code>AddPetToClientCommand</code> interacts with the <code>Model</code> component to add pet to a client.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addpettoclientmodelclassdiagram.png" alt="addpettoclientmodelclassdiagram" width="800">
+</div>
+<div class="title">Figure 13. Structure of part of Model Component</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add pet to client command works.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/addpettoclientSequence.png" alt="addpettoclientSequence" width="800">
+</div>
+<div class="title">Figure 14. Interactions inside the Logic Component for <code>addpetto p/1 c/1</code> Command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-addpettoclientcommand-code"><a class="link" href="#aspect-implementation-of-code-addpettoclientcommand-code">Aspect: Implementation of <code>AddPetToClientCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Add a new command that extends <code>UndoableCommand</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We will be able to utilize undone/redone functionality.</p>
+</li>
+<li>
+<p>Cons: Hard for new developers to understand undo/redo implementation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Just add a new command that extends <code>Command</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not involve <code>UndoableCommand</code>, easier for new developers to understand.</p>
+</li>
+<li>
+<p>Cons: Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-add-pet-to-client-command"><a class="link" href="#aspect-data-structure-to-support-the-add-pet-to-client-command">Aspect: Data structure to support the add pet to client command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use an association class <code>ClientOwnPet</code> to link <code>Pet</code> and <code>Client</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Low coupling between <code>Pet</code> and <code>Client</code>.</p>
+</li>
+<li>
+<p>Cons: More steps required for other implementations to obtain pet and client relationship.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Bi-directional association between <code>Pet</code> with <code>Client</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not need to maintain a separate association class.</p>
+</li>
+<li>
+<p>Cons: High coupling.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-and-display-clients-pets-and-vet-technicians"><a class="link" href="#list-and-display-clients-pets-and-vet-technicians">4.4. List and display clients, pets and vet technicians</a></h3>
+<h3 id="list-and-display-clients-pets-and-vet-technicians"><a class="link" href="#list-and-display-clients-pets-and-vet-technicians">4.5. List and display clients, pets and vet technicians</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The side bar of the user interface implements a <code>TabPane</code> with three tabs,
 'Client', 'Pet' and 'Vet Tech' where clicking on each tab will show the
@@ -1105,7 +1209,7 @@ is contained in a <code>PetCard</code>, and the cards of all pets are presented 
 <div class="content">
 <img src="images/list_pet.png" alt="list pet" width="350">
 </div>
-<div class="title">Figure 12. Screenshot of a List of Pets</div>
+<div class="title">Figure 15. Screenshot of a List of Pets</div>
 </div>
 <div class="paragraph">
 <p>Aside from toggling the lists by clicking on the tabs, the <code>list</code> command is implemented to take in a parameter
@@ -1163,14 +1267,14 @@ be executed on the correct list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1201,7 +1305,7 @@ be executed on the correct list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1267,7 +1371,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 16. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 </div>
@@ -3536,7 +3640,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-22 17:12:50 UTC
+Last updated 2018-03-22 17:25:27 UTC
 </div>
 </div>
 </body>
