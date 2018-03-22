@@ -452,8 +452,6 @@ All pet details will be stored in a seperate XML file.
 ==== UI component
 All pet information will be displayed in the UI in a `Pet` list. All changes made to the pet will be reflected immediately after interacting with the commands.
 
-
-
 // tag::dataencryption[]
 === [Proposed] Data Encryption
 
@@ -928,8 +926,8 @@ This will allow the vet to easily schedule an appointment for the relevant pet.
 The vet will also state the date, time, vet technician assigned to the appointment as well
 as any comments he/she wishes to add. `rmapptfrom` will remove the appointment from a pet.
 
-* *Minor Enhancement*: Implement aliases for command words
-+
+* *Minor Enhancement*: Implement aliases for command words +
+
 [none]
 ** The aliases of command words will allow the vet to reduce the amount of typing
 required for command words, to increase efficiency in using the application.
