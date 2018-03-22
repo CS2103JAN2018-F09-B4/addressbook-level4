@@ -364,6 +364,96 @@ image::UndoRedoActivityDiagram.png[width="650"]
 ** Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as `HistoryManager` now needs to do two * different things.
 // end::undoredo[]
 
+=== Pet Component Feature
+
+==== Reasons for implementation
+
+VetterAppointments is designed for vets who manages his team of vet technician, clients and most importantly, the pets.
+The Pet component feature stores the necessary Pet details like name, gender, age, tags as well as appointment.
+Such details are essential to facilitate other functions such as viewing the client's appointments and the pet's appointments at a glance displayed on the GUI.
+
+==== Current implementation
+
+*Model component* +
+Currently the `Pet` object is initialized by calling it's constructor. The constructor
+initializes the four fields of `Pet` to respective arguments supplied by the user. +
+
+*Constructing a `Pet` object*
+[source,java]
+----
+public Pet(PetName petName, PetAge petAge, PetGender petGender, Set<Tag> tags) {
+    requireAllNonNull(petName, petAge, petGender, tags);
+    this.petName = petName;
+    this.petAge = petAge;
+    this.petGender = petGender;
+    this.tags = tags;
+}
+----
+Explanation for arguments: +
+
+`PetName`: A class that takes in a String supplied by the user with the prefix `pn/`. It stores the details of the pet name
+and creates an object for the `Pet` constructor to consume.
+[NOTE]
+The `PetName` validates the name of the pet supplied. Only alphanumeric characters are allowed. +
+
+The constraints for a valid pet name is implemented this way:
+[source,java]
+----
+public static final String PETNAME_VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+----
+
+`PetAge`: A class that takes in a String supplied by the user with the prefix `pa/`. It then stores the details of the pet age
+and creates an object for the `Pet` constructor to consume.
+[NOTE]
+The `PetAge` validates the age supplied by the user. Only 1-2 digit numbers are allowed. +
+
+The constraints for a valid pet age is implemented this way:
+[source,java]
+----
+public static final String PET_VALIDATIONS_REGEX = "\\d{1,2}";
+----
+
+`Petgender`: A class that takes in a String supplied by the user with the prefix `pg\`. It stores the pet gender details
+and creates an object for the `Pet` constructor to consume.
+[NOTE]
+The `PetGender` validates for supplied gender. Only M or F is allowed, representing Male or Female.
+It is case insensitive. +
+
+The constraints for a valid pet gender is implemented this way:
+[source,java]
+----
+public static final String GENDER_VALIDATION_REGEX = "[m,f,M,F]";
+----
+
+`Set<Tag>`: In addition to the PetName, PetAge and PetGender, a `Set<Tag>` is also needed for the construction of a `Pet` object. +
+[NOTE]
+The tags for a pet is used to represent the species and breed for that particular pet. +
+
+All the `Pet` objects that were created in the program will be stored in a class called `UniquePetList`.
+The `UniquePetList` class ensures that no duplicates of the same pet are stored inside the program.
+
+The figure below shows a simple overview of the `Pet` class. +
+
+.Pet class diagram snippet
+image::pet_diagram_snippet.PNG[width="790"]
+
+==== Logic component
+The `Pet` object interacts with several commands in the program. +
+1. `addp` +
+2. `deletep` +
+3. `list pet` +
+4. `sortp` `*NOT IMPLEMENTED YET*` +
+5. `addapptto` `*NOT IMPLEMENTED YET*` +
+6. `findp` `*NOT IMPLEMENTED YET*` +
+
+==== Storage component
+All pet details will be stored in a seperate XML file.
+
+==== UI component
+All pet information will be displayed in the UI in a `Pet` list. All changes made to the pet will be reflected immediately after interacting with the commands.
+
+
+
 // tag::dataencryption[]
 === [Proposed] Data Encryption
 
@@ -390,6 +480,7 @@ We are using `java.util.logging` package for logging. The `LogsCenter` class is 
 === Configuration
 
 Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: `config.json`).
+
 
 == Documentation
 
