@@ -168,7 +168,7 @@
 <td class="content">
 <div class="paragraph">
 <p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
-<code>add</code> <code>addp</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>rmc</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
+<code>add</code> <code>addp</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>delete</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
 </div>
 </td>
 </tr>
@@ -192,7 +192,7 @@
 <td class="content">
 <div class="paragraph">
 <p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
-<code>add</code> <code>addp</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>rmc</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
+<code>add</code> <code>addp</code> <code>addapptto</code> <code>sort</code> <code>sortc</code> <code>delete</code> <code>rmpetfrom</code> <code>rmapptfrom</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code></p>
 </div>
 </td>
 </tr>
@@ -325,9 +325,14 @@ Exiting the program in the middle of a command will save the state. So there&#82
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sorts the client list chronologically.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rmc</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmc INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Remove a client.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove a client from the program based on index.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deletep</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>deletep INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Removes a pet from the program based on index.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rmpetfrom</p></td>
@@ -723,7 +728,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-23 01:30:22 UTC
+Last updated 2018-03-25 08:59:37 UTC
 </div>
 </div>
 </body>
