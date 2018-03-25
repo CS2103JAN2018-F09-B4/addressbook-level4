@@ -412,19 +412,20 @@ Exiting the program in the middle of a command will save the state. So there&#82
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo Feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
+<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. Figure 4-1 shows the inheritance diagram for commands.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
 </div>
+<div class="title">Figure 4-1. Logic Command Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
@@ -474,6 +475,7 @@ Exiting the program in the middle of a command will save the state. So there&#82
 <div class="content">
 <img src="../images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
 </div>
+<div class="title">Figure 4-2. Undo/Redo Initial Stack Diagram</div>
 </div>
 <div class="paragraph">
 <p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
@@ -482,6 +484,7 @@ Exiting the program in the middle of a command will save the state. So there&#82
 <div class="content">
 <img src="../images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
 </div>
+<div class="title">Figure 4-3. Undo/Redo New Command Stack Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -499,12 +502,13 @@ If a command fails its execution, it will not be pushed to the <code>UndoRedoSta
 <p>The user now decides that adding the person was a mistake, and decides to undo that action using <code>undo</code>.</p>
 </div>
 <div class="paragraph">
-<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the address book to the state before the <code>add</code> command executed.</p>
+<p>The program will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. Next the program will restore the address book to the state before the <code>add</code> command was executed.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
 </div>
+<div class="title">Figure 4-4. Undo/Redo Executed Undo Command Stack Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -519,12 +523,13 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p>Figure 4-5 shows a sequence diagram of how the undo operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
+<div class="title">Figure 4-5. Undo/Redo Sequence Diagram</div>
 </div>
 <div class="paragraph">
 <p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
@@ -548,6 +553,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="../images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
 </div>
+<div class="title">Figure 4-6. Undo/Redo New Command Stack Diagram (Clear)</div>
 </div>
 <div class="paragraph">
 <p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
@@ -556,14 +562,16 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="../images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
 </div>
+<div class="title">Figure 4-7. Undo/Redo New Command Stack Diagram (List)</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
+<p>Figure 4-8 shows the activity diagram that summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
+<div class="title">Figure 4-8. Undo/Redo Activity Digram</div>
 </div>
 </div>
 <div class="sect3">
@@ -703,12 +711,6 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -723,7 +725,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 11:35:55 UTC
+Last updated 2018-03-25 13:33:17 UTC
 </div>
 </div>
 </body>
