@@ -1025,7 +1025,7 @@ The program will scroll to and select the 3rd client on the list.</p>
 <h3 id="scheduling-an-appointment-code-schedule-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code">3.22. Scheduling an appointment : <code>schedule</code></a></h3>
 <div class="paragraph">
 <p>Schedules an appointment by specifying the date and time.
-Format: schedule da/DATE tm/TIME</p>
+Format: schedule da/DATE tm/TIME du/Duration</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1035,7 +1035,8 @@ Format: schedule da/DATE tm/TIME</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>The format for date should follow YYYY-MM-DD and for time should follow HH:MM.</p>
+<p>The format for date should follow YYYY-MM-DD and for time should follow HH:MM.
+Duration is either 2 or 3 digit number in minutes.</p>
 </div>
 </td>
 </tr>
@@ -1047,8 +1048,8 @@ Format: schedule da/DATE tm/TIME</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>schedule da/2018-10-10 tm/15:00</code><br>
-Schedules an appointment on 10th October 2018 at 15:00.</p>
+<p><code>schedule da/2018-10-10 tm/15:00 du/40</code><br>
+Schedules an appointment on 10th October 2018 at 15:00 for 40 minutes.</p>
 </li>
 </ul>
 </div>
@@ -1300,6 +1301,11 @@ Exiting the program in the middle of a command will save the state. So there&#82
 <td class="tableblock halign-left valign-top"><p class="tableblock">Selects an index.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>schedule [da/Date] [tm/Time] [du/Duration]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schedule an appointment at the given time.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">history</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lists the history of commands executed.</p></td>
@@ -1331,7 +1337,7 @@ Exiting the program in the middle of a command will save the state. So there&#82
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-26 12:23:35 UTC
+Last updated 2018-03-26 12:43:54 UTC
 </div>
 </div>
 </body>
