@@ -317,6 +317,13 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void addAppointmentToPet(Appointment appointment, Pet pet) throws PetAlreadyHasAppointmentException {
         //TODO: Add an association for pet appointment
+        for (ClientOwnPet clientOwnPet : clientPetAssociations) {
+            if (clientOwnPet.getPet().equals(pet)) {
+                System.out.println(clientOwnPet.getClient().getName().fullName);
+                System.out.println(clientOwnPet.getPet().getPetName().toString());
+            }
+        }
+        System.out.println("ENTERED HERE");
     }
 
     /**
