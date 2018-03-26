@@ -1175,18 +1175,18 @@ retrieves the updated list of pets from <code>logic</code>, and the <code>petLis
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>public class PetListPanel extends UiPart&lt;Region&gt; {
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">PetListPanel</span> <span class="directive">extends</span> UiPart&lt;<span class="predefined-type">Region</span>&gt; {
 
-    @FXML
-    private ListView&lt;PetCard&gt; petListView;
+    <span class="annotation">@FXML</span>
+    <span class="directive">private</span> <span class="predefined-type">ListView</span>&lt;PetCard&gt; petListView;
 
-    private void setConnections(ObservableList&lt;Pet&gt; petList) {
+    <span class="directive">private</span> <span class="type">void</span> setConnections(ObservableList&lt;Pet&gt; petList) {
         ObservableList&lt;PetCard&gt; mappedList = EasyBind.map(
-                petList, (pet) -&gt; new PetCard(pet, petList.indexOf(pet) + 1));
+                petList, (pet) -&gt; <span class="keyword">new</span> PetCard(pet, petList.indexOf(pet) + <span class="integer">1</span>));
         petListView.setItems(mappedList);
-        petListView.setCellFactory(listView -&gt; new PetListViewCell());
+        petListView.setCellFactory(listView -&gt; <span class="keyword">new</span> PetListViewCell());
     }
-}</pre>
+}</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2868,7 +2868,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-25 13:38:12 UTC
+Last updated 2018-03-26 09:46:50 UTC
 </div>
 </div>
 </body>
