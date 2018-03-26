@@ -12,6 +12,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.appointment.Appointment;
+import seedu.address.model.association.exceptions.PetAlreadyHasAppointmentException;
 import seedu.address.model.pet.Pet;
 
 /**
@@ -50,6 +51,17 @@ public class AddAppointmentToPetCommand extends UndoableCommand {
 
         appointment = Optional.empty();
         pet = Optional.empty();
+    }
+
+    @Override
+    public CommandResult executeUndoableCommand() throws CommandException {
+        requireAllNonNull(model, pet.get(), appointment.get());
+        try {
+            model.addAppointmentToPet(appointment.get(), pet.get());
+        } catch (PetAlreadyHasAppointmentException e) {
+            throw new CommandException(MESSAGE_PET_HAS_APPOINTMENT);
+        }
+        return new CommandResult(MESSAGE_ADD_APPOINTMENT_TO_PET_SUCCESS);
     }
 
     @Override
