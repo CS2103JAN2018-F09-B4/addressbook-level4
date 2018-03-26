@@ -1065,13 +1065,13 @@ The <code>UniquePetList</code> class ensures that no duplicates of the same pet 
 The <code>AddPetToClientCommand</code> interacts with the <code>Model</code> component to add pet to a client.</p>
 </div>
 <div class="paragraph">
-<p>Figure 4-12 show the sequence diagram of how the add pet to client command works.</p>
+<p>Figure 4-11 show the sequence diagram of how the add pet to client command works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/addpettoclientSequence.png" alt="addpettoclientSequence" width="800">
 </div>
-<div class="title">Figure 4-12. Interaction of the Logic Component for <code>addpetto p/1 c/1</code> Command</div>
+<div class="title">Figure 4-11. Interaction of the Logic Component for <code>addpetto p/1 c/1</code> Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1194,14 +1194,14 @@ retrieves the updated list of pets from <code>logic</code>, and the <code>petLis
 <p>The <code>PetCard</code> contains a single pet and sets the pet&#8217;s details and the layout of the display of details.</p>
 </div>
 <div class="paragraph">
-<p>Figure 11 below is a screenshot of the final displayed pet list, where each pet, for example 'Garfield',
+<p>Figure 4-12 below is a screenshot of the final displayed pet list, where each pet, for example 'Garfield',
 is contained in a <code>PetCard</code>, and the cards of all pets are presented in a list form by using <code>PetListPanel</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/list_pet.png" alt="list pet" width="350">
 </div>
-<div class="title">Figure 4-13. Screenshot of a List of Pets</div>
+<div class="title">Figure 4-12. Screenshot of a List of Pets</div>
 </div>
 <div class="paragraph">
 <p>Aside from toggling the lists by clicking on the tabs, the <code>list</code> command is implemented to take in a parameter
@@ -1277,16 +1277,16 @@ In order to schedule an appointment, the Vet must create an appointment by speci
 </ul>
 </div>
 <div class="paragraph">
-<p>The diagram below illustrates the overview of the appointment class.(Figure 4-13)<br></p>
+<p>The diagram(Figure 4-13)  below illustrates the overview of the appointment class.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelAppointmentClassDiagram.png" alt="ModelAppointmentClassDiagram" width="800">
 </div>
-<div class="title">Figure 4-13. View the appointment class in addressbook</div>
+<div class="title">Figure 4-13. overview the appointment class in addressbook</div>
 </div>
 <div class="paragraph">
-<p>As you can see from the class diagram, there are three attributes of an appointment and each of them is implemented by an individual class.</p>
+<p>As you can see from the class diagram Figure 4-13, there are three attributes of an appointment and each of them is implemented by an individual class.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1298,13 +1298,13 @@ We are not using the java date and time class but implementing our self-defined 
 </ul>
 </div>
 <div class="paragraph">
-<p>The diagrams below shows the class diagram for date and time.(Figure 4-14)<br></p>
+<p>The diagrams(Figure 4-14) below shows the class diagram for date and time.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AppointmentClassDemo.png" alt="AppointmentClassDemo" width="800">
 </div>
-<div class="title">Figure 4-14. Date and time class diagram snippet</div>
+<div class="title">Figure 4-14. Date and time class diagram snippets</div>
 </div>
 <div class="paragraph">
 <p>The method to check for for a valid date is implemented this way:</p>
@@ -1357,7 +1357,7 @@ Time is expressed in 24 hour format hence hour ranges from 00 to 23 and minute f
 <p>Duration<br></p>
 </div>
 <div class="paragraph">
-<p>The diagram below shows the class diagram of duration.(Figure 4-15)<br></p>
+<p>The diagram(Figure 4-15) below shows the class diagram of duration.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1389,7 +1389,7 @@ Duration can be either two or three digit number and the value is in minute.
 <p>Appointment<br></p>
 </div>
 <div class="paragraph">
-<p>The diagram below shows the class diagram of appointment.(Figure 4-16)</p>
+<p>The diagram(Figure 4-16) below shows the class diagram of appointment.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1427,7 +1427,7 @@ Only date and time are responsible for duplicate appointments.
 <div class="sect3">
 <h4 id="logic-component-2"><a class="link" href="#logic-component-2">4.5.2. Logic component</a></h4>
 <div class="paragraph">
-<p>The following diagram shows how the schedule command works.(Figure 4-17)<br></p>
+<p>The following diagram(Figure 4-17) shows how the schedule command works.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1443,7 +1443,7 @@ After getting the appointment object from <code>Model</code>, the command result
 <div class="sect3">
 <h4 id="storage-component-2"><a class="link" href="#storage-component-2">4.5.3. Storage component</a></h4>
 <div class="paragraph">
-<p>The following diagram shows how the appointment be stored in the addressBook.(Figure 4-18)<br></p>
+<p>The following diagram(Figure 4-18) shows how the appointment be stored in the addressBook.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1452,7 +1452,7 @@ After getting the appointment object from <code>Model</code>, the command result
 <div class="title">Figure 4-18. Stores the appointment</div>
 </div>
 <div class="paragraph">
-<p>As shown in the above diagram, appointments are saved and read back in xml format.</p>
+<p>As shown in the above diagram Figure 4-18, appointments are saved and read back in xml format.</p>
 </div>
 </div>
 </div>
@@ -3067,7 +3067,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-26 11:46:57 UTC
+Last updated 2018-03-26 12:23:35 UTC
 </div>
 </div>
 </body>
