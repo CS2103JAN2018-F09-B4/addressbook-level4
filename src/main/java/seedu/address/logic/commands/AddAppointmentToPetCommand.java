@@ -70,9 +70,11 @@ public class AddAppointmentToPetCommand extends UndoableCommand {
         List<Pet> lastShownPetList = model.getFilteredPetList();
 
         //TODO: specific error message
-        if (appointmentIndex.getZeroBased() >= lastShownAppointmentList.size()
-                || petIndex.getZeroBased() >= lastShownPetList.size()) {
+        if (appointmentIndex.getZeroBased() >= lastShownAppointmentList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);
+        }
+        if (petIndex.getZeroBased() >= lastShownPetList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PET_INDEX);
         }
 
         appointment = Optional.of(lastShownAppointmentList.get(appointmentIndex.getZeroBased()));
