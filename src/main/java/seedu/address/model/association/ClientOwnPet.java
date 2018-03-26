@@ -1,6 +1,5 @@
 package seedu.address.model.association;
 
-import seedu.address.model.appointment.Appointment;
 import seedu.address.model.client.Client;
 import seedu.address.model.pet.Pet;
 
