@@ -159,6 +159,12 @@ public interface Model {
     void removePetFromClient(Pet pet, Client client) throws ClientPetAssociationNotFoundException;
 
     /**
+     * Updates the filteredAppointmentList
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredAppointmentList(Predicate<Appointment> predicate);
+
+    /**
      * Sets the index of the current list that is viewed
      */
     void setCurrentList(int currList);
