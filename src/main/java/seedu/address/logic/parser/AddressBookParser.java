@@ -21,6 +21,7 @@ import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.RedoCommand;
+import seedu.address.logic.commands.RemovePetFromClientCommand;
 import seedu.address.logic.commands.ScheduleCommand;
 import seedu.address.logic.commands.SelectCommand;
 import seedu.address.logic.commands.SortClientCommand;
@@ -110,6 +111,9 @@ public class AddressBookParser {
 
         case AddPetToClientCommand.COMMAND_WORD:
             return new AddPetToClientCommandParser().parse(arguments);
+
+        case RemovePetFromClientCommand.COMMAND_WORD:
+            return new RemovePetFromClientCommandParser().parse(arguments);
 
         case SortClientCommand.COMMAND_WORD:
             return new SortClientCommand();
