@@ -1,6 +1,5 @@
 package seedu.address.model.association;
 
-import seedu.address.model.appointment.Appointment;
 import seedu.address.model.client.Client;
 import seedu.address.model.pet.Pet;
 
@@ -10,7 +9,6 @@ import seedu.address.model.pet.Pet;
 public class ClientOwnPet {
     private final Client client;
     private final Pet pet;
-    private Appointment appointment;
 
     public ClientOwnPet(Client client, Pet pet) {
         this.client = client;
@@ -38,13 +36,5 @@ public class ClientOwnPet {
 
     public Pet getPet() {
         return pet;
-    }
-
-    public Appointment getAppointment() {
-        return appointment;
-    }
-
-    public void setAppointment(Appointment appointment) {
-        this.appointment = appointment;
     }
 }

@@ -316,14 +316,22 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Finds the pet and adds the appointment
      */
     public void addAppointmentToPet(Appointment appointment, Pet pet) throws PetAlreadyHasAppointmentException {
-        //TODO: Add an association for pet appointment
-        for (ClientOwnPet clientOwnPet : clientPetAssociations) {
-            if (clientOwnPet.getPet().equals(pet)) {
-                System.out.println(clientOwnPet.getClient().getName().fullName);
-                System.out.println(clientOwnPet.getPet().getPetName().toString());
+        int flag = 0;
+
+        if (clientPetAssociations.isEmpty()) {
+            throw new AssertionError("No client association found");
+        }
+
+        for (ClientOwnPet a : clientPetAssociations) {
+            if (a.getPet().equals(pet) && appointment.getClientOwnPet() == null) {
+                appointment.setClientOwnPet(a);
+                flag = 1;
             }
         }
-        System.out.println("ENTERED HERE");
+
+        if (flag == 0) {
+            throw new PetAlreadyHasAppointmentException();
+        }
     }
 
     /**
