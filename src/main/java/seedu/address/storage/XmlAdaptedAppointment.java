@@ -27,7 +27,7 @@ public class XmlAdaptedAppointment {
     private String duration;
     @XmlElement(required = true)
     private String description;
-    @XmlElement
+    @XmlElement(required = true)
     private XmlAdaptedClientOwnPet association;
 
     /**
