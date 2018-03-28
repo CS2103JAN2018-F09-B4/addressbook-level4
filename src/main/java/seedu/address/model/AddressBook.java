@@ -16,6 +16,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.appointment.Appointment;
 import seedu.address.model.appointment.UniqueAppointmentList;
+import seedu.address.model.appointment.exceptions.AppointmentNotFoundException;
 import seedu.address.model.appointment.exceptions.DuplicateAppointmentException;
 import seedu.address.model.association.ClientOwnPet;
 import seedu.address.model.association.exceptions.ClientAlreadyOwnsPetException;
@@ -338,6 +339,17 @@ public class AddressBook implements ReadOnlyAddressBook {
         }
         if (!isAdded) {
             throw new PetAlreadyHasAppointmentException();
+        }
+    }
+
+    /**
+     * Removes the appointment from a pet
+     */
+    public void removeAppointmentFromPet(Appointment appointment) throws AppointmentNotFoundException {
+        if (!appointments.contains(appointment)) {
+            throw new AppointmentNotFoundException();
+        } else {
+            appointment.setClientOwnPetToNull();
         }
     }
 

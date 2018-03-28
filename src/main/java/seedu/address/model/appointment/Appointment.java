@@ -55,6 +55,10 @@ public class Appointment {
         this.clientOwnPet = clientOwnPet;
     }
 
+    public void setClientOwnPetToNull() {
+        this.clientOwnPet = null;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {

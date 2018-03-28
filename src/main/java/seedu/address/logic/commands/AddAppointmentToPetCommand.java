@@ -3,6 +3,8 @@ package seedu.address.logic.commands;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_APPOINTMENT_INDEX;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PET_INDEX;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_APPOINTMENT;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PETS;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +12,6 @@ import java.util.Optional;
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
 import seedu.address.model.appointment.Appointment;
 import seedu.address.model.association.exceptions.ClientPetAssociationNotFoundException;
 import seedu.address.model.association.exceptions.PetAlreadyHasAppointmentException;
@@ -82,8 +83,8 @@ public class AddAppointmentToPetCommand extends UndoableCommand {
 
         appointment = Optional.of(lastShownAppointmentList.get(appointmentIndex.getZeroBased()));
         pet = Optional.of(lastShownPetList.get(petIndex.getZeroBased()));
-        model.updateFilteredAppointmentList(Model.PREDICATE_SHOW_ALL_APPOINTMENT);
-        model.updateFilteredPetList(Model.PREDICATE_SHOW_ALL_PETS);
+        model.updateFilteredAppointmentList(PREDICATE_SHOW_ALL_APPOINTMENT);
+        model.updateFilteredPetList(PREDICATE_SHOW_ALL_PETS);
     }
 
     @Override
