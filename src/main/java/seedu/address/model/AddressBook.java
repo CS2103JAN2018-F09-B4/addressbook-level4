@@ -123,7 +123,8 @@ public class AddressBook implements ReadOnlyAddressBook {
             throw new AssertionError("AddressBooks should not have duplicate persons");
         }
 
-        List<Appointment> syncedAppointmentList = newData.getAppointmentList();
+        List<Appointment> syncedAppointmentList = newData.getAppointmentList().stream()
+                .map(Appointment::new).collect(Collectors.toList());
         try {
             setAppointments(syncedAppointmentList);
         } catch (DuplicateAppointmentException e) {
@@ -317,7 +318,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Finds the pet and adds the appointment
      */
     public void addAppointmentToPet(Appointment appointment, Pet pet) throws PetAlreadyHasAppointmentException,
-            ClientPetAssociationNotFoundException {
+            ClientPetAssociationNotFoundException, AppointmentNotFoundException, DuplicateAppointmentException {
 
         boolean isAdded = false;
         boolean isPresent = false;
@@ -329,7 +330,9 @@ public class AddressBook implements ReadOnlyAddressBook {
             if (a.getPet().equals(pet)) {
                 isPresent = true;
                 if (appointment.getClientOwnPet() == null) {
-                    appointment.setClientOwnPet(a);
+                    Appointment appointmentCopy = new Appointment(appointment);
+                    appointmentCopy.setClientOwnPet(a);
+                    appointments.setAppointment(appointment, appointmentCopy);
                     isAdded = true;
                 }
             }
@@ -340,16 +343,19 @@ public class AddressBook implements ReadOnlyAddressBook {
         if (!isAdded) {
             throw new PetAlreadyHasAppointmentException();
         }
+
     }
 
     /**
      * Removes the appointment from a pet
      */
-    public void removeAppointmentFromPet(Appointment appointment) throws AppointmentNotFoundException {
+    public void removeAppointmentFromPet(Appointment appointment) throws AppointmentNotFoundException, DuplicateAppointmentException {
         if (!appointments.contains(appointment)) {
             throw new AppointmentNotFoundException();
         } else {
-            appointment.setClientOwnPetToNull();
+            Appointment appointmentCopy = new Appointment(appointment);
+            appointmentCopy.setClientOwnPetToNull();
+            appointments.setAppointment(appointment, appointmentCopy);
         }
     }
 

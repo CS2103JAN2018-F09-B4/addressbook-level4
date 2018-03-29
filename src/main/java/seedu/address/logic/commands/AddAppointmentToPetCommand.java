@@ -13,6 +13,8 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.appointment.Appointment;
+import seedu.address.model.appointment.exceptions.AppointmentNotFoundException;
+import seedu.address.model.appointment.exceptions.DuplicateAppointmentException;
 import seedu.address.model.association.exceptions.ClientPetAssociationNotFoundException;
 import seedu.address.model.association.exceptions.PetAlreadyHasAppointmentException;
 import seedu.address.model.pet.Pet;
@@ -65,6 +67,10 @@ public class AddAppointmentToPetCommand extends UndoableCommand {
             throw new CommandException(MESSAGE_PET_HAS_APPOINTMENT);
         } catch (ClientPetAssociationNotFoundException e) {
             throw new CommandException(MESSAGE_PET_DOES_NOT_HAVE_OWNER);
+        } catch (DuplicateAppointmentException e) {
+            throw new CommandException(ScheduleCommand.MESSAGE_DUPLICATE_APPOINTMENT);
+        } catch (AppointmentNotFoundException e) {
+            throw new CommandException(Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);
         }
         return new CommandResult(String.format(MESSAGE_ADD_APPOINTMENT_TO_PET_SUCCESS, appointment.get(), pet.get()));
     }

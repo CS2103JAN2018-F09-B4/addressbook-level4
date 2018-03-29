@@ -31,6 +31,14 @@ public class Appointment {
 
     }
 
+    public Appointment(Appointment toCopy) {
+        date = toCopy.getDate();
+        time = toCopy.getTime();
+        duration = toCopy.getDuration();
+        description = toCopy.getDescription();
+        clientOwnPet = toCopy.getClientOwnPet();
+    }
+
     public Date getDate() {
         return date;
     }

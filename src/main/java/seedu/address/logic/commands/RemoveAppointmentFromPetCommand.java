@@ -13,6 +13,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.appointment.Appointment;
 import seedu.address.model.appointment.exceptions.AppointmentNotFoundException;
+import seedu.address.model.appointment.exceptions.DuplicateAppointmentException;
 
 /**
  * Removes the appointment from a pet
@@ -52,6 +53,8 @@ public class RemoveAppointmentFromPetCommand extends UndoableCommand {
             model.removeAppointmentFromPet(appointment.get());
         } catch (AppointmentNotFoundException e) {
             throw new CommandException(Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);
+        } catch (DuplicateAppointmentException e) {
+            throw new CommandException(ScheduleCommand.MESSAGE_DUPLICATE_APPOINTMENT);
         }
         return new CommandResult(String.format(MESSAGE_REMOVE_APPOINTMENT_SUCCESS, appointment.get()));
     }

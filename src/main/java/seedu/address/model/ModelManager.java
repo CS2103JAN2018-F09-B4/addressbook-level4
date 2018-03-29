@@ -163,7 +163,8 @@ public class ModelManager extends ComponentManager implements Model {
 
     @Override
     public void addAppointmentToPet(Appointment appointment, Pet pet)
-            throws PetAlreadyHasAppointmentException, ClientPetAssociationNotFoundException {
+            throws PetAlreadyHasAppointmentException, ClientPetAssociationNotFoundException,
+            AppointmentNotFoundException, DuplicateAppointmentException {
         requireAllNonNull(appointment, pet);
         addressBook.addAppointmentToPet(appointment, pet);
         indicateAddressBookChanged();
@@ -171,7 +172,7 @@ public class ModelManager extends ComponentManager implements Model {
 
     @Override
     public void removeAppointmentFromPet(Appointment appointment)
-        throws AppointmentNotFoundException {
+        throws AppointmentNotFoundException, DuplicateAppointmentException {
         requireNonNull(appointment);
         addressBook.removeAppointmentFromPet(appointment);
         indicateAddressBookChanged();
