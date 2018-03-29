@@ -170,7 +170,8 @@ public interface Model {
      * Adds an appointment to a pet.
      */
     void addAppointmentToPet(Appointment appointment, Pet pet) throws
-            PetAlreadyHasAppointmentException, ClientPetAssociationNotFoundException, AppointmentNotFoundException, DuplicateAppointmentException;
+            PetAlreadyHasAppointmentException, ClientPetAssociationNotFoundException,
+            AppointmentNotFoundException, DuplicateAppointmentException;
 
     /**
      * Removes an appointment from a pet.

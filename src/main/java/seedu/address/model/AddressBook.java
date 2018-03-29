@@ -349,7 +349,8 @@ public class AddressBook implements ReadOnlyAddressBook {
     /**
      * Removes the appointment from a pet
      */
-    public void removeAppointmentFromPet(Appointment appointment) throws AppointmentNotFoundException, DuplicateAppointmentException {
+    public void removeAppointmentFromPet(Appointment appointment) throws
+            AppointmentNotFoundException, DuplicateAppointmentException {
         if (!appointments.contains(appointment)) {
             throw new AppointmentNotFoundException();
         } else {
