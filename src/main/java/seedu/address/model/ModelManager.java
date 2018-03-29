@@ -133,7 +133,7 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public synchronized void deletePet(Pet target) throws PetNotFoundException {
+    public synchronized void deletePet(Pet target) throws PetNotFoundException, ClientPetAssociationNotFoundException {
         addressBook.removePet(target);
         indicateAddressBookChanged();
     }
