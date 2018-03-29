@@ -39,15 +39,15 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private BrowserPanel browserPanel;
     private ClientListPanel clientListPanel;
     private PetListPanel petListPanel;
     private VetTechnicianListPanel vetTechnicianListPanel;
+    private DateTimeCard dateTimeCard;
     private Config config;
     private UserPrefs prefs;
 
     @FXML
-    private StackPane browserPlaceholder;
+    private StackPane dateTimePlaceholder;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -83,6 +83,7 @@ public class MainWindow extends UiPart<Stage> {
         this.prefs = prefs;
 
         // Configure the UI
+        config.setAppTitle("VetterAppointments");
         setTitle(config.getAppTitle());
         setWindowDefaultSize(prefs);
 
@@ -135,8 +136,6 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        browserPanel = new BrowserPanel();
-        browserPlaceholder.getChildren().add(browserPanel.getRoot());
 
         clientListPanel = new ClientListPanel(logic.getFilteredClientList());
         clientListPanelPlaceholder.getChildren().add(clientListPanel.getRoot());
@@ -155,6 +154,9 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(logic);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
+
+        dateTimeCard = new DateTimeCard();
+        dateTimePlaceholder.getChildren().add(dateTimeCard.getRoot());
     }
 
     void hide() {
@@ -218,7 +220,6 @@ public class MainWindow extends UiPart<Stage> {
         return this.vetTechnicianListPanel;
     }
 
-
     /**
      * Changes to the {@code Tab} of the specific {@code list} requested and selects it.
      */
@@ -245,10 +246,6 @@ public class MainWindow extends UiPart<Stage> {
                 logic.setCurrentList(newValue.intValue());
             }
         });
-    }
-
-    void releaseResources() {
-        browserPanel.freeResources();
     }
 
     @Subscribe
