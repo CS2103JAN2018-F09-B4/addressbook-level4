@@ -408,7 +408,7 @@ Restores the address book to the state before the previous _undoable_ command wa
 [NOTE]
 ====
 Undoable commands: those commands that modify the address book's content: +
-`add` `addp` `addapptto` `sortc` `sortp` `delete` `rmpetfrom` `rmapptfrom` `edit` `editp` `editappt` `clear`
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
 ====
 
 === Redoing the previously undone command : `redo`
@@ -420,7 +420,7 @@ Reverses the most recent `undo` command. +
 [NOTE]
 ====
 Undoable commands: those commands that modify the address book's content: +
-`add` `addp` `addapptto` `sortc` `sortp` `delete` `rmpetfrom` `rmapptfrom` `edit` `editp` `editappt` `clear`
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
 ====
 
 === Clearing all entries : `clear`

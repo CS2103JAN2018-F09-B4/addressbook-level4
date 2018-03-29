@@ -16,6 +16,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.appointment.Appointment;
 import seedu.address.model.appointment.UniqueAppointmentList;
+import seedu.address.model.appointment.exceptions.AppointmentHasBeenTakenException;
 import seedu.address.model.appointment.exceptions.AppointmentNotFoundException;
 import seedu.address.model.appointment.exceptions.DuplicateAppointmentException;
 import seedu.address.model.association.ClientOwnPet;
@@ -318,7 +319,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Finds the pet and adds the appointment
      */
     public void addAppointmentToPet(Appointment appointment, Pet pet) throws PetAlreadyHasAppointmentException,
-            ClientPetAssociationNotFoundException, AppointmentNotFoundException, DuplicateAppointmentException {
+            ClientPetAssociationNotFoundException, AppointmentNotFoundException, DuplicateAppointmentException,
+            AppointmentHasBeenTakenException {
 
         boolean isAdded = false;
         boolean isPresent = false;
@@ -326,6 +328,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         if (clientPetAssociations.isEmpty()) {
             throw new ClientPetAssociationNotFoundException();
         }
+        if (appointment.getClientOwnPet() != null) {
+            throw new AppointmentHasBeenTakenException();
+        }
+
         for (ClientOwnPet a : clientPetAssociations) {
             if (a.getPet().equals(pet)) {
                 isPresent = true;
@@ -337,10 +343,11 @@ public class AddressBook implements ReadOnlyAddressBook {
                 }
             }
         }
+
         if (!isPresent) {
             throw new ClientPetAssociationNotFoundException();
         }
-        if (!isAdded) {
+        if (isPresent && !isAdded) {
             throw new PetAlreadyHasAppointmentException();
         }
 
