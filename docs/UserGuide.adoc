@@ -361,7 +361,7 @@ the user. +
 
 Here is an exammple of using the command `rmapptfrom`: +
 
-* `rmpetfrom appt/1` +
+* `rmapptfrom appt/1` +
 When this command is executed, the appointment will be removed from the pet that is associated to it.
 
 [NOTE]
@@ -537,7 +537,7 @@ Restores the address book to the state before the previous _undoable_ command wa
 [NOTE]
 ====
 Undoable commands: those commands that modify the address book's content: +
-`add` `addp` `addappttopet` `sortc` `sortp` `delete` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
 `schedule`
 ====
 
@@ -550,7 +550,7 @@ Reverses the most recent `undo` command. +
 [NOTE]
 ====
 Redoable commands: those commands that modify the address book's content: +
-`add` `addp` `addappttopet` `sortc` `sortp` `delete` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
 `schedule`
 ====
 
@@ -624,7 +624,7 @@ about them.
 |=======
 |*Command* |*Command Format* |*Description*
 |schedule | `schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION` |Schedule an appointment given date (YYYY-MM-DD), time (HH:MM), duration (minutes) and description.
-|addp |`addp n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a cient.
+|addp |`addp n/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a client.
 |addappttopet |`addapptto appt/APPOINTMENT_INDEX p/PET_INDEX` |Adds an appointment to a pet.
 |list pet |`list pet` |Lists all pets.
 |list appt |`list appt` |Lists all appointments.
