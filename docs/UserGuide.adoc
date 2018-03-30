@@ -17,11 +17,22 @@ By: `F09-B4`      Since: `March 2018`      Licence: `MIT`
 
 == Introduction
 
-VetterAppointments is a program for vets who prefer to use a desktop app for managing their Clients, Pets and Appointments. +
+If you're a vet and have trouble managing your clients' appointments, then *VetterAppointments* is the right program for you. +
 
-The app is optimized for Vets who prefer to work with the *Command Line Interface (CLI)* while still having a Graphical User Interface (GUI) that clearly lists out what is important to him or her. +
+*VetterAppointments* allows you to have better control of your scheduling process
+and manages them better by organizing all of your appointments and
+displays only important information to you. The program strips away any unnecessary clutter
+and allows you to focus on what matters to you the most; your clients, the animals under your
+care and their appointments, and your staff. This allows the program to help you out on managing your clients. +
 
-VetterAppointments allows a vet to manage and complete his tasks faster than the traditional GUI app provided he or she is a fast typer. To get started with the app, head down to <<Quick Start>> to get started!
+*VetterAppointments* works on a Command Line Interface (CLI) feature supported by a well thought-out Graphical User Interface (GUI).
+This allows you to quickly type in the commands in the command box instead of messing around with the interface. Do bear in mind that
+anything that could be done with the mouse can also be done by commands in the program. +
+
+Don't worry, this user guide will help you along and guide you on how to get *VetterAppointments* up and running
+as well as reveal all the features and commands available to you.
+
+
 
 == Quick Start
 
@@ -31,11 +42,17 @@ VetterAppointments allows a vet to manage and complete his tasks faster than the
 Having any Java 8 version is not enough. +
 This app will not work with earlier versions of Java 8.
 +
-.  Download the latest `VetterAppointments.jar` link:{repoURL}/releases[here].
+.  Download the latest `VetterAppointments.jar` link:{repoURL}/releases[here]. You'll be
+see the version releases of the program there similar to the image below.
 .  Copy the file to the folder you want to use as the home folder for your VetterAppointments.
-.  Double-click the file to start the app. The GUI should appear in a few seconds.
+.  Double-click the file to start the app. The program should start up and looks like the image below.
 +
-image::Ui.png[width="790"]
+.VetterAppointments program interface upon starting up.
+image::userguide_userInterface_image.png[width="790"]
+[NOTE]
+Don't worry if you're seeing names of people you don't know! They're there by default.
+You can type `clear` on the command box and press kbd:[Enter] on your keyboard to remove them.
+
 
 [[Features]]
 == Features
@@ -43,12 +60,16 @@ image::Ui.png[width="790"]
 ====
 *Understanding the Command Format*
 
-An example of a command format: +
+We'll need to understanding how a command format works before diving into the program.
+
+Here's an example of a command format: +
 `add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
 
-* The first word of the command format `add` states the *type* of the command. Other *types* of commands includes but not limited to, `delete`, `list`, `undo`, `redo` and etc.
+* The first word of the command format `add` states the *type* of the command. There are many *types* of commands like
+`addp` `addappttopet` `deletep` and etc. But don't worry, we'll go through them in the user guide.
 
-* Following the `add` are the parameters or the arguments that the command needs. In this case, the `add` command require these parameters from the user:
+* Following the `add` are the parameters or the arguments that the command needs.
+In this case, the `add` command require these parameters from you:
 +
 
 [horizontal]
@@ -59,7 +80,9 @@ An example of a command format: +
 *ADDRESS*:: The address of the person being added. +
 *TAGS*:: (OPTIONAL)
 
-* Parameters in uppercase states that the argument needs to be supplied by the user. They have a prefix on them like r/, n/, p/, e/, a/ and t/ that needs to be typed by the user. These prefixes tells the program the different parameter types.
+* Parameters in uppercase states that they need to be supplied by the user.
+They have a prefix on them like r/, n/, p/, e/, a/ and t/ that needs to be typed by the user.
+These prefixes tells the program the different parameter types.
 
 * Parameters enclosed by square brackets like [t/TAG] suggests that the argument is *optional*. +
 The user may choose to omit the parameter or add it.
@@ -67,64 +90,127 @@ The user may choose to omit the parameter or add it.
 * Parameters with ... appended to it, for example [t/TAG]... suggests that the parameter can be added multiple times. +
 If the user chooses to do, he or she *should not* omit the prefix of the argument, for this instance, t/. +
 
-* Parameters of the commands can be typed in any order that the user chooses as long as the prefix of the argument is not omitted.
+* *Parameters of the commands can be typed in any order that the user chooses as long as the prefix of the argument is not omitted.*
 
 ====
 '''
+
+=== Autocomplete
+
+If you're feeling lazy to type in the command type, press kbd:[Tab] on your keyboard
+and it'll do the rest for you. +
+
+
+
+
+
+=== Executing a command
+
+Every command in VetterAppointments are executed by first entering the command type
+and its respective parameters. To execute the command, simply press the kbd:[Enter]
+key on your keyboard. +
+
+[TIP]
+Don't worry if you can't remember the parameters of a command type. Pressing kbd:[Enter]
+before a complete command sentence will display the necessary parameters required for the command.
+
+
+
+
 === Viewing help : `help`
 
 Command format: `help` +
 
-Upon entering the `help` command, a User Guide manual will pop up displaying the available commands for the user. +
+Upon entering the `help` command, a User Guide manual will pop up displaying the
+available commands for you. You can always enter the `help` command if you need help
+with the program. +
 
-.A User Guide display upon entering `help` command. +
-image::user_guide.PNG[width="790"]
+
 
 
 === Adding a person: `add` `Since v1.1`
 
 Command format: `add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
 
-
-The `add` command will insert a new person's details into the program. The command expects these parameters when adding a new person: +
+The `add` command will insert a new person's details into the program upon entering.
+The command expects these parameters when adding a new person: +
 
 [horizontal]
-*ROLE*:: VetterAppointment expects a role to be either a *VetTechnician* or a *Client*. +
-*NAME*:: A name must be provided by the user for the person to be added. +
-*PHONE*:: A phone number consisting of only numbers must be supplied by the user. +
-*EMAIL*:: A valid email address must be provided with a valid domain and format. +
-*ADDRESS*:: An address for the person to be added must be supplied by the user. +
-*TAGS*:: The tags for the person to be added. This field can be omitted and used multiple times and should not contain any spaces. +
+*ROLE*::
+VetterAppointment expects a role to be either a *VetTechnician* or a *Client*.
+You cannot omit this parameter. +
+
+*NAME*::
+A name must be provided by the user for the person to be added. +
+
+*PHONE*::
+A phone number consisting of only numbers must be supplied by the user. +
+
+*EMAIL*::
+A valid email address must be provided with a valid domain and format. +
+
+*ADDRESS*::
+An address for the person to be added must be supplied by the user. +
+
+*TAGS*::
+The tags for the person to be added. This field can be omitted and used multiple times and should not contain any spaces. +
 
 Here are some valid examples on how to use the `add` command:
 
 * `add r/Client n/Alice Peterson p/91234567 e/alicepeter@email.com a/Blk 123, Bedok Reservoir St24` +
-The user omits the tag parameters.
+In this scenario, you choose to omit the tag parameter for Alice Peterson who is your client.
+
 * `add r/Client n/Bradly Cooper p/91234567 e/bradlycooper@email.com t/friend t/dog_whisperer a/Blk 123, Bedok Reservoir St24` +
-The user adds multiple tags.
-* `add r/VetTechnician p/91234567 n/Carley Riady a/Blk 123, Bedok Reservoir St24 t/friend t/part_timer e/carlyriady@email.com` +
-The user chooses to re-order the parameter of the command. +
+In contrast, here you choose to add multiple tags to Bradly Cooper, your client as well.
+
+The figure below is an example of the result upon executing the `add` command.
+Here, we use `add r/client n/Davis Teo p/91234765 e/davis@email.com a/123, Clementi Ave 4, #05-06 t/friend`
+as an example. +
+
+.Result output after adding a client
+image::userguide_addCommand_image.png[width="729"]
+
 
 === Adding a pet: `addp` `Since v1.2`
 
 Command format: `addp c/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG...` +
 
-The `addp` command adds a pet to the program.
+The `addp` command adds a pet to the program with its details.
 The command expects these parameters when adding a pet to a client: +
 
 [horizontal]
-*CLIENT INDEX*:: The index of the client to add the pet to must be supplied the user. +
-*PET NAME*:: The name of the pet to be added to a client must be supplied by the user. +
-*PET AGE*:: The age of the pet must be supplied by the user. It must contain only numbers. +
-*PET GENDER*:: The gender of the pet must be supplied by the user. It can only be male or female. +
-*PET TAGS*:: The pet tags should be supplied by the user. Pet tags will represent the species and breed of the pet.
+*CLIENT INDEX*::
+The index of the client to add the pet to must be supplied the user. +
+
+*PET NAME*::
+The name of the pet to be added to a client must be supplied by the user. +
+
+*PET AGE*::
+The age of the pet must be supplied by the user. It must contain only numbers. +
+
+*PET GENDER*::
+The gender of the pet must be supplied by the user. It can only be male or female. +
+
+*PET TAGS*::
+The pet tags should be supplied by the user.
+Pet tags will represent the species and breed of the pet.
 
 Here are some valid examples on how to use the `addp` command: +
 
 * `addp c/1 pn/Garfield pa/10 pg/M t/cat t/tabby` +
-The user chooses to add Garfield to client of index 1 of age 10 and is a male. Garfield is a cat and a tabby. +
-* `addp c/1 pn/Scooby Doo pa/5 pg/M t/dog t/great_dane` +
-The user chooses to add another pet called Scooby to client of index 1 Doo of age 5 and is a male. Scooby Doo is a dog and a great dane.
+Here, you choose to add Garfield to client of index 1 of age 10 and is a male. Garfield is a cat and a tabby.
+Garfield is also owned by the client at index 1 +
+
+* `addp c/1 pn/Scooby Doo pa/5 pg/M t/dog t/greatdane` +
+Here you choose to add another pet called Scooby to client of index 1 Doo of age 5 and is a male.
+Scooby Doo is a dog and a great dane. So now the client of index 1 owns both Scooby Doo and Garfield. +
+
+Say your program already consist of only David Teo as your client. After executing the example `addp`
+commands, David Teo will now have Garfield and Scooby Doo as his pets. Below are the results
+upon executing the `addp` command. +
+
+.Result after adding Garfield and Scooby to client 1 which is Davis Teo
+image::userguide_addpCommand_image.png[width="729"]
 
 === Adding an appointment to a pet: `addappttopet`
 
