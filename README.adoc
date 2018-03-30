@@ -14,7 +14,9 @@ image::images/landing_logo.png[width="1000"]
 endif::[]
 
 {nbsp} +
-VetterAppointments is a desktop address book application developed for veterinarians. VetterAppoinments allows you manage your veterinary technicians, clients, pets and appointments in a simple to use and beautifully designed desktop application.
+VetterAppointments is a desktop address book application developed for veterinarians. VetterAppointments
+allows you manage your veterinary technicians, clients, pets and appointments in a simple
+to use and beautifully designed desktop application.
 
 The application is designed for veterinarians who prefer to type. The well crafted UI will assist you to quickly view details about an appointment or client.
 
