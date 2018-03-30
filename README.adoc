@@ -6,11 +6,11 @@ https://ci.appveyor.com/project/jonwjbot/main/branch/master[image:https://ci.app
 https://coveralls.io/github/CS2103JAN2018-F09-B4/main?branch=master[image:https://coveralls.io/repos/github/CS2103JAN2018-F09-B4/main/badge.svg?branch=master[Coverage Status]]
 
 ifdef::env-github[]
-image::docs/images/Ui.png[width="800"]
+image::docs/images/landing_logo.png[width="100%"]
 endif::[]
 
 ifndef::env-github[]
-image::images/Ui.png[width="800"]
+image::images/landing_logo.png[width="100%"]
 endif::[]
 
 {nbsp} +
