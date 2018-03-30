@@ -172,6 +172,9 @@ as an example. +
 image::userguide_addCommand_image.PNG[width="729"]
 
 
+
+
+
 === Adding a pet: `addp` `Since v1.2`
 
 Command format: `addp c/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG...` +
@@ -213,6 +216,10 @@ upon executing the `addp` command. +
 .Result after adding Garfield and Scooby to client 1 which is Davis Teo
 image::userguide_addpCommand_image.PNG[width="729"]
 
+
+
+
+
 === Adding an appointment to a pet: `addappttopet` `Since v1.3`
 
 Command format: `addappttopet appt/APPOINTMENT_INDEX pn/PET_INDEX` +
@@ -237,6 +244,10 @@ you've just scheduled two appointments to the same pet.
 [NOTE]
 You need to schedule an appointment first before adding it to a pet.
 
+
+
+
+
 === Listing all clients: `list client` `Since v1.2`
 
 Command format: `list client` +
@@ -249,6 +260,10 @@ client list tab below. +
 
 .Resulting output upon executing the `list client` command.
 image::userguide_listClientCommand_image.PNG[width="300"]
+
+
+
+
 
 === Listing all pets: `list pet` `Since v1.2`
 
@@ -263,6 +278,10 @@ pet list tab below. +
 .Resulting output upon executing the `list pet` command.
 image::userguide_listPetCommand_image.PNG[width="300"]
 
+
+
+
+
 === Listing all vet technicians: `list vettech` `Since v1.2`
 
 Command format: `list vettech` +
@@ -276,12 +295,20 @@ vet tech list tab below. +
 .Resulting output upon executing the `list vettech` command.
 image::userguide_listVettechCommand_image.PNG[width="300']
 
+
+
+
+
 === Listing all appointments: `list appt` `coming v2.0`
 
 Command format: `list appt` +
 
 The `list appt` command will display all appointments that are pending for you.
 The list sorts upcoming appointments by date and then by time.
+
+
+
+
 
 === Listing all information: `listall` `coming v2.0`
 
@@ -298,17 +325,29 @@ Here is an example of using the command `listall`: +
 * `listall 1`  +
 Suppose there is only one client in the program and is stored at index 1. This command will then display all the information regarding the person at index one. +
 
+
+
+
+
 === Sorting clients in alphabetical order: `sortc`
 
 Command format: `sortc` +
 
 The `sortc` command will sort all existing clients in the program in alphabetical ordering.
 
+
+
+
+
 === Sorting pets in alphabetical order: `sortp`
 
 Command format: `sortp` +
 
 The `sortp` command will sort all existing pets in the program in alphabetical ordering.
+
+
+
+
 
 === Removing a client or vet technician: `delete` `Since v1.1`
 
@@ -330,6 +369,10 @@ Suppose you are currently viewing the 'client' list and there is only one client
 called Alice Peterson and she has Garfield and Scooby Doo as her associated pets.
 This command will remove Alice, Garfield and Scooby Doo from the program.
 
+
+
+
+
 === Removing a pet: `deletep` `Since v1.2`
 
 Command format: `deletep INDEX` +
@@ -346,9 +389,36 @@ Here is an example of using the command `deletep`: +
 Suppose there is only one pet in the program called Garfield,
 Garfield will be entirely removed from your program.
 
+
+
+
+
+=== Removing a pet from a client: `removepetfrom`
+
+Command format: `removepetfrom c/CLIENT_INDEX p/PET_INDEX` +
+
+The `removepetfrom` command will remove the association between the pet and the client at the specified
+index. +
+
+[horizontal]
+*CLIENT INDEX*::
+The client's index in the program based on the client list. This must be supplied by the user.
+
+*PET INDEX*
+The pet's index in the program based on the pet list. This must be supplied by the user.
+
+Here is an example on using the `removepetfrom` command:
+
+* `removepetfrom c/1 p/1`
+If you execute this command, it will remove the association between the first pet and the first client
+in their respective listing.
+
+
+
+
 === Removing an appointment from a pet: `removemapptfrom` `since v1.3`
 
-Command format: `removeapptfrompet appt/APPOINTMENT_INDEX`
+Command format: `removeapptfrompet appt/APPOINTMENT_INDEX` +
 
 The `rmapptfrom` command removes an associated appointment from a pet.
 The command requires the index of the appointment in the appointment list.
@@ -368,9 +438,13 @@ When this command is executed, the appointment will be removed from the pet that
 The command does not remove the appointment itself, rather, the pet associated with the appointment.
 So don't worry, you don't have to reschedule the appointment.
 
+
+
+
+
 === Editing a client or vet technician's details : `edit` `Since v1.1`
 
-Command format: `edit INDEX [r/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Command format: `edit INDEX [r/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
 
 The `edit` command amends the details of an existing client or vet technician, depending on which list the vet is currently viewing.
 The details of the specified person's index will be replaced with the supplied parameters from the user.
@@ -400,9 +474,13 @@ You choose to amend person 1 on the currently viewed list and changes the person
 * `edit 1 n/Mary Tan` +
 You choose to only change the name of the person specified at index 1 on the currently viewed list and omits the remaining parameters.
 
+
+
+
+
 === Editing a pet's details: `editp` `coming v2.0`
 
-Command format: `editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]...`
+Command format: `editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]...` +
 
 Similar to the `edit` command, the `editp` command amends the details of a specified pet of the specified owner. The command expects these parameters when executing: +
 
@@ -423,9 +501,13 @@ Here is an example of using the `editp` command: +
 * `editp 1 pn/Jerry pa/2 pg/M` +
 Here you choose to edit the pet of the first index and changed the existing name, age and gender to Jerry, 2 and male.
 
+
+
+
+
 === Editing a pet's appointment: `editappt` `coming v2.0`
 
-Command format: `editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]`
+Command format: `editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` +
 
 The `editappt` command edits the appointment date and detail of an existing pet.
 The command expects these parameters when executing: +
@@ -439,9 +521,11 @@ The command expects these parameters when executing: +
 *COMMENTS*:: The new comments for the appointment. It need not be supplied by the user.
 
 
+
+
 === Finding by name: `find`
 
-Command format: `find KEYWORD`
+Command format: `find KEYWORD` +
 
 The `find` command displays all existing clients or pets containing the keyword.
 The command expects these parameters: +
@@ -537,7 +621,7 @@ Restores the address book to the state before the previous _undoable_ command wa
 [NOTE]
 ====
 Undoable commands: those commands that modify the address book's content: +
-`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `removepetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
 `schedule`
 ====
 
@@ -550,7 +634,7 @@ Reverses the most recent `undo` command. +
 [NOTE]
 ====
 Redoable commands: those commands that modify the address book's content: +
-`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `rmpetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `removepetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
 `schedule`
 ====
 
@@ -560,7 +644,7 @@ Command format: `clear` +
 
 Clears all entries from the address book. +
 
-[IMPORTANT]
+[CAUTION]
 `clear` command will remove *all* existing clients, pets, appointments and vet technicians
  stored in your program.
 
@@ -630,7 +714,7 @@ about them.
 |list appt |`list appt` |Lists all appointments.
 |sortp |`sortp` |Sorts the pet list alphabetically.
 |deletep |`deletep INDEX` |Removes a pet from the program based on index.
-|rmpetfrom |`rmpetfrom n/CLIENT_INDEX pn/PET_NAME` |Removes a pet from a client.
+|removepetfrom |`removepetfrom n/CLIENT_INDEX pn/PET_INDEX` |Removes a pet from a client.
 |rmapptfrompet |`rmapptfrom p/PET_INDEX` |Removes an appointment from a pet.
 |editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
 |editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |Edits an appointment's details.
