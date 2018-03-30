@@ -61,7 +61,7 @@ You can type `clear` on the command box and press kbd:[Enter] on your keyboard t
 ====
 *Understanding the Command Format*
 
-We'll need to understanding how a command format works before diving into the program.
+We'll need to understand how a command format is laid out before diving into the program.
 
 Here's an example of a command format: +
 `add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]...`
@@ -630,7 +630,7 @@ about them.
 |list appt |`list appt` |Lists all appointments.
 |sortp |`sortp` |Sorts the pet list alphabetically.
 |deletep |`deletep INDEX` |Removes a pet from the program based on index.
-|rmpetfrom |`rmpetfrom n/CLIENT_NAME pn/PET_NAME` |Removes a pet from a client.
+|rmpetfrom |`rmpetfrom n/CLIENT_INDEX pn/PET_NAME` |Removes a pet from a client.
 |rmapptfrompet |`rmapptfrom p/PET_INDEX` |Removes an appointment from a pet.
 |editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
 |editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |Edits an appointment's details.
