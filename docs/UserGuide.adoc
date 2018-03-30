@@ -5,7 +5,6 @@
 :sectnums:
 :imagesDir: images
 :stylesDir: stylesheets
-:stylesheet: boot-flatly.css
 :xrefstyle: full
 :experimental:
 ifdef::env-github[]
@@ -589,35 +588,63 @@ So there's nothing to worry about, all your data will be saved.
 *Q*: The commands are long. Are there anyway to speed up the process? +
 
 *A*: Yes there is! We have an autocomplete feature that you might find useful.
-See <<3.Features, 3.1. Autocomplete>> for more details.
+See <<Section 3.Features, 3.1. Autocomplete>> for more details.
 
 == Command Summary
+This section provides a quick summary of all the available commands in the program.
+It's categorized neatly so you can find the command that you want easily.
+
+=== Client & Vet Tech related commands
+The table below lists and summarizes all the commands that are related to the persons in your
+program. You can head to the respective section on the commands if you want to
+know more about them.
+
+[width="100%"]
+|=======
+|*Command* |*Command Format* |*Description*
+|add |`add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…` |Adds a person into the program.
+|list client |`list client` |Lists all clients.
+|list vettech |`list vettech` |Lists all vet technicians.
+|listall |`listall INDEX` |Lists all details for a particular client.
+|sortc |`sortc` |Sorts the client list alphabetically.
+|sortv |`sortv` |Sorts the vet tech list alphabetically.
+|delete |`delete INDEX` |Remove a client/vettech from the program based on index.
+|edit |`edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` |Edits a person's details.
+|find |`find KEYWORD` |Finds a client with keyword.
+|select |`select INDEX` |Selects an index.
+|=======
+
+=== Pets & Appointments related commands
+The table below lists and summarizes all the commands that are related to the pets and appointments
+in your program. You can head to the respective section on the commands if you want to know more
+about them.
+
+[width="100%"]
+|=======
+|*Command* |*Command Format* |*Description*
+|schedule | `schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION` |Schedule an appointment given date (YYYY-MM-DD), time (HH:MM), duration (minutes) and description.
+|addp |`addp n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a cient.
+|addappttopet |`addapptto appt/APPOINTMENT_INDEX p/PET_INDEX` |Adds an appointment to a pet.
+|list pet |`list pet` |Lists all pets.
+|list appt |`list appt` |Lists all appointments.
+|sortp |`sortp` |Sorts the pet list alphabetically.
+|deletep |`deletep INDEX` |Removes a pet from the program based on index.
+|rmpetfrom |`rmpetfrom n/CLIENT_NAME pn/PET_NAME` |Removes a pet from a client.
+|rmapptfrompet |`rmapptfrom p/PET_INDEX` |Removes an appointment from a pet.
+|editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
+|editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |Edits an appointment's details.
+|findp |`findp KEYWORD` |finds a pet with keyword.
+|select |`select INDEX` |Selects an index.
+|=======
+
+=== Program and shared commands
+The table below shows commands that are program based. These commands have no relation to your
+clients, staff, pets and appointments. They're solely for the program.
 
 [width="100%"]
 |=======
 |*Command* |*Command Format* |*Description*
 |help |`help` |Displays the user guide.
-|add |`add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…` |Adds a person into the program.
-|addp |`addp n/CLIENT_NAME pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a cient.
-|addappttopet |`addapptto appt/APPOINTMENT_INDEX p/PET_INDEX` |Adds an appointment to a pet.
-|list client |`list client` |Lists all clients.
-|list pet |`list pet` |Lists all pets.
-|list vettech |`list vettech` |Lists all vet technicians.
-|list appt |`list appt` |Lists all appointments.
-|listall |`listall INDEX` |Lists all details for a particular client.
-|sortc |`sortc` |Sorts the client list alphabetically.
-|sortp |`sortp` |Sorts the pet list alphabetically.
-|delete |`delete INDEX` |Remove a client from the program based on index.
-|deletep |`deletep INDEX` |Removes a pet from the program based on index.
-|rmpetfrom |`rmpetfrom n/CLIENT_NAME pn/PET_NAME` |Removes a pet from a client.
-|rmapptfrompet |`rmapptfrom p/PET_INDEX` |Removes an appointment from a pet.
-|edit |`edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` |Edits a person's details.
-|editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
-|editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |Edits an appointment's details.
-|find |`find KEYWORD` |Finds a client with keyword.
-|findp |`findp KEYWORD` |finds a pet with keyword.
-|select |`select INDEX` |Selects an index.
-|schedule | `schedule [da/Date] [tm/Time] [du/Duration]` |Schedule an appointment at the given time.
 |history |`history` |Lists the history of commands executed.
 |undo |`undo` |Undo the previous command executed.
 |redo |`redo` |Redo the undo command executed.
