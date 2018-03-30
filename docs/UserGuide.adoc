@@ -404,7 +404,7 @@ index. +
 *CLIENT INDEX*::
 The client's index in the program based on the client list. This must be supplied by the user.
 
-*PET INDEX*
+*PET INDEX*::
 The pet's index in the program based on the pet list. This must be supplied by the user.
 
 Here is an example on using the `removepetfrom` command:
