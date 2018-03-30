@@ -4,8 +4,8 @@
 :toc-placement: preamble
 :sectnums:
 :imagesDir: images
-//:stylesDir: stylesheets
-:stylesheet: stylesheets/boot-flatly.css
+:stylesDir: stylesheets
+:stylesheet: boot-flatly.css
 :xrefstyle: full
 :experimental:
 ifdef::env-github[]
