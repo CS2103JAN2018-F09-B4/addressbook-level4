@@ -2,6 +2,7 @@
 :toc:
 :toc-title:
 :toc-placement: preamble
+:toclevels: 4
 :sectnums:
 :imagesDir: images
 :stylesDir: stylesheets
@@ -36,7 +37,6 @@ as well as reveal all the features and commands available to you.
 
 
 == Quick Start
-
 .  Ensure you have Java version `1.8.0_60` or later installed in your Computer.
 +
 [NOTE]
@@ -95,18 +95,17 @@ If the user chooses to do, he or she *should not* omit the prefix of the argumen
 
 ====
 '''
+=== System Based Commands & Features
+This section explains all the commands and features that are available in the program. These
+commands are not directly related to your clients, staff, pet and appointments. This section will also
+explain some of the features in depth. Feel free to head down to the command summary for a quick
+glance of the available commands relating to the program <<Program and Shared Summarized Table>>.
 
-=== Autocomplete
-
+==== Autocomplete
 If you're feeling lazy to type in the command type, press kbd:[Tab] on your keyboard
 and it'll do the rest for you. +
 
-
-
-
-
-=== Executing a command
-
+==== Executing a command
 Every command in VetterAppointments are executed by first entering the command type
 and its respective parameters. To execute the command, simply press the kbd:[Enter]
 key on your keyboard. +
@@ -115,22 +114,76 @@ key on your keyboard. +
 Don't worry if you can't remember the parameters of a command type. Pressing kbd:[Enter]
 before a complete command sentence will display the necessary parameters required for the command.
 
+==== Clearing all entries : `clear`
+Command format: `clear` +
 
+Clears all entries from the address book. +
 
+[CAUTION]
+`clear` command will remove *all* existing clients, pets, appointments and vet technicians
+ stored in your program.
 
-=== Viewing help : `help`
+==== Exiting the program : `exit`
+Command format: `exit` +
 
+Exits the program. +
+
+[TIP]
+Exiting the program in the middle of a command will save the state of the program.
+So there's nothing to worry about, all your data will be saved.
+
+==== Viewing help : `help`
 Command format: `help` +
 
 Upon entering the `help` command, a User Guide manual will pop up displaying the
 available commands for you. You can always enter the `help` command if you need help
 with the program. +
 
+==== Listing entered commands : `history`
+Command format: `history` +
+
+Lists all the commands that you have entered in reverse chronological order. +
+
+[TIP]
+====
+Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
+====
+
+==== Redoing the previously undone command : `redo`
+Format: `redo` +
+
+Reverses the most recent `undo` command. +
+
+[NOTE]
+====
+Redoable commands: those commands that modify the address book's content: +
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `rmapptfrompet` `edit` `editp` `editappt` `clear`
+`schedule`
+====
+
+==== Undoing previous command : `undo`
+Command format: `undo` +
+
+Restores the address book to the state before the previous _undoable_ command was executed. +
+
+[NOTE]
+====
+Undoable commands: those commands that modify the address book's content: +
+`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `rmapptfrompet` `edit` `editp` `editappt` `clear`
+`schedule`
+====
 
 
 
-=== Adding a person: `add` `Since v1.1`
 
+=== Client & Staff Related Commands
+This section explains and goes through the commands and features available to manage your
+client and staff in the clinic. It explains the commands available thoroughly and provides
+valid examples so you can grasp the commands available quickly. For a summary of all the
+commands available relating to your clients and staff, head down to <<Client & Vet Tech Summarized Table>>.
+
+
+==== Adding a person: `add` `Since v1.1`
 Command format: `add r/ROLE n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
 
 The `add` command will insert a new person's details into the program upon entering.
@@ -172,11 +225,178 @@ as an example. +
 image::userguide_addCommand_image.PNG[width="729"]
 
 
+==== Removing a client or vet technician: `delete` `Since v1.1`
+Command format: `delete INDEX` +
+
+The `delete` command will remove a client from your program if you're viewing the client list.
+Executing this command will remove all the pets associated to the client. +
+
+The `delete` command will remove a vet technician your program if
+you're viewing the vet technician list. The command expects this parameter when called: +
+
+[horizontal]
+*INDEX*:: The client or vet technician's index on the list displayed in the program. This must be supplied by the user.
+
+Here is an example of using the command `delete`: +
+
+* `delete 1` +
+Suppose you are currently viewing the 'client' list and there is only one client in your program
+called Alice Peterson and she has Garfield and Scooby Doo as her associated pets.
+This command will remove Alice, Garfield and Scooby Doo from the program.
 
 
+==== Editing a client or vet technician's details : `edit` `Since v1.1`
+Command format: `edit INDEX [r/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
 
-=== Adding a pet: `addp` `Since v1.2`
+The `edit` command amends the details of an existing client or vet technician, depending on which list the vet is currently viewing.
+The details of the specified person's index will be replaced with the supplied parameters from the user.
+The existing details will be overriden. The command expects these parameters: +
 
+[horizontal]
+*INDEX*::
+The index of the person that the user wants to edit. It must be supplied by the user.
+*ROLE*::
+The new role of the person that the user wants. It need not be supplied by the user.
+*NAME*::
+The new name of the person that the user wants. It need not be supplied by the user.
+*PHONE*::
+The new phone number of the person that the user wants. It need not be supplied by the user.
+*EMAIL*::
+The new email of the person that the user wants. It need not be supplied by the user.
+*ADDRESS*::
+The new address of the person that the user wants. It need not be supplied by the user.
+*TAGS*::
+(OPTIONAL)
+
+The `edit` command is very similar to the `add` command.
+Here are some examples on using the command: +
+
+* `edit 1 e/newemail@email.com a/Blk 123, Clementi Ave 3 t/friend t/part_timer` +
+You choose to amend person 1 on the currently viewed list and changes the person's email, address and tags.
+* `edit 1 n/Mary Tan` +
+You choose to only change the name of the person specified at index 1 on the currently viewed list and omits the remaining parameters.
+
+
+==== Finding by name: `find`
+Command format: `find KEYWORD` +
+
+The `find` command displays all existing clients or pets containing the keyword.
+The command expects these parameters: +
+
+[horizontal]
+*KEYWORD*:: The keyword to find the client or pet. It must be supplied by the user.
+
+Here is an example on how to use the `find` command: +
+
+* `find alice` +
+You used the keyword alice to find all clients containing the word alice in their names.
+
+* `find gArfIeld` +
+You used the keyword gArfIeld to find all pets containing the word garfield in their names.
+
+[TIP]
+The keyword is case insensitive.This means typing, "ALICE", "alice" or 'AlIcE" will result in the same output.
+[NOTE]
+You need to be in the client list to find clients by name. Likewise, you need to be in the pet list to find
+pets by name.
+
+==== Listing all information: `listall` `coming v2.0`
+Command format: `listall INDEX` +
+
+The `listall` command will display all pets and appointments that are tagged to a client.
+The command expects this parameter when called: +
+
+[horizontal]
+*INDEX*:: The index of the client that you wish to view the details of. This must be supplied by the user. +
+
+Here is an example of using the command `listall`: +
+
+* `listall 1`  +
+Suppose there is only one client in the program and is stored at index 1. This command will then display all the information regarding the person at index one. +
+
+
+==== Listing all clients: `list client` `Since v1.2`
+Command format: `list client` +
+
+The `list client` command will display all clients that are stored in the program.
+It automatically switches to the client view tab so you can view all your clients at a glance. +
+
+Here's the resulting output if you executed the command. Notice how it switches to the
+client list tab below. +
+
+.Resulting output upon executing the `list client` command.
+image::userguide_listClientCommand_image.PNG[width="300"]
+
+==== Listing all vet technicians: `list vettech` `Since v1.2`
+Command format: `list vettech` +
+
+The `list vettech` command will display all vet technicians that are stored in the program.
+It automatically switches to the vet technician tab so that you can view them at a glance. +
+
+Here's the resulting output if you executed the command. Notice how it switches to the
+vet tech list tab below. +
+
+.Resulting output upon executing the `list vettech` command.
+image::userguide_listVettechCommand_image.PNG[width="300']
+
+==== Selecting a client, pet or vet technician: `select`
+Command format: `select INDEX` +
+
+The `select` command selects the client, pet or vet technician identified by the
+index number on the currently viewed list. The command expects this parameter: +
+
+[horizontal]
+*INDEX*:: The index of the client, pet or vet technician that the user wants to select.
+It must be supplied by the user.
+
+Here is an example on using the command: +
+
+* `select 3` +
+Let's say you're currently viewing the client list and wishes to select the 3rd client on the list.
+The program will scroll to and select the 3rd client on the list.
+
+
+==== Sorting clients in alphabetical order: `sortc`
+Command format: `sortc` +
+
+The `sortc` command will sort all existing clients in the program in alphabetical ordering.
+
+==== Sorting clients in alphabetical order: `sortv` `coming in v2.0`
+Command format: `sortv` +
+
+The `sortc` command will sort all existing vet technicians in the program in alphabetical ordering.
+
+=== Pets & Appointment Related Commands
+This section explains and goes through in depth, the commands and features available
+that are directly related to your pets and appointments. You can head down to the
+<<Pets & Appointments Summarized Table>> to view the summarized table of all the available
+commands.
+
+==== Adding an appointment to a pet: `addappttopet` `Since v1.3`
+Command format: `addappttopet appt/APPOINTMENT_INDEX pn/PET_INDEX` +
+
+The `addapptto` command adds an appointment to a pet in the program. +
+The command expects these parameters when adding an appointment to a pet: +
+
+[horizontal]
+*APPOINTMENT INDEX*:: The index of the appointment in the list. It must be supplied by the user. +
+*PET INDEX*:: The index of the pet in the list. It must be supplied by the user. +
+
+Here are some valid examples on using the `addappttopet` command: +
+
+* `addappttopet appt/1 p/1` +
+This will add the first appointment in the appointment list to the first pet in the pet list.
+Once this is executed, the pet will now have that appointment. +
+
+* `addappttopet appt/2 p/1` +
+This will add the second appointment in the listing to the first pet again. Doing this means
+you've just scheduled two appointments to the same pet.
+
+[NOTE]
+You need to schedule an appointment first before adding it to a pet.
+
+
+==== Adding a pet: `addp` `Since v1.2`
 Command format: `addp c/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG...` +
 
 The `addp` command adds a pet to the program with its details.
@@ -217,164 +437,7 @@ upon executing the `addp` command. +
 image::userguide_addpCommand_image.PNG[width="729"]
 
 
-
-
-
-=== Adding an appointment to a pet: `addappttopet` `Since v1.3`
-
-Command format: `addappttopet appt/APPOINTMENT_INDEX pn/PET_INDEX` +
-
-The `addapptto` command adds an appointment to a pet in the program. +
-The command expects these parameters when adding an appointment to a pet: +
-
-[horizontal]
-*APPOINTMENT INDEX*:: The index of the appointment in the list. It must be supplied by the user. +
-*PET INDEX*:: The index of the pet in the list. It must be supplied by the user. +
-
-Here are some valid examples on using the `addappttopet` command: +
-
-* `addappttopet appt/1 p/1` +
-This will add the first appointment in the appointment list to the first pet in the pet list.
-Once this is executed, the pet will now have that appointment. +
-
-* `addappttopet appt/2 p/1` +
-This will add the second appointment in the listing to the first pet again. Doing this means
-you've just scheduled two appointments to the same pet.
-
-[NOTE]
-You need to schedule an appointment first before adding it to a pet.
-
-
-
-
-
-=== Listing all clients: `list client` `Since v1.2`
-
-Command format: `list client` +
-
-The `list client` command will display all clients that are stored in the program.
-It automatically switches to the client view tab so you can view all your clients at a glance. +
-
-Here's the resulting output if you executed the command. Notice how it switches to the
-client list tab below. +
-
-.Resulting output upon executing the `list client` command.
-image::userguide_listClientCommand_image.PNG[width="300"]
-
-
-
-
-
-=== Listing all pets: `list pet` `Since v1.2`
-
-Command format: `list pet` +
-
-The `list pet` command will display all pets that are stored in the program.
-It automatically switches to the pet view tab so you can view all your pets at a glance. +
-
-Here's the resulting output if you executed the command. Notice how it switches to the
-pet list tab below. +
-
-.Resulting output upon executing the `list pet` command.
-image::userguide_listPetCommand_image.PNG[width="300"]
-
-
-
-
-
-=== Listing all vet technicians: `list vettech` `Since v1.2`
-
-Command format: `list vettech` +
-
-The `list vettech` command will display all vet technicians that are stored in the program.
-It automatically switches to the vet technician tab so that you can view them at a glance. +
-
-Here's the resulting output if you executed the command. Notice how it switches to the
-vet tech list tab below. +
-
-.Resulting output upon executing the `list vettech` command.
-image::userguide_listVettechCommand_image.PNG[width="300']
-
-
-
-
-
-=== Listing all appointments: `list appt` `coming v2.0`
-
-Command format: `list appt` +
-
-The `list appt` command will display all appointments that are pending for you.
-The list sorts upcoming appointments by date and then by time.
-
-
-
-
-
-=== Listing all information: `listall` `coming v2.0`
-
-Command format: `listall INDEX` +
-
-The `listall` command will display all pets and appointments that are tagged to a client.
-The command expects this parameter when called: +
-
-[horizontal]
-*INDEX*:: The index of the client that you wish to view the details of. This must be supplied by the user. +
-
-Here is an example of using the command `listall`: +
-
-* `listall 1`  +
-Suppose there is only one client in the program and is stored at index 1. This command will then display all the information regarding the person at index one. +
-
-
-
-
-
-=== Sorting clients in alphabetical order: `sortc`
-
-Command format: `sortc` +
-
-The `sortc` command will sort all existing clients in the program in alphabetical ordering.
-
-
-
-
-
-=== Sorting pets in alphabetical order: `sortp`
-
-Command format: `sortp` +
-
-The `sortp` command will sort all existing pets in the program in alphabetical ordering.
-
-
-
-
-
-=== Removing a client or vet technician: `delete` `Since v1.1`
-
-Command format: `delete INDEX` +
-
-The `delete` command will remove a client from your program if you're viewing the client list.
-Executing this command will remove all the pets associated to the client. +
-
-The `delete` command will remove a vet technician your program if
-you're viewing the vet technician list. The command expects this parameter when called: +
-
-[horizontal]
-*INDEX*:: The client or vet technician's index on the list displayed in the program. This must be supplied by the user.
-
-Here is an example of using the command `delete`: +
-
-* `delete 1` +
-Suppose you are currently viewing the 'client' list and there is only one client in your program
-called Alice Peterson and she has Garfield and Scooby Doo as her associated pets.
-This command will remove Alice, Garfield and Scooby Doo from the program.
-
-
-
-
-
-=== Removing a pet: `deletep` `Since v1.2`
-
+==== Removing a pet: `deletep` `Since v1.2`
 Command format: `deletep INDEX` +
 
 The `deletep` command will remove a pet from the program. Executing this command will remove
@@ -390,96 +453,22 @@ Suppose there is only one pet in the program called Garfield,
 Garfield will be entirely removed from your program.
 
 
+==== Editing a pet's appointment: `editappt` `coming v2.0`
+Command format: `editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` +
 
-
-
-=== Removing a pet from a client: `removepetfrom`
-
-Command format: `removepetfrom c/CLIENT_INDEX p/PET_INDEX` +
-
-The `removepetfrom` command will remove the association between the pet and the client at the specified
-index. +
+The `editappt` command edits the appointment date and detail of an existing pet.
+The command expects these parameters when executing: +
 
 [horizontal]
-*CLIENT INDEX*::
-The client's index in the program based on the client list. This must be supplied by the user.
-
-*PET INDEX*::
-The pet's index in the program based on the pet list. This must be supplied by the user.
-
-Here is an example on using the `removepetfrom` command:
-
-* `removepetfrom c/1 p/1`
-If you execute this command, it will remove the association between the first pet and the first client
-in their respective listing.
+*CLIENT NAME*:: The name of the pet's owner. This must be supplied by the user.
+*PET NAME*:: The name of the pet. This must be supplied by the user.
+*DATE*:: The new date of the new appointment in DD.MM.YYYY format. It need not be supplied by the user.
+*TIME*:: The time of the new appointment in HHMM format. It need not be supplied by the user.
+*VET TECHNICIAN*:: The name of the new vet technician in-charged of the new appointment. It need not be supplied by the user.
+*COMMENTS*:: The new comments for the appointment. It need not be supplied by the user.
 
 
-
-
-=== Removing an appointment from a pet: `removemapptfrom` `since v1.3`
-
-Command format: `removeapptfrompet appt/APPOINTMENT_INDEX` +
-
-The `rmapptfrom` command removes an associated appointment from a pet.
-The command requires the index of the appointment in the appointment list.
-The command expects these parameters: +
-
-[horizontal]
-*APPOINTMENT INDEX*::
-The appointment to be removed based on the appointment listing. This needs to be supplied by
-the user. +
-
-Here is an exammple of using the command `rmapptfrom`: +
-
-* `rmapptfrom appt/1` +
-When this command is executed, the appointment will be removed from the pet that is associated to it.
-
-[NOTE]
-The command does not remove the appointment itself, rather, the pet associated with the appointment.
-So don't worry, you don't have to reschedule the appointment.
-
-
-
-
-
-=== Editing a client or vet technician's details : `edit` `Since v1.1`
-
-Command format: `edit INDEX [r/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
-
-The `edit` command amends the details of an existing client or vet technician, depending on which list the vet is currently viewing.
-The details of the specified person's index will be replaced with the supplied parameters from the user.
-The existing details will be overriden. The command expects these parameters: +
-
-[horizontal]
-*INDEX*::
-The index of the person that the user wants to edit. It must be supplied by the user.
-*ROLE*::
-The new role of the person that the user wants. It need not be supplied by the user.
-*NAME*::
-The new name of the person that the user wants. It need not be supplied by the user.
-*PHONE*::
-The new phone number of the person that the user wants. It need not be supplied by the user.
-*EMAIL*::
-The new email of the person that the user wants. It need not be supplied by the user.
-*ADDRESS*::
-The new address of the person that the user wants. It need not be supplied by the user.
-*TAGS*::
-(OPTIONAL)
-
-The `edit` command is very similar to the `add` command.
-Here are some examples on using the command: +
-
-* `edit 1 e/newemail@email.com a/Blk 123, Clementi Ave 3 t/friend t/part_timer` +
-You choose to amend person 1 on the currently viewed list and changes the person's email, address and tags.
-* `edit 1 n/Mary Tan` +
-You choose to only change the name of the person specified at index 1 on the currently viewed list and omits the remaining parameters.
-
-
-
-
-
-=== Editing a pet's details: `editp` `coming v2.0`
-
+==== Editing a pet's details: `editp` `coming v2.0`
 Command format: `editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]...` +
 
 Similar to the `edit` command, the `editp` command amends the details of a specified pet of the specified owner. The command expects these parameters when executing: +
@@ -502,71 +491,47 @@ Here is an example of using the `editp` command: +
 Here you choose to edit the pet of the first index and changed the existing name, age and gender to Jerry, 2 and male.
 
 
+==== Listing all appointments: `list appt` `coming v2.0`
+Command format: `list appt` +
 
+The `list appt` command will display all appointments that are pending for you.
+The list sorts upcoming appointments by date and then by time.
 
+==== Listing all pets: `list pet` `Since v1.2`
+Command format: `list pet` +
 
-=== Editing a pet's appointment: `editappt` `coming v2.0`
+The `list pet` command will display all pets that are stored in the program.
+It automatically switches to the pet view tab so you can view all your pets at a glance. +
 
-Command format: `editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` +
+Here's the resulting output if you executed the command. Notice how it switches to the
+pet list tab below. +
 
-The `editappt` command edits the appointment date and detail of an existing pet.
-The command expects these parameters when executing: +
+.Resulting output upon executing the `list pet` command.
+image::userguide_listPetCommand_image.PNG[width="300"]
 
-[horizontal]
-*CLIENT NAME*:: The name of the pet's owner. This must be supplied by the user.
-*PET NAME*:: The name of the pet. This must be supplied by the user.
-*DATE*:: The new date of the new appointment in DD.MM.YYYY format. It need not be supplied by the user.
-*TIME*:: The time of the new appointment in HHMM format. It need not be supplied by the user.
-*VET TECHNICIAN*:: The name of the new vet technician in-charged of the new appointment. It need not be supplied by the user.
-*COMMENTS*:: The new comments for the appointment. It need not be supplied by the user.
+==== Removing an appointment from a pet: `removemapptfrom` `since v1.3`
+Command format: `removeapptfrompet appt/APPOINTMENT_INDEX` +
 
-
-
-
-=== Finding by name: `find`
-
-Command format: `find KEYWORD` +
-
-The `find` command displays all existing clients or pets containing the keyword.
+The `rmapptfrom` command removes an associated appointment from a pet.
+The command requires the index of the appointment in the appointment list.
 The command expects these parameters: +
 
 [horizontal]
-*KEYWORD*:: The keyword to find the client or pet. It must be supplied by the user.
+*APPOINTMENT INDEX*::
+The appointment to be removed based on the appointment listing. This needs to be supplied by
+the user. +
 
-Here is an example on how to use the `find` command: +
+Here is an exammple of using the command `rmapptfrom`: +
 
-* `find alice` +
-You used the keyword alice to find all clients containing the word alice in their names.
+* `rmapptfrom appt/1` +
+When this command is executed, the appointment will be removed from the pet that is associated to it.
 
-* `find gArfIeld` +
-You used the keyword gArfIeld to find all pets containing the word garfield in their names.
-
-[TIP]
-The keyword is case insensitive.This means typing, "ALICE", "alice" or 'AlIcE" will result in the same output.
 [NOTE]
-You need to be in the client list to find clients by name. Likewise, you need to be in the pet list to find
-pets by name.
+The command does not remove the appointment itself, rather, the pet associated with the appointment.
+So don't worry, you don't have to reschedule the appointment.
 
 
-=== Selecting a client, pet or vet technician: `select`
-
-Command format: `select INDEX` +
-
-The `select` command selects the client, pet or vet technician identified by the
-index number on the currently viewed list. The command expects this parameter: +
-
-[horizontal]
-*INDEX*:: The index of the client, pet or vet technician that the user wants to select.
-It must be supplied by the user.
-
-Here is an example on using the command: +
-
-* `select 3` +
-Let's say you're currently viewing the client list and wishes to select the 3rd client on the list.
-The program will scroll to and select the 3rd client on the list.
-
-=== Scheduling an appointment : `schedule`
-
+==== Scheduling an appointment : `schedule`
 Command format: schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION +
 
 Schedules an appointment by specifying the date, time, duration and description.
@@ -600,63 +565,10 @@ you if there are any conflicts in your scheduling.
 [NOTE]
 You can execute the `addappttopet` command after creating an appointment.
 
-=== Listing entered commands : `history`
+==== Sorting pets in alphabetical order: `sortp`
+Command format: `sortp` +
 
-Command format: `history` +
-
-Lists all the commands that you have entered in reverse chronological order. +
-
-[TIP]
-====
-Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and next input respectively in the command box.
-====
-
-// tag::undoredo[]
-=== Undoing previous command : `undo`
-
-Command format: `undo` +
-
-Restores the address book to the state before the previous _undoable_ command was executed. +
-
-[NOTE]
-====
-Undoable commands: those commands that modify the address book's content: +
-`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `removepetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
-`schedule`
-====
-
-=== Redoing the previously undone command : `redo`
-
-Format: `redo` +
-
-Reverses the most recent `undo` command. +
-
-[NOTE]
-====
-Redoable commands: those commands that modify the address book's content: +
-`add` `addp` `addappttopet` `sortc` `sortp` `delete` `deletep` `removepetfrom` `rmapptfrompet` `edit` `editp` `editappt` `clear`
-`schedule`
-====
-
-=== Clearing all entries : `clear`
-
-Command format: `clear` +
-
-Clears all entries from the address book. +
-
-[CAUTION]
-`clear` command will remove *all* existing clients, pets, appointments and vet technicians
- stored in your program.
-
-=== Exiting the program : `exit`
-
-Command format: `exit` +
-
-Exits the program. +
-
-[TIP]
-Exiting the program in the middle of a command will save the state of the program.
-So there's nothing to worry about, all your data will be saved.
+The `sortp` command will sort all existing pets in the program in alphabetical ordering.
 
 
 
@@ -679,7 +591,8 @@ See <<Section 3.Features, 3.1. Autocomplete>> for more details.
 This section provides a quick summary of all the available commands in the program.
 It's categorized neatly so you can find the command that you want easily.
 
-=== Client & Vet Tech related commands
+//sorted alphabetically
+=== Client & Vet Tech Summarized Table
 The table below lists and summarizes all the commands that are related to the persons in your
 program. You can head to the respective section on the commands if you want to
 know more about them.
@@ -688,18 +601,19 @@ know more about them.
 |=======
 |*Command* |*Command Format* |*Description*
 |add |`add r/ROLE n/NAME p/PHONE e/EMAIL a/ADDRESS [t/TAG]…` |Adds a person into the program.
-|list client |`list client` |Lists all clients.
-|list vettech |`list vettech` |Lists all vet technicians.
-|listall |`listall INDEX` |Lists all details for a particular client.
-|sortc |`sortc` |Sorts the client list alphabetically.
-|sortv |`sortv` |Sorts the vet tech list alphabetically.
 |delete |`delete INDEX` |Remove a client/vettech from the program based on index.
 |edit |`edit INDEX [n/ROLE] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` |Edits a person's details.
 |find |`find KEYWORD` |Finds a client with keyword.
+|listall |`listall INDEX` |Lists all details for a particular client.
+|list client |`list client` |Lists all clients.
+|list vettech |`list vettech` |Lists all vet technicians.
 |select |`select INDEX` |Selects an index.
+|sortc |`sortc` |Sorts the client list alphabetically.
+|sortv |`sortv` |Sorts the vet tech list alphabetically.
 |=======
 
-=== Pets & Appointments related commands
+//sorted alphabetically
+=== Pets & Appointments Summarized Table
 The table below lists and summarizes all the commands that are related to the pets and appointments
 in your program. You can head to the respective section on the commands if you want to know more
 about them.
@@ -707,32 +621,31 @@ about them.
 [width="100%"]
 |=======
 |*Command* |*Command Format* |*Description*
-|schedule | `schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION` |Schedule an appointment given date (YYYY-MM-DD), time (HH:MM), duration (minutes) and description.
-|addp |`addp n/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a client.
 |addappttopet |`addapptto appt/APPOINTMENT_INDEX p/PET_INDEX` |Adds an appointment to a pet.
-|list pet |`list pet` |Lists all pets.
-|list appt |`list appt` |Lists all appointments.
-|sortp |`sortp` |Sorts the pet list alphabetically.
+|addp |`addp n/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG…​` |Adds a pet to a client.
 |deletep |`deletep INDEX` |Removes a pet from the program based on index.
-|removepetfrom |`removepetfrom n/CLIENT_INDEX pn/PET_INDEX` |Removes a pet from a client.
-|rmapptfrompet |`rmapptfrom p/PET_INDEX` |Removes an appointment from a pet.
-|editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
 |editappt |`editappt n/CLIENT_NAME pn/PET_NAME [date/DATE (DD.MM.YYYY)] [time/TIME (HHMM)] [vettech/VET_TECHNICIAN_NAME] [cmt/COMMENTS]` |Edits an appointment's details.
-|findp |`findp KEYWORD` |finds a pet with keyword.
+|editp |`editp INDEX [pn/PET_NAME] [pa/PET_AGE] [pg/PET_GENDER] [t/PET_TAGS]…​` |Edits a pet's details.
+|list appt |`list appt` |Lists all appointments.
+|list pet |`list pet` |Lists all pets.
+|rmapptfrompet |`rmapptfrom p/PET_INDEX` |Removes an appointment from a pet.
+|schedule | `schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION` |Schedule an appointment given date (YYYY-MM-DD), time (HH:MM), duration (minutes) and description.
 |select |`select INDEX` |Selects an index.
+|sortp |`sortp` |Sorts the pet list alphabetically.
 |=======
 
-=== Program and shared commands
+//sorted alphabetically
+=== Program and Shared Summarized Table
 The table below shows commands that are program based. These commands have no relation to your
 clients, staff, pets and appointments. They're solely for the program.
 
 [width="100%"]
 |=======
 |*Command* |*Command Format* |*Description*
-|help |`help` |Displays the user guide.
-|history |`history` |Lists the history of commands executed.
-|undo |`undo` |Undo the previous command executed.
-|redo |`redo` |Redo the undo command executed.
 |clear |`clear` |Deletes all data of the program.
 |exit |`exit` |Exits the program.
+|help |`help` |Displays the user guide.
+|history |`history` |Lists the history of commands executed.
+|redo |`redo` |Redo the undo command executed.
+|undo |`undo` |Undo the previous command executed.
 |=======
