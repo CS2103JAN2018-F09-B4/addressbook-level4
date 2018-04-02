@@ -1257,6 +1257,44 @@ so that the correct list will be displayed, and so that all other commands will
 be executed on the correct list.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-toggling-between-lists"><a class="link" href="#aspect-implementation-of-toggling-between-lists">Aspect: Implementation of toggling between lists</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Client, Pet and Vet Tech lists are stored in three separate tabs,
+and an event is handled to toggle between the tabs to display the corresponding list</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Clickable tabs on the UI for easy toggling with both typing and mouse-click.</p>
+</li>
+<li>
+<p>Cons: <code>MainWindow</code> needs to handle the event to switch to the correct tab.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have a single display without tabs, and update it with either Client, Pet or Vet Tech list when the <code>list</code>
+command is executed</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Need not create a new event and handle it.</p>
+</li>
+<li>
+<p>Cons: Displayed list needs to be updated every time <code>list</code> command is executed, reducing efficiency.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="schedule-feature"><a class="link" href="#schedule-feature">4.5. Schedule feature</a></h3>
@@ -1871,34 +1909,37 @@ required for command words, to increase efficiency in using the application.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p><strong>Major Enhancement</strong>: Support all new list commands and display on UI</p>
+<p><strong>Major Enhancement</strong>: Support <code>listappt</code> and <code>listall</code> commands</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>The <code>list</code> command now takes in a parameter (either 'client', 'pet' or 'vettech')
-which will toggle the tabs in the sidebar of the application and display the appropriate list
-for easy viewing and keeping track.</p>
-</li>
-<li>
-<p>The <code>list appt</code> command will display all appointments in the main section of the application
+<p>The <code>listappt</code> command will display all appointments in the main section of the application
 listed in date order, and in time order within each (date) section. This is for the vet to
 easily keep track of his/her appointments in chronological order.</p>
 </li>
 <li>
-<p>The <code>listall</code> command will take in a client index parameter and display all the
-pets and appointments the particular client has in the main section of the application. This is to easily see the relevant
-details when dealing with a client.</p>
+<p>The <code>listall</code> command will take in a type parameter (either client, pet, vet technician or appointment)
+and an index parameter of that type&#8217;s list, and will then display all the associated information of
+the particular item in a sidebar of the application. This is to easily see the relevant
+details when wanting to check a particular item.</p>
+</li>
+<li>
+<p>The appropriate display on the UI will also be created for the above.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor Enhancement</strong>: Reorganization of UI display</p>
+<p><strong>Minor Enhancement</strong>: Update <code>list</code>, <code>edit</code>, <code>delete</code> command and have display tabs for the lists</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>The display will now have a header bar, displaying the application logo and name,
-and the command and result bar will be moved into the top of the right splitpane instead.</p>
+<p>The <code>list</code> command now takes in a parameter (either 'client', 'pet' or 'vettech')
+and the <code>MainWindow</code> will handle the event created by the <code>list</code> command and toggle the tabs in the sidebar of the application and display the appropriate list
+for easy viewing and keeping track. The tabs can be toggled by mouse-click as well.</p>
+</li>
+<li>
+<p>The <code>edit</code> and <code>delete</code> commands will be updated so that it only affect the index of the currently viewed list.</p>
 </li>
 </ul>
 </div>
@@ -3067,7 +3108,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-02 04:22:11 UTC
+Last updated 2018-04-02 13:57:56 UTC
 </div>
 </div>
 </body>
