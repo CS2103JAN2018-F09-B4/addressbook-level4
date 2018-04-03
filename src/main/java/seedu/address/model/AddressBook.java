@@ -252,6 +252,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void scheduleAppointment(Appointment a) throws DuplicateAppointmentException {
         appointments.add(a);
+        appointments.sort();
     }
 
     //// pet-level operations
