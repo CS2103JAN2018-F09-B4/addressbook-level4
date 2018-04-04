@@ -104,7 +104,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     }
 
     /**
-     * Sorts the pet list.
+     * Sorts the pet list lexicographically.
      */
     public void sortPetList() throws ClientPetAssociationListEmptyException {
         if (clientPetAssociations.isEmpty()) {
