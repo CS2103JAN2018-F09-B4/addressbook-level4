@@ -2,6 +2,7 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -253,18 +254,33 @@ public class AddressBook implements ReadOnlyAddressBook {
         return syncedPerson;
     }
 
+    //@@author md-azsa
     /**
      * Removes {@code key} from this {@code AddressBook}.
      *
      * @throws PersonNotFoundException if the {@code key} is not in this {@code AddressBook}.
      */
     public boolean removePerson(Person key) throws PersonNotFoundException {
+        ArrayList<ClientOwnPet> toRemoveClientPetAssociationList = new ArrayList<>();
+        ArrayList<Pet> toRemovePetList = new ArrayList<>();
+
+        for (ClientOwnPet cop : clientPetAssociations) {
+            if (cop.getClient().equals(key)) {
+                toRemoveClientPetAssociationList.add(cop);
+                toRemovePetList.add(cop.getPet());
+            }
+        }
+
+        clientPetAssociations.removeAll(toRemoveClientPetAssociationList);
+        pets.getInternalList().removeAll(toRemovePetList);
+
         if (persons.remove(key)) {
             return true;
         } else {
             throw new PersonNotFoundException();
         }
     }
+    //@@author
 
     //// tag-level operations
 
