@@ -257,6 +257,7 @@ public class AddressBook implements ReadOnlyAddressBook {
     //@@author md-azsa
     /**
      * Removes {@code key} from this {@code AddressBook}.
+     * Removes the associated pet of {@code key} and the specific pets in the pet list.
      *
      * @throws PersonNotFoundException if the {@code key} is not in this {@code AddressBook}.
      */
