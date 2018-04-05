@@ -255,10 +255,8 @@ public class AddressBook implements ReadOnlyAddressBook {
         return syncedPerson;
     }
 
-    //@@author md-azsa
     /**
      * Removes {@code key} from this {@code AddressBook}.
-     * Removes the associated pet of {@code key} and the specific pets in the pet list.
      *
      * @throws PersonNotFoundException if the {@code key} is not in this {@code AddressBook}.
      */
@@ -275,13 +273,9 @@ public class AddressBook implements ReadOnlyAddressBook {
 
         clientPetAssociations.removeAll(toRemoveClientPetAssociationList);
         pets.getInternalList().removeAll(toRemovePetList);
-
-        if (persons.remove(key)) {
-            return true;
-        } else {
+        if (!persons.remove(key)) {
             throw new PersonNotFoundException();
         }
-      //@@author
 
         // Removes vet from any existing appointment
         for (Appointment appointment : appointments) {
@@ -606,5 +600,5 @@ public class AddressBook implements ReadOnlyAddressBook {
         // use this method for custom fields hashing instead of implementing your own
         return Objects.hash(persons, tags, appointments, pets);
     }
-
 }
+
