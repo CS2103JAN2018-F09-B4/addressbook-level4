@@ -42,6 +42,7 @@ import seedu.address.model.pet.exceptions.PetNotFoundException;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 import seedu.address.model.vettechnician.VetTechnician;
+import seedu.address.model.vettechnician.exceptions.VetTechnicianNotFoundException;
 
 
 /**
@@ -280,8 +281,26 @@ public class AddressBook implements ReadOnlyAddressBook {
         } else {
             throw new PersonNotFoundException();
         }
+      //@@author
+
+        // Removes vet from any existing appointment
+        for (Appointment appointment : appointments) {
+            appointment.getOptionalVetTechnician().ifPresent(technician -> {
+                try {
+                    if (technician.equals(key)) {
+                        removeVetFromAppointment(appointment);
+                    }
+                } catch (AppointmentNotFoundException e) {
+                    throw new AssertionError("Appointment should be found");
+                } catch (DuplicateAppointmentException e) {
+                    throw new AssertionError("Program should not have duplicate appointments");
+                } catch (VetTechnicianNotFoundException e) {
+                    throw new AssertionError("VetTechnician should be found");
+                }
+            });
+        }
+        return true;
     }
-    //@@author
 
     //// tag-level operations
 
@@ -495,9 +514,13 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Removes a vet technician from the given appointment
      */
     public void removeVetFromAppointment(Appointment apptToRemoveVetFrom)
-            throws AppointmentNotFoundException, DuplicateAppointmentException {
+            throws AppointmentNotFoundException, DuplicateAppointmentException,
+            VetTechnicianNotFoundException {
         if (!appointments.contains(apptToRemoveVetFrom)) {
             throw new AppointmentNotFoundException();
+        }
+        if (!apptToRemoveVetFrom.getOptionalVetTechnician().isPresent()) {
+            throw new VetTechnicianNotFoundException();
         }
         Appointment appointmentCopy = new Appointment(apptToRemoveVetFrom);
         appointmentCopy.removeVetTech();
