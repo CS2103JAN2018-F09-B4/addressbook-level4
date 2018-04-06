@@ -63,8 +63,10 @@
 <li><a href="#editing-a-pet-s-details-code-editp-code-code-coming-v2-0-code">3.3.5. Editing a pet&#8217;s details: <code>editp</code> <code>coming v2.0</code></a></li>
 <li><a href="#listing-all-pets-code-list-pet-code-code-since-v1-2-code">3.3.6. Listing all pets: <code>list pet</code> <code>Since v1.2</code></a></li>
 <li><a href="#removing-an-appointment-from-a-pet-code-removemapptfrom-code-code-since-v1-3-code">3.3.7. Removing an appointment from a pet: <code>removemapptfrom</code> <code>since v1.3</code></a></li>
-<li><a href="#scheduling-an-appointment-code-schedule-code">3.3.8. Scheduling an appointment : <code>schedule</code></a></li>
-<li><a href="#rescheduling-an-appointment-code-reschedule-code">3.3.9. Rescheduling an appointment : <code>reschedule</code></a></li>
+<li><a href="#adding-a-vet-technician-to-a-appointment-code-addvettechtoappointment-code-code-since-v1-4-code">3.3.8. Adding a vet technician to a appointment: <code>addvettechtoappointment</code> <code>Since v1.4</code></a></li>
+<li><a href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.9. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></li>
+<li><a href="#scheduling-an-appointment-code-schedule-code">3.3.10. Scheduling an appointment : <code>schedule</code></a></li>
+<li><a href="#rescheduling-an-appointment-code-reschedule-code">3.3.11. Rescheduling an appointment : <code>reschedule</code></a></li>
 </ul>
 </li>
 <li><a href="#sorting-appointments-in-chronological-order-code-sortappt-code">3.4. Sorting appointments in chronological order: <code>sortappt</code></a>
@@ -1217,7 +1219,99 @@ So don&#8217;t worry, you don&#8217;t have to reschedule the appointment.
 </div>
 </div>
 <div class="sect3">
-<h4 id="scheduling-an-appointment-code-schedule-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code">3.3.8. Scheduling an appointment : <code>schedule</code></a></h4>
+<h4 id="adding-a-vet-technician-to-a-appointment-code-addvettechtoappointment-code-code-since-v1-4-code"><a class="link" href="#adding-a-vet-technician-to-a-appointment-code-addvettechtoappointment-code-code-since-v1-4-code">3.3.8. Adding a vet technician to a appointment: <code>addvettechtoappointment</code> <code>Since v1.4</code></a></h4>
+<div class="paragraph">
+<p>Command format: <code>addvettechtoappointment vt/VETTECH_INDEX appt/APPOINTMENT_INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>addvettechtoappointment</code> command adds a vet tech to an appointment in the program.<br>
+The command expects these parameters when adding a vet technician to an appointment:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>VETTECH INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The index of the vet technician in the list. It must be supplied by the user.<br></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<strong>APPOINTMENT INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The index of the appointment in the list. It must be supplied by the user.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here are some valid examples on using the <code>addvettechtoappointment</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addvettechtoappointment vt/1 appt/1</code><br>
+This will add the first vet technician in the vet technician list will be added to the first appointment in the appointment list.
+Once this is executed, the appointment will now have the appointed vet technician.<br></p>
+</li>
+<li>
+<p><code>addvettechtoappointment vt/1 appt/2</code><br>
+This will add the first vet technician in the vet technician list to the second appointment in the appointment list
+you&#8217;ve just assigned the same vet technician to two different appointments.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need to schedule an appointment first before assigning a vet techician to it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code"><a class="link" href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.9. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></h4>
+<div class="paragraph">
+<p>Command format: <code>removevettechfromappt INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>removevettechfromappt</code> command removes a vet tech from an appointment in the program.<br>
+The command expects the following parameter when removing a vet technician from an appointment:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The appointment index on the appointment list list displayed in the program. This must be supplied by the user.</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the command <code>removevettechfromappt</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>removevettechfromappt 1</code><br>
+Suppose there is an appointment with index 1 on the appointment list with a vet technician currently assigned to it. This command will remove the assigned vet technician from the appointment with the index 1</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="scheduling-an-appointment-code-schedule-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code">3.3.10. Scheduling an appointment : <code>schedule</code></a></h4>
 <div class="paragraph">
 <p>Command format: schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION<br></p>
 </div>
@@ -1313,7 +1407,7 @@ You can execute the <code>addappttopet</code> command after creating an appointm
 </div>
 </div>
 <div class="sect3">
-<h4 id="rescheduling-an-appointment-code-reschedule-code"><a class="link" href="#rescheduling-an-appointment-code-reschedule-code">3.3.9. Rescheduling an appointment : <code>reschedule</code></a></h4>
+<h4 id="rescheduling-an-appointment-code-reschedule-code"><a class="link" href="#rescheduling-an-appointment-code-reschedule-code">3.3.11. Rescheduling an appointment : <code>reschedule</code></a></h4>
 <div class="paragraph">
 <p>Command format: `reschedule INDEX [da/DATE] [tm/TIME] [du/DURATION] [DESC/DESCRIPTION]<br></p>
 </div>
@@ -1656,7 +1750,7 @@ clients, staff, pets and appointments. They&#8217;re solely for the program.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 13:39:32 UTC
+Last updated 2018-04-06 06:49:17 UTC
 </div>
 </div>
 </body>
