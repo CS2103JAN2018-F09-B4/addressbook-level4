@@ -334,7 +334,7 @@ If the <code>undoStack</code> is empty, then there are no other commands left to
 <div class="content">
 <img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 4-5. Undo/Redo Sequence Diagram</div>
+<div class="title">Figure 4-5. Sequence Diagram of Undo/Redo operation</div>
 </div>
 <div class="paragraph">
 <p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
@@ -432,7 +432,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Each individual command knows how to undo/redo by itself.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -530,7 +530,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-07 15:36:26 UTC
+Last updated 2018-04-07 16:27:18 UTC
 </div>
 </div>
 </body>
