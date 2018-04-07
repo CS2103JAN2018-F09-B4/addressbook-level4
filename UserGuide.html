@@ -45,18 +45,18 @@
 <li><a href="#adding-a-person-code-add-code-code-since-v1-1-code">3.2.1. Adding a person: <code>add</code> <code>Since v1.1</code></a></li>
 <li><a href="#removing-a-client-or-vet-technician-code-delete-code-code-since-v1-1-code">3.2.2. Removing a client or vet technician: <code>delete</code> <code>Since v1.1</code></a></li>
 <li><a href="#editing-a-client-or-vet-technician-s-details-code-edit-code-code-since-v1-1-code">3.2.3. Editing a client or vet technician&#8217;s details : <code>edit</code> <code>Since v1.1</code></a></li>
-<li><a href="#finding-by-name-code-find-code">3.2.4. Finding by name: <code>find</code></a></li>
+<li><a href="#finding-by-name-code-find-code-code-since-v1-3-code">3.2.4. Finding by name: <code>find</code> <code>Since v1.3</code></a></li>
 <li><a href="#listing-all-information-code-listall-code-code-coming-v2-0-code">3.2.5. Listing all information: <code>listall</code> <code>coming v2.0</code></a></li>
 <li><a href="#listing-all-clients-code-list-client-code-code-since-v1-2-code">3.2.6. Listing all clients: <code>list client</code> <code>Since v1.2</code></a></li>
 <li><a href="#listing-all-vet-technicians-code-list-vettech-code-code-since-v1-2-code">3.2.7. Listing all vet technicians: <code>list vettech</code> <code>Since v1.2</code></a></li>
-<li><a href="#sorting-clients-in-alphabetical-order-code-sortc-code">3.2.8. Sorting clients in alphabetical order: <code>sortc</code></a></li>
+<li><a href="#sorting-clients-in-alphabetical-order-code-sortc-code-code-since-v1-4-code">3.2.8. Sorting clients in alphabetical order: <code>sortc</code> <code>Since v1.4</code></a></li>
 </ul>
 </li>
 <li><a href="#pets-appointment-related-commands">3.3. Pets &amp; Appointment Related Commands</a>
 <ul class="sectlevel3">
 <li><a href="#adding-a-pet-code-addp-code-code-since-v1-2-code">3.3.1. Adding a pet: <code>addp</code> <code>Since v1.2</code></a></li>
 <li><a href="#listing-all-pets-code-list-pet-code-code-since-v1-2-code">3.3.2. Listing all pets: <code>list pet</code> <code>Since v1.2</code></a></li>
-<li><a href="#scheduling-an-appointment-code-schedule-code">3.3.3. Scheduling an appointment : <code>schedule</code></a></li>
+<li><a href="#scheduling-an-appointment-code-schedule-code-code-since-v1-4-code">3.3.3. Scheduling an appointment : <code>schedule</code> <code>Since v1.4</code></a></li>
 <li><a href="#adding-an-appointment-to-a-pet-code-addappttopet-code-code-since-v1-3-code">3.3.4. Adding an appointment to a pet: <code>addappttopet</code> <code>Since v1.3</code></a></li>
 <li><a href="#adding-a-vet-technician-to-a-appointment-code-addvettechtoappointment-code-code-since-v1-4-code">3.3.5. Adding a vet technician to a appointment: <code>addvettechtoappointment</code> <code>Since v1.4</code></a></li>
 <li><a href="#removing-a-pet-code-deletep-code-code-since-v1-2-code">3.3.6. Removing a pet: <code>deletep</code> <code>Since v1.2</code></a></li>
@@ -64,7 +64,7 @@
 <li><a href="#editing-a-pet-s-details-code-editp-code-code-coming-v2-0-code">3.3.8. Editing a pet&#8217;s details: <code>editp</code> <code>coming v2.0</code></a></li>
 <li><a href="#removing-an-appointment-from-a-pet-code-removemapptfrom-code-code-since-v1-3-code">3.3.9. Removing an appointment from a pet: <code>removemapptfrom</code> <code>since v1.3</code></a></li>
 <li><a href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.10. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></li>
-<li><a href="#rescheduling-an-appointment-code-reschedule-code">3.3.11. Rescheduling an appointment : <code>reschedule</code></a></li>
+<li><a href="#rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code">3.3.11. Rescheduling an appointment : <code>reschedule</code> <code>Since v1.4</code></a></li>
 <li><a href="#sorting-pets-in-alphabetical-order-code-sortp-code">3.3.12. Sorting pets in alphabetical order: <code>sortp</code></a></li>
 </ul>
 </li>
@@ -271,6 +271,44 @@ glance of the available commands relating to the program <a href="#program-and-s
 <p>If you&#8217;re feeling lazy to type in the command type, press <kbd>Tab</kbd> on your keyboard
 and it&#8217;ll do the rest for you.<br></p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>Tab</kbd> key twice will provide you with suggestions of your current command input.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>Tab</kbd> after a completed command that has a following space will provide you with the next available input parameter for the command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the autocomplete functionality:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Suppose you want to type a command <code>addvettechtoappointment</code> but it is a hassle to type out the full command. In this scenario you can type <code>addv</code> and press <kbd>Tab</kbd> to autocomplete your <code>addv</code> input to <code>addvettechtoappointment</code><br></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
 <h4 id="executing-a-command"><a class="link" href="#executing-a-command">3.1.2. Executing a command</a></h4>
@@ -446,7 +484,7 @@ The command expects these parameters when adding a new person:<br></p>
 <strong>ROLE</strong>
 </td>
 <td class="hdlist2">
-<p>VetterAppointment expects a role to be either a <strong>VetTechnician</strong> or a <strong>Client</strong>.
+<p>VetterAppointment expects a role to be either a <code>technician</code> or a <code>client</code>.
 You cannot omit this parameter.<br></p>
 </td>
 </tr>
@@ -697,7 +735,7 @@ The figure below is the newly edited details of person at index 1.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-by-name-code-find-code"><a class="link" href="#finding-by-name-code-find-code">3.2.4. Finding by name: <code>find</code></a></h4>
+<h4 id="finding-by-name-code-find-code-code-since-v1-3-code"><a class="link" href="#finding-by-name-code-find-code-code-since-v1-3-code">3.2.4. Finding by name: <code>find</code> <code>Since v1.3</code></a></h4>
 <div class="paragraph">
 <p>Command format: <code>find KEYWORD</code><br></p>
 </div>
@@ -843,7 +881,7 @@ vet tech list tab below.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-clients-in-alphabetical-order-code-sortc-code"><a class="link" href="#sorting-clients-in-alphabetical-order-code-sortc-code">3.2.8. Sorting clients in alphabetical order: <code>sortc</code></a></h4>
+<h4 id="sorting-clients-in-alphabetical-order-code-sortc-code-code-since-v1-4-code"><a class="link" href="#sorting-clients-in-alphabetical-order-code-sortc-code-code-since-v1-4-code">3.2.8. Sorting clients in alphabetical order: <code>sortc</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Command format: <code>sortc</code><br></p>
 </div>
@@ -992,7 +1030,7 @@ pet list tab below.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="scheduling-an-appointment-code-schedule-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code">3.3.3. Scheduling an appointment : <code>schedule</code></a></h4>
+<h4 id="scheduling-an-appointment-code-schedule-code-code-since-v1-4-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code-code-since-v1-4-code">3.3.3. Scheduling an appointment : <code>schedule</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Command format: schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION<br></p>
 </div>
@@ -1163,7 +1201,7 @@ Now the appointment is booked for Garfield.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You need to schedule an appointment first before adding it to a pet. See <a href="#scheduling-an-appointment-code-schedule-code">Section 3.3.3, &#8220;Scheduling an appointment : <code>schedule</code>&#8221;</a>
+You need to schedule an appointment first before adding it to a pet. See <a href="#Scheduling an appointment : <code>schedule</code>">[Scheduling an appointment : <code>schedule</code>]</a>
 </td>
 </tr>
 </table>
@@ -1514,7 +1552,7 @@ This command will remove the assigned vet technician from the appointment with t
 </div>
 </div>
 <div class="sect3">
-<h4 id="rescheduling-an-appointment-code-reschedule-code"><a class="link" href="#rescheduling-an-appointment-code-reschedule-code">3.3.11. Rescheduling an appointment : <code>reschedule</code></a></h4>
+<h4 id="rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code"><a class="link" href="#rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code">3.3.11. Rescheduling an appointment : <code>reschedule</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Command format: `reschedule INDEX [da/DATE] [tm/TIME] [du/DURATION] [DESC/DESCRIPTION]<br></p>
 </div>
@@ -1773,6 +1811,11 @@ about them.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lists all pets.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">reschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>reschedule INDEX [da/DATE] [tm/TIME] [du/DURATION] [DESC/DESCRIPTION]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reschedules an appointment.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">rmapptfrompet</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmapptfrom p/PET_INDEX</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Removes an appointment from a pet.</p></td>
@@ -1846,7 +1889,7 @@ clients, staff, pets and appointments. They&#8217;re solely for the program.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-06 15:46:49 UTC
+Last updated 2018-04-07 04:18:39 UTC
 </div>
 </div>
 </body>
