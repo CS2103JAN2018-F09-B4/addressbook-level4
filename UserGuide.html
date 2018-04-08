@@ -1073,6 +1073,42 @@ pet list tab below.<br></p>
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Date is in the format "YYYY-MM-DD" and the year "YYYY" can only be the current year which is "2018".
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Time adapts the 24-hour format from 00:00 to 23:59.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Duration can be any valid integer numbers from 15 to 120.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Here is an example on how you can use the <code>schedule</code> command to mark appointment dates:<br></p>
 </div>
@@ -1606,6 +1642,18 @@ The existing details will be overriden. The command expects these parameters:<br
 </tr>
 </table>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The more detailed information for each parameter can be found in section 3.3.3.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>The <code>reschedule</code> command is very similar to the <code>schedule</code> command.
 Here are some examples on using the command:<br></p>
@@ -1614,15 +1662,37 @@ Here are some examples on using the command:<br></p>
 <ul>
 <li>
 <p><code>reschedule 1 tm/15:30</code><br>
-You choose to only reschedule the time of appointment specified by index 1 [da/2018-10-10 tm/15:00 du/40 desc/Sterilize Garfield when he&#8217;s feeling better.]
- from 15:00 to 15:30 and other details remain unchanged.</p>
-</li>
-<li>
-<p><code>reschedule 1 da/2018-10-11 du/60</code><br>
-You choose to reschedule the date and duration of the appointment specified at index 1 [da/2018-10-10 tm/15:00 du/40 desc/Sterilize Garfield when he&#8217;s feeling better.]
-to the next day and lasts 20 minutes longer.</p>
+You choose to only reschedule the time of appointment specified by index 1 [da/2018-01-02 tm/14:30 du/60 desc/Sterilize Garfield when he&#8217;s feeling better.]
+from 14:30 to 15:30 and other details remain unchanged.<br></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Executing the <code>reschedule</code> command will result in an appointment card being updated like the figure below.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/userguide_reschedule1.PNG" alt="userguide reschedule1" width="1000">
+</div>
+<div class="title">Figure 26. The appointment card being updated after the command.</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>reschedule 1 da/2018-01-03 du/90</code><br>
+You choose to reschedule the date and duration of the appointment specified at index 1 [da/2018-01-02 tm/15:30 du/60 desc/Sterilize Garfield when he&#8217;s feeling better.]
+to the next day and lasts 30 minutes longer.<br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Executing the <code>reschedule</code> command will result in an appointment card being updated like the figure below.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/userguide_reschedule2.PNG" alt="userguide reschedule2" width="1000">
+</div>
+<div class="title">Figure 27. The appointment card being updated after the command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1652,7 +1722,7 @@ You need to provide at least one change to any filed of an existing appointment.
 <div class="content">
 <img src="images/userguide_sortpCommand_image.PNG" alt="userguide sortpCommand image" width="300">
 </div>
-<div class="title">Figure 26. Populated pet list view</div>
+<div class="title">Figure 28. Populated pet list view</div>
 </div>
 <div class="paragraph">
 <p>Executing the <code>sortp</code> command will now result in the list alphabetically sorted like the figure
@@ -1662,7 +1732,7 @@ below</p>
 <div class="content">
 <img src="images/userguide_sortpCommand_image.PNG" alt="userguide sortpCommand image" width="300">
 </div>
-<div class="title">Figure 27. Sorted pet list</div>
+<div class="title">Figure 29. Sorted pet list</div>
 </div>
 </div>
 </div>
@@ -1899,7 +1969,7 @@ clients, staff, pets and appointments. They&#8217;re solely for the program.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-08 02:59:27 UTC
+Last updated 2018-04-08 08:54:25 UTC
 </div>
 </div>
 </body>
