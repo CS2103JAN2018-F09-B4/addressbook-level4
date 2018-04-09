@@ -121,9 +121,6 @@ public class AddressBookParser {
         case SortPetCommand.COMMAND_WORD:
             return new SortPetCommand();
 
-        case SortAppointmentCommand.COMMAND_WORD:
-            return new SortAppointmentCommand();
-
         case AddAppointmentToPetCommand.COMMAND_WORD:
             return new AddAppointmentToPetCommandParser().parse(arguments);
 
