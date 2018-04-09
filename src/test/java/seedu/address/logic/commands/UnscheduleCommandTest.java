@@ -2,9 +2,10 @@ package seedu.address.logic.commands;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.prepareRedoCommand;
+import static seedu.address.logic.commands.CommandTestUtil.prepareUndoCommand;
 import static seedu.address.logic.commands.CommandTestUtil.showAppointmentAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_APPT;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_APPT;
@@ -13,7 +14,6 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_THIRD_APPT;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
@@ -70,6 +70,28 @@ public class UnscheduleCommandTest {
 
         assertCommandFailure(command, model, Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);
     }
+
+    @Test
+    public void executeUndoRedo_validIndexUnfileteredList_success() throws Exception {
+        UndoRedoStack undoRedoStack = new UndoRedoStack();
+        UndoCommand undoCommand = prepareUndoCommand(model, undoRedoStack);
+        RedoCommand redoCommand = prepareRedoCommand(model, undoRedoStack);
+        Appointment appointmentToDelete = model.getFilteredAppointmentList().get(INDEX_FIRST_APPT.getZeroBased());
+        UnscheduleCommand command = prepareCommand(INDEX_FIRST_APPT);
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+
+        // delete -> first appt unschedule
+        command.execute();
+        undoRedoStack.push(command);
+
+        // undo -> reverts
+        assertCommandSuccess(undoCommand, model, UndoCommand.MESSAGE_SUCCESS, expectedModel);
+
+        // redo
+        expectedModel.unscheduleAppointment(appointmentToDelete);
+        assertCommandSuccess(redoCommand, model, RedoCommand.MESSAGE_SUCCESS, expectedModel);
+    }
+
 
     @Test
     public void equals() throws Exception {
