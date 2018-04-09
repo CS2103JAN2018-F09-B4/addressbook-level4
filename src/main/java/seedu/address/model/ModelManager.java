@@ -126,6 +126,7 @@ public class ModelManager extends ComponentManager implements Model {
         updateFilteredAppointmentList(PREDICATE_SHOW_ALL_APPOINTMENT);
         indicateAddressBookChanged();
     }
+    //@@author
 
     @Override
     public void updateAppointment(Appointment target, Appointment rescheduleAppointment)

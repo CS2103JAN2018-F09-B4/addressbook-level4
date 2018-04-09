@@ -289,6 +289,11 @@ public class ScheduleCommandTest {
         public void sortAppointmentList() throws AppointmentListIsEmptyException {
             fail("This method should not be called.");
         }
+
+        @Override
+        public void unscheduleAppointment(Appointment appointment) {
+            fail("This method should not be called.");
+        }
     }
 
     /**
