@@ -53,7 +53,9 @@ public class UnscheduleCommand extends UndoableCommand {
     protected void preprocessUndoableCommand() throws CommandException {
         List<Appointment> lastShownList = model.getFilteredAppointmentList();
 
-        if (targetIndex.getZeroBased() >= lastShownList.size()) {
+        if (lastShownList.isEmpty()) {
+            throw new CommandException(Messages.MESSAGE_APPOINTMENT_LIST_EMPTY);
+        } else if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);
         }
 
