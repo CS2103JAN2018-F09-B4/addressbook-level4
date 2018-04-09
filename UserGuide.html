@@ -62,10 +62,11 @@
 <li><a href="#removing-a-pet-code-deletep-code-code-since-v1-2-code">3.3.6. Removing a pet: <code>deletep</code> <code>Since v1.2</code></a></li>
 <li><a href="#editing-a-pet-s-appointment-code-editappt-code-code-coming-v2-0-code">3.3.7. Editing a pet&#8217;s appointment: <code>editappt</code> <code>coming v2.0</code></a></li>
 <li><a href="#editing-a-pet-s-details-code-editp-code-code-coming-v2-0-code">3.3.8. Editing a pet&#8217;s details: <code>editp</code> <code>coming v2.0</code></a></li>
-<li><a href="#removing-an-appointment-from-a-pet-code-removeapptfrompet-code-code-since-v1-3-code">3.3.9. Removing an appointment from a pet: <code>removeapptfrompet</code> <code>since v1.3</code></a></li>
-<li><a href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.10. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></li>
-<li><a href="#rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code">3.3.11. Rescheduling an appointment : <code>reschedule</code> <code>Since v1.4</code></a></li>
-<li><a href="#sorting-pets-in-alphabetical-order-code-sortp-code-code-since-v1-4-code">3.3.12. Sorting pets in alphabetical order: <code>sortp</code> <code>Since v1.4</code></a></li>
+<li><a href="#unscheduling-an-appointment-code-unschedule-code-code-since-v1-5-code">3.3.9. Unscheduling an appointment: <code>unschedule</code> <code>since v1.5</code></a></li>
+<li><a href="#removing-an-appointment-from-a-pet-code-removeapptfrompet-code-code-since-v1-3-code">3.3.10. Removing an appointment from a pet: <code>removeapptfrompet</code> <code>since v1.3</code></a></li>
+<li><a href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.11. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></li>
+<li><a href="#rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code">3.3.12. Rescheduling an appointment : <code>reschedule</code> <code>Since v1.4</code></a></li>
+<li><a href="#sorting-pets-in-alphabetical-order-code-sortp-code-code-since-v1-4-code">3.3.13. Sorting pets in alphabetical order: <code>sortp</code> <code>Since v1.4</code></a></li>
 </ul>
 </li>
 </ul>
@@ -427,7 +428,7 @@ with the program.<br></p>
 <div class="paragraph">
 <p>Redoable commands: those commands that modify the address book&#8217;s content:<br>
 <code>add</code> <code>addp</code> <code>addappttopet</code> <code>sortc</code> <code>sortp</code> <code>delete</code> <code>deletep</code> <code>rmapptfrompet</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code>
-<code>schedule</code></p>
+<code>schedule</code> <code>unschedule</code></p>
 </div>
 </td>
 </tr>
@@ -452,7 +453,7 @@ with the program.<br></p>
 <div class="paragraph">
 <p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
 <code>add</code> <code>addp</code> <code>addappttopet</code> <code>sortc</code> <code>sortp</code> <code>delete</code> <code>deletep</code> <code>rmapptfrompet</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code>
-<code>schedule</code></p>
+<code>schedule</code> <code>unschedule</code></p>
 </div>
 </td>
 </tr>
@@ -1488,7 +1489,61 @@ Here you choose to edit the pet of the first index and changed the existing name
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-an-appointment-from-a-pet-code-removeapptfrompet-code-code-since-v1-3-code"><a class="link" href="#removing-an-appointment-from-a-pet-code-removeapptfrompet-code-code-since-v1-3-code">3.3.9. Removing an appointment from a pet: <code>removeapptfrompet</code> <code>since v1.3</code></a></h4>
+<h4 id="unscheduling-an-appointment-code-unschedule-code-code-since-v1-5-code"><a class="link" href="#unscheduling-an-appointment-code-unschedule-code-code-since-v1-5-code">3.3.9. Unscheduling an appointment: <code>unschedule</code> <code>since v1.5</code></a></h4>
+<div class="paragraph">
+<p>Command format: <code>unschedule INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>The <code>unschedule</code> command removes the appointment from the program.
+It requires the index of the appointment in the appointment listing.
+The command expects these parameters:<br></p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<strong>INDEX</strong>
+</td>
+<td class="hdlist2">
+<p>The appointment index to be removed based on the appointment listing. This needs to be supplied by the
+user.<br></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the <code>unschedule</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>unschedule 1</code><br>
+When this command is executed, the appointment at the first index is removed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The figure below shows the current state of your program as an exammple.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/userguide_unscheduleCommand_image.PNG" alt="userguide unscheduleCommand image" width="500">
+</div>
+<div class="title">Figure 24. The current status of appointments in your program.</div>
+</div>
+<div class="paragraph">
+<p>After executing the <code>unschedule 1</code> command, the first appointment on 02 January 2018 will be removed.
+The figure below shows the resulting output upon executing the command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/userguide_unscheduleCommand_image2.PNG" alt="userguide unscheduleCommand image2" width="500">
+</div>
+<div class="title">Figure 25. The resulting output after executing the <code>unschedule 1</code> command.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-an-appointment-from-a-pet-code-removeapptfrompet-code-code-since-v1-3-code"><a class="link" href="#removing-an-appointment-from-a-pet-code-removeapptfrompet-code-code-since-v1-3-code">3.3.10. Removing an appointment from a pet: <code>removeapptfrompet</code> <code>since v1.3</code></a></h4>
 <div class="paragraph">
 <p>Command format: <code>removeapptfrompet appt/APPOINTMENT_INDEX</code><br></p>
 </div>
@@ -1536,7 +1591,7 @@ So don&#8217;t worry, you don&#8217;t have to reschedule the appointment.
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code"><a class="link" href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.10. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></h4>
+<h4 id="removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code"><a class="link" href="#removing-a-vet-technician-from-an-appointment-code-removevettechfromappt-code-code-since-v1-4-code">3.3.11. Removing a vet technician from an appointment: <code>removevettechfromappt</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Command format: <code>removevettechfromappt INDEX</code><br></p>
 </div>
@@ -1575,7 +1630,7 @@ This command will remove the assigned vet technician from the appointment with t
 <div class="content">
 <img src="images/userguide_addvettechtoapptCommand_image2.PNG" alt="userguide addvettechtoapptCommand image2" width="400">
 </div>
-<div class="title">Figure 24. The appointment card with assigned vet technician Rebecca Ling</div>
+<div class="title">Figure 26. The appointment card with assigned vet technician Rebecca Ling</div>
 </div>
 <div class="paragraph">
 <p>Calling the command will result in the output below</p>
@@ -1584,11 +1639,11 @@ This command will remove the assigned vet technician from the appointment with t
 <div class="content">
 <img src="images/userguide_removevettech_image.PNG" alt="userguide removevettech image" width="400">
 </div>
-<div class="title">Figure 25. The resulting output after calling <code>removevettechfromappt 1</code> command</div>
+<div class="title">Figure 27. The resulting output after calling <code>removevettechfromappt 1</code> command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code"><a class="link" href="#rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code">3.3.11. Rescheduling an appointment : <code>reschedule</code> <code>Since v1.4</code></a></h4>
+<h4 id="rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code"><a class="link" href="#rescheduling-an-appointment-code-reschedule-code-code-since-v1-4-code">3.3.12. Rescheduling an appointment : <code>reschedule</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Command format: `reschedule INDEX [da/DATE] [tm/TIME] [du/DURATION] [DESC/DESCRIPTION]<br></p>
 </div>
@@ -1674,7 +1729,7 @@ from 14:30 to 15:30 and other details remain unchanged.<br></p>
 <div class="content">
 <img src="images/userguide_reschedule1.PNG" alt="userguide reschedule1" width="1000">
 </div>
-<div class="title">Figure 26. The appointment card being updated after the command.</div>
+<div class="title">Figure 28. The appointment card being updated after the command.</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1692,7 +1747,7 @@ to the next day and lasts 30 minutes longer.<br></p>
 <div class="content">
 <img src="images/userguide_reschedule2.PNG" alt="userguide reschedule2" width="1000">
 </div>
-<div class="title">Figure 27. The appointment card being updated after the command.</div>
+<div class="title">Figure 29. The appointment card being updated after the command.</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1708,7 +1763,7 @@ You need to provide at least one change to any filed of an existing appointment.
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-pets-in-alphabetical-order-code-sortp-code-code-since-v1-4-code"><a class="link" href="#sorting-pets-in-alphabetical-order-code-sortp-code-code-since-v1-4-code">3.3.12. Sorting pets in alphabetical order: <code>sortp</code> <code>Since v1.4</code></a></h4>
+<h4 id="sorting-pets-in-alphabetical-order-code-sortp-code-code-since-v1-4-code"><a class="link" href="#sorting-pets-in-alphabetical-order-code-sortp-code-code-since-v1-4-code">3.3.13. Sorting pets in alphabetical order: <code>sortp</code> <code>Since v1.4</code></a></h4>
 <div class="paragraph">
 <p>Command format: <code>sortp</code><br></p>
 </div>
@@ -1722,7 +1777,7 @@ You need to provide at least one change to any filed of an existing appointment.
 <div class="content">
 <img src="images/userguide_sortpCommand_image.PNG" alt="userguide sortpCommand image" width="300">
 </div>
-<div class="title">Figure 28. Populated pet list view</div>
+<div class="title">Figure 30. Populated pet list view</div>
 </div>
 <div class="paragraph">
 <p>Executing the <code>sortp</code> command will now result in the list alphabetically sorted like the figure
@@ -1732,7 +1787,7 @@ below</p>
 <div class="content">
 <img src="images/userguide_sortpCommand_image.PNG" alt="userguide sortpCommand image" width="300">
 </div>
-<div class="title">Figure 29. Sorted pet list</div>
+<div class="title">Figure 31. Sorted pet list</div>
 </div>
 </div>
 </div>
@@ -1910,6 +1965,11 @@ about them.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>sortp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Sorts the pet list alphabetically.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unschedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unschedule INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unschedules an appointment from the program.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1969,7 +2029,7 @@ clients, staff, pets and appointments. They&#8217;re solely for the program.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-09 05:24:31 UTC
+Last updated 2018-04-09 06:08:22 UTC
 </div>
 </div>
 </body>
