@@ -40,18 +40,18 @@ public class UnscheduleCommand extends UndoableCommand {
     public CommandResult executeUndoableCommand() {
         requireNonNull(appointmentToDelete);
         try {
-            model.unschedule(appointmentToDelete);
+            model.unscheduleAppointment(appointmentToDelete);
         } catch (AppointmentNotFoundException e) {
-            throw new CommandException(Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);
+            throw new AssertionError("The target cannot be missing.");
         } catch (AppointmentListIsEmptyException e) {
-            throw new CommandException(Messages.MESSAGE_APPOINTMENT_LIST_EMPTY);
+            throw new AssertionError("Appointment cannot be missing");
         }
         return new CommandResult(String.format(MESSAGE_UNSCHEDULE_APPOINTMENT_SUCCESS, appointmentToDelete));
     }
 
     @Override
     protected void preprocessUndoableCommand() throws CommandException {
-        List<Appointment> lastShownList= model.getFilteredAppointmentList();
+        List<Appointment> lastShownList = model.getFilteredAppointmentList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_APPOINTMENT_INDEX);

@@ -28,8 +28,7 @@ public class UnscheduleCommandParser implements Parser<UnscheduleCommand> {
             return new UnscheduleCommand(index);
         } catch (IllegalValueException ive) {
             throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnscheduleCommand.MESSAGE_USAGE);
-            )
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, UnscheduleCommand.MESSAGE_USAGE));
         }
     }
 }
