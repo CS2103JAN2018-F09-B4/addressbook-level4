@@ -836,6 +836,7 @@ about them.
 |removevettechfromappt |`removevettechfromappt INDEX` |Removes a vet technician from appointment based on index.
 |schedule | `schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION` |Schedule an appointment given date (YYYY-MM-DD), time (HH:MM), duration (minutes) and description.
 |sortp |`sortp` |Sorts the pet list alphabetically.
+|unschedule |`unschedule INDEX` |Unschedules an appointment from the program.
 |=======
 
 //sorted alphabetically
