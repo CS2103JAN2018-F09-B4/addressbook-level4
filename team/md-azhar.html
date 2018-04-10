@@ -5,54 +5,27 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>John Doe - Project Portfolio</title>
+<title>Md Azhar - Project Portfolio</title>
 <link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>John Doe - Project Portfolio</h1>
+<h1>Md Azhar - Project Portfolio</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
-<div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="project-vetterappointments"><a class="link" href="#project-vetterappointments">PROJECT: VetterAppointments</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>A CLI program written with Java, and a GUI built with JavaFX.
+Used for CS2103T Software Engineering module and has about 15kLoC.1product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
+<strong> Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
+</strong> Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
-<li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
-</li>
-<li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
-</li>
-</ul>
-</div>
-</li>
 <li>
 <p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
 </li>
@@ -154,10 +127,10 @@
 <div class="sect2">
 <h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>redo</code><br></p>
+<p><strong>Command format:</strong> <code>redo</code><br></p>
 </div>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br></p>
+<p><strong>Description:</strong> Reverses the most recent <code>undo</code> command.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -169,7 +142,7 @@
 <div class="paragraph">
 <p>Redoable commands: those commands that modify the address book&#8217;s content:<br>
 <code>add</code> <code>addp</code> <code>addappttopet</code> <code>sortc</code> <code>sortp</code> <code>delete</code> <code>deletep</code> <code>rmapptfrompet</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code>
-<code>schedule</code> <code>unschedule</code></p>
+<code>schedule</code> <code>unschedule</code> <code>reschedule</code></p>
 </div>
 </td>
 </tr>
@@ -179,10 +152,10 @@
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Command format: <code>undo</code><br></p>
+<p><strong>Command format:</strong> <code>undo</code><br></p>
 </div>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br></p>
+<p><strong>Description:</strong> Restores the address book to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -194,7 +167,7 @@
 <div class="paragraph">
 <p>Undoable commands: those commands that modify the address book&#8217;s content:<br>
 <code>add</code> <code>addp</code> <code>addappttopet</code> <code>sortc</code> <code>sortp</code> <code>delete</code> <code>deletep</code> <code>rmapptfrompet</code> <code>edit</code> <code>editp</code> <code>editappt</code> <code>clear</code>
-<code>schedule</code> <code>unschedule</code></p>
+<code>schedule</code> <code>unschedule</code> <code>reschedule</code></p>
 </div>
 </td>
 </tr>
@@ -529,7 +502,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 12:09:12 UTC
+Last updated 2018-04-10 13:30:49 UTC
 </div>
 </div>
 </body>
