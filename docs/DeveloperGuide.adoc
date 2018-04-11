@@ -464,18 +464,35 @@ image::pet_diagram_snippet.png[width="780", caption="Figure 4-9. "]
 
 *Logic component* +
 The `Pet` object interacts with several commands in the program. +
-1. `addappttopet` +
-2. `addp` +
-3. `deletep` +
-4. `list pet` +
-5. `sortp` +
-6. `findp` `*COMING IN V2.0*` +
+
+. `addp`
+. `deletep`
+. `addappttopet`
+. `removeapptfrompet`
+. `sortp`
 
 *Storage component* +
 All pet details will be stored in a separate XML file.
 
 *UI component* +
 All pet information will be displayed in the UI in a `PetListPanel`. All changes made to the pet will be reflected immediately after interacting with the commands.
+
+==== Design considerations
+==== Aspect: Implementation of Appointment class,  Pet class & Client class
+* *Alternative 1 (current choice):* Make a wrapper class that associates
+a pet and a client together. With that association class, insert the object into
+an appointment object. Have the appointment class that sets and gets the client
+and pet association class.
+** Pros: Reduces coupling and increases cohesion. The appointment class will now be
+the overheading class that takes in the pet and client.
+** Cons: Increases the code and program complexity. To amend the details of a client/pet
+after insertion into an appointment will be inefficient.
+
+* *Alternative 2:* Make the Pet class take in Appointment and Client object.
+** Pros: Querying each component will be simplified and fast. Code will be easier to
+understand while still respecting the OOP principle.
+** Cons: Hugely increases coupling. There will be too many null objects or dependencies
+on other class components.
 
 // tag::listperson[]
 === List and display clients, pets and vet technicians
