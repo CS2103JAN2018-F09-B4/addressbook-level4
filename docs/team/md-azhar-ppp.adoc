@@ -44,6 +44,10 @@ and its owner. This will then be fed into an appointment object, which is the ov
 * *Minor Enhancements*: Adding command aliases so that commands will not be too lengthy for the user
 to type. Several components and command features are classified as incremental minor enhancements.
 
+* *Code Contribution*: +
+** [https://github.com/CS2103JAN2018-F09-B4/main/blob/master/collated/functional/md-azsa.md[Functional code]]
+ [https://github.com/CS2103JAN2018-F09-B4/main/blob/master/collated/test/md-azsa.md[Test code]]
+
 * *Other contributions:* +
 ** Project management:
 *** Managed the releases of `v1.4` & `v1.5` on GitHub
