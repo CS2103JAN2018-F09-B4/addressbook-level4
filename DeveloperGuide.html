@@ -1028,13 +1028,26 @@ The <code>UniquePetList</code> class ensures that no duplicates of the same pet 
 </div>
 <div class="paragraph">
 <p><strong>Logic component</strong><br>
-The <code>Pet</code> object interacts with several commands in the program.<br>
-1. <code>addappttopet</code><br>
-2. <code>addp</code><br>
-3. <code>deletep</code><br>
-4. <code>list pet</code><br>
-5. <code>sortp</code><br>
-6. <code>findp</code> <code><strong>COMING IN V2.0</strong></code><br></p>
+The <code>Pet</code> object interacts with several commands in the program.<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>addp</code></p>
+</li>
+<li>
+<p><code>deletep</code></p>
+</li>
+<li>
+<p><code>addappttopet</code></p>
+</li>
+<li>
+<p><code>removeapptfrompet</code></p>
+</li>
+<li>
+<p><code>sortp</code></p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Storage component</strong><br>
@@ -1043,6 +1056,50 @@ All pet details will be stored in a separate XML file.</p>
 <div class="paragraph">
 <p><strong>UI component</strong><br>
 All pet information will be displayed in the UI in a <code>PetListPanel</code>. All changes made to the pet will be reflected immediately after interacting with the commands.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design considerations</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="aspect-implementation-of-appointment-class-pet-class-client-class"><a class="link" href="#aspect-implementation-of-appointment-class-pet-class-client-class">4.2.4. Aspect: Implementation of Appointment class,  Pet class &amp; Client class</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Make a wrapper class that associates
+a pet and a client together. With that association class, insert the object into
+an appointment object. Have the appointment class that sets and gets the client
+and pet association class.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduces coupling and increases cohesion. The appointment class will now be
+the overheading class that takes in the pet and client.</p>
+</li>
+<li>
+<p>Cons: Increases the code and program complexity. To amend the details of a client/pet
+after insertion into an appointment will be inefficient.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Make the Pet class take in Appointment and Client object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Querying each component will be simplified and fast. Code will be easier to
+understand while still respecting the OOP principle.</p>
+</li>
+<li>
+<p>Cons: Hugely increases coupling. There will be too many null objects or dependencies
+on other class components.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1160,7 +1217,7 @@ be executed on the correct list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.2. Design considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-toggling-between-lists"><a class="link" href="#aspect-implementation-of-toggling-between-lists">Aspect: Implementation of toggling between lists</a></h5>
 <div class="ulist">
@@ -1436,7 +1493,7 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.3. Design considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.3. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-autocomplete-capability"><a class="link" href="#aspect-implementation-of-autocomplete-capability">Aspect: Implementation of autocomplete capability</a></h5>
 <div class="ulist">
@@ -1866,27 +1923,77 @@ so that the vet can add the new person to the correct list.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p><strong>Major Enhancement</strong>: Support all pet related commands</p>
-<div class="ulist none">
-<ul class="none">
+<p><strong>Major Enhancement</strong>: A collection of commands that supports the Pet component and Appointment component.</p>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>The <code>addp</code>, <code>deletep</code> and <code>editp</code> commands will support the updating of the
-pet list whenever the vet requires to add a pet to the list, delete a pet from the list
-or edit a pet that currently exists in the list.</p>
+<p>Pet class containing: PetName, PetAge, PetGender and Tag classes.</p>
 </li>
 <li>
-<p>The <code>findp</code> command will allow the vet to efficiently search for a pet of a specific name
-in the list.</p>
+<p>AddPetCommand</p>
 </li>
 <li>
-<p>The <code>addapptto</code> command will add an appointment to an existing pet in the application.
-This will allow the vet to easily schedule an appointment for the relevant pet.
-The vet will also state the date, time, vet technician assigned to the appointment as well
-as any comments he/she wishes to add. <code>rmapptfrom</code> will remove the appointment from a pet.</p>
+<p>DeletePetCommand</p>
+</li>
+<li>
+<p>AddAppointmentToPetCommand</p>
+</li>
+<li>
+<p>RemoveAppointmentFromPetCommand</p>
+</li>
+<li>
+<p>SortAppointmentCommand</p>
+</li>
+<li>
+<p>SortClientCommand</p>
+</li>
+<li>
+<p>SortPetCommand</p>
+</li>
+<li>
+<p>UnscheduleCommand</p>
+</li>
+</ol>
+</div>
 </li>
 </ul>
 </div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>The Pet class component is the backbone of <code>addp</code>, <code>deletep</code>, <code>addappttopet</code>,
+<code>removeapptfrompet</code>, <code>sortp</code> commands.</p>
 </li>
+<li>
+<p>The <code>addp</code> command adds a pet to a specified client based on the index provided by
+the user. The <code>deletep</code> command is the converse of <code>addp</code>. It removes the pet from a
+specified client.</p>
+</li>
+<li>
+<p>The <code>addapptopet</code> adds a specified appointment to a specified pet based on the index
+provided. Likewise, <code>removeapptfrompet</code> is the converse of <code>addappttopet</code> command,
+removing the specified appointment based on the appointment index from a pet.</p>
+</li>
+<li>
+<p>The <code>sortp</code> command sorts the existing pet objects in the XML file lexicographically.</p>
+</li>
+<li>
+<p>The <code>sortc</code> command sorts the existing client objects in the XML file lexicographically.</p>
+</li>
+<li>
+<p>The <code>sortappt</code> sorts the appointment objects in date then time. It automatically
+sorts when scheduling a new appointment.</p>
+</li>
+<li>
+<p>The <code>unschedule</code> command removes a specified appointment object based on index.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All of the commands listed are Undoable and saved into the XML data file.</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><strong>Minor Enhancement</strong>: Implement aliases for command words<br></p>
 </li>
@@ -3101,7 +3208,7 @@ Expected: Similar to previous</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-10 14:58:59 UTC
+Last updated 2018-04-11 05:33:09 UTC
 </div>
 </div>
 </body>
