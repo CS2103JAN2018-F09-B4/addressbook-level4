@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.6.1">
+<title>Zhong ZhengXin - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Zhong ZhengXin - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-vetterappointments"><a class="link" href="#project-vetterappointments">PROJECT: VetterAppointments</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>VetterAppointments is a desktop based application developed from an addressbook application. It is specially designed
+for vets to facilitate the process of scheduling appointments as well as managing important data such as clients, pets, appointments and staff.<br></p>
+</div>
+<div class="paragraph">
+<p>The user interacts with the program by typing words through a Command Line Interface (CLI). The result of each interaction will
+be shown right below where you type. The Graphical User Interface(GUI) neatly displays all important information to the user.<br></p>
+</div>
+<div class="paragraph">
+<p>VetterAppointments is written by java for about 20K line of code and its GUI is built using JavaFX.<br></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major Enhancement</strong>: Add <code>schedule</code> and <code>reschedule</code> command.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Overview:<br>
+Both commands require similar parameters such as date, time, duration and description. The difference is that <code>schedule</code>
+command requires all parameters presented bt the vet while <code>reschedule</code> command only needs at least one of them</p>
+</li>
+<li>
+<p>Justification:<br>
+The enhancements complement one of the major functionality of Vetterappointments which is to schedule appointments.</p>
+</li>
+<li>
+<p>Highlights:<br>
+Appointment associates with date, time, duration and description in aggregation. The benefit is that all the component class
+still survives even when an appointment is deleted.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor Enhancements</strong>:Add support to detect appointment clashes, invalid duration and prompt suggestions for a valid duration.</p>
+</li>
+<li>
+<p><strong>Code Contribution</strong>:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>[<a href="https://github.com/CS2103JAN2018-F09-B4/main/blob/master/collated/functional/Godxin-functional.md">Functional code</a>]
+[<a href="https://github.com/CS2103JAN2018-F09-B4/main/blob/master/collated/test/Godxin-test.md">Test code</a>]</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other contributions:</strong><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Uploaded the jar file for releases <code>v1.4</code> on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Feature:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created client class (Pull request <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/31">#31</a>)</p>
+</li>
+<li>
+<p>Modified appointment class with more exceptions (Pull request <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/61">#61</a></p>
+</li>
+<li>
+<p>Added UniqueAppointment list:<br>
+(Pull request <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/61">#61</a>
+<a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/67">#67</a>
+<a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/68">#68</a>
+<a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/69">#69</a>)</p>
+</li>
+<li>
+<p>Added schedule command:<br>
+(Pull request <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/72">#72</a>
+<a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/74">#74</a>
+<a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/78">#78</a>
+<a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/81">#81</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added glossary in Developer Guide (Pull request <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/28">#28</a>)</p>
+</li>
+<li>
+<p>Added description for commands in User Guide:<br>
+(Pull request <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/114">#114</a>
+ <a href="https://github.com/CS2103JAN2018-F09-B4/main/pull/173">#173</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reported and documented bugs for other teams in procedural manner:<br></p>
+</li>
+<li>
+<p>Reported bugs and provided solutions to team:<br></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-userguide"><a class="link" href="#contributions-to-userguide">Contributions to userguide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="scheduling-an-appointment-code-schedule-code-code-since-v1-4-code"><a class="link" href="#scheduling-an-appointment-code-schedule-code-code-since-v1-4-code">Scheduling an appointment : <code>schedule</code> <code>Since v1.4</code></a></h4>
+<div class="paragraph">
+<p><strong>Command format:</strong> schedule da/DATE tm/TIME du/DURATION desc/DESCRIPTION<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The date is in YYYY-MM-DD format.Year(YYYY) must be later than the current year "2018"<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The time is in HH:MM format and adapts the 24-hour format from 00:00 to 23:59.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The duration can be any valid integer numbers from 15 to 120.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Description:</strong> Schedules an appointment.<br></p>
+</div>
+<div class="paragraph">
+<p>Here is an example on how you can use the <code>schedule</code> command to mark appointment dates:<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>`schedule da/2018-01-02 tm/14:30 du/60 desc/Sterilize Garfield when he's feeling better.`</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 20 below shows the outcome after scheduling an appointment.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_schedule.PNG" alt="userguide schedule" width="1000">
+</div>
+<div class="title">Figure 1. The appointment card being created after the command.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-pet-code-addp-code-code-since-v1-2-code"><a class="link" href="#adding-a-pet-code-addp-code-code-since-v1-2-code">Adding a pet: <code>addp</code> <code>Since v1.2</code></a></h4>
+<div class="paragraph">
+<p><strong>Command format:</strong> <code>addp c/CLIENT_INDEX pn/PET_NAME pa/PET_AGE pg/PET_GENDER t/PET_TAG&#8230;&#8203;</code><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The client index must be a positive integer
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Description:</strong> Adds a pet to a client.<br></p>
+</div>
+<div class="paragraph">
+<p>Here are some examples on using the <code>addp</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addp c/1 pn/Garfield pa/10 pg/M t/cat t/tabby</code><br></p>
+</li>
+<li>
+<p><code>addp c/1 pn/Scooby Doo pa/5 pg/M t/dog t/greatdane</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Figure 18 below shows the outcome of executing the <code>addp</code> commands in the examples above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_addpCommand_image.PNG" alt="userguide addpCommand image" width="400">
+</div>
+<div class="title">Figure 2. The pet list of the program after executing the <code>addp</code> example commands.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-an-appointment-to-a-pet-code-addappttopet-code-code-since-v1-3-code"><a class="link" href="#adding-an-appointment-to-a-pet-code-addappttopet-code-code-since-v1-3-code">Adding an appointment to a pet: <code>addappttopet</code> <code>Since v1.3</code></a></h4>
+<div class="paragraph">
+<p><strong>Command format:</strong> <code>addappttopet appt/APPOINTMENT_INDEX p/PET_INDEX</code><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Both appointment and pet indexes must be a positive integer.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Description:</strong> Adds an appointment to a specified pet.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need to schedule an appointment first before executing <code>addappttopet</code> command.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example on using the <code>addappttopet</code> command:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addappttopet appt/1 p/1</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Figure 21 below shows the status of the program before executing the command given in the example above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_scheduleCommand_image.PNG" alt="userguide scheduleCommand image" width="1000">
+</div>
+<div class="title">Figure 3. Current state of pet and appointment status in the program.</div>
+</div>
+<div class="paragraph">
+<p>Executing the command <code>addappttopet appt/1 p/1</code> will result in the following output like figure 22 below.
+Now the appointment is booked for Garfield.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_addappttopetCommand_image.PNG" alt="userguide addappttopetCommand image" width="1000">
+</div>
+<div class="title">Figure 4. The appointment card being updated after the command.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Zhong Zheng Xin</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p><strong>Major Enhancement</strong>: Support for all appointment related commands</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>The <code>schedule</code> command allows the vet to schedule an appointment of a certain date, time and duration attached with a brief description.</p>
+</li>
+<li>
+<p>The <code>reschedule</code> command to reschedule the appointment to other date, time or duration. This command is also able to edit the duration and description.</p>
+</li>
+<li>
+<p>The <code>editappt</code> command allows the vet to update the details of an appointment,
+such as the assigned vet technician and the data and time. Client and Pet can be
+changed as well if necessary. The affected clients, pets and vet technicians should
+be updated accordingly as well.</p>
+</li>
+<li>
+<p>The <code>deleteappt</code> command allows the vet to delete an appointment he/she no longer wants.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor Enhancement</strong>: Features to detect appointment clashes, invalid appointments and giving suggestions for a valid appointment</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>The application will prompt the vet if he/she has scheduled an appointment that
+clashes with or is too close to another appointment. Only appointments with reasonable
+date and time can be scheduled to help the vet maintain appropriate appointment schedules.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="schedule-unschedule-and-reschedule-appointments-feature"><a class="link" href="#schedule-unschedule-and-reschedule-appointments-feature">Schedule, unschedule and reschedule appointments feature</a></h3>
+<div class="sect3">
+<h4 id="reasons-for-implementation"><a class="link" href="#reasons-for-implementation">Reasons for implementation</a></h4>
+<div class="paragraph">
+<p>These features support the main functionality of <strong>VetterAppointments</strong> which is to facilitate the process of scheduling and organizing appointments.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current implementation</a></h4>
+<div class="paragraph">
+<p><strong>Model component</strong><br>
+In order to schedule an appointment, the Vet must create an appointment by specifying the date, time, duration and a brief description.</p>
+</div>
+<div class="paragraph">
+<p>The diagram figure 4-11 below illustrates the overview of the appointment class.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelAppointmentClassDiagram.png" alt="ModelAppointmentClassDiagram" width="780">
+</div>
+<div class="title">Figure 4-11. Overview the Appointment Class in VetterAppointments</div>
+</div>
+<div class="paragraph">
+<p>As you can see from the class diagram figure 4-11, there are four attributes of an appointment and each of them is implemented by an individual class.</p>
+</div>
+<div class="paragraph">
+<p>We are not using the java date and time class but implementing our self-defined classes. The reason is to check the invalidity more efficiently.</p>
+</div>
+<div class="paragraph">
+<p>The diagrams figure 4-12 below shows the class diagram for date and time.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AppointmentClassDemo.png" alt="AppointmentClassDemo" width="500">
+</div>
+<div class="title">Figure 4-12. Date and Time Class Diagram Snippets</div>
+</div>
+<div class="paragraph">
+<p>The methods to check for for a valid date are implemented this ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>check for format</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> DATE_VALIDATION_REGEX =
+            <span class="string"><span class="delimiter">&quot;</span><span class="content">([2-9][0-9][1-9][89])-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By checking the date regex, only date entered in the format of YYYY-MM-DD will be accepted.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>check for valid years</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> YEAR_LOWER_BOUND = <span class="integer">2018</span>;
+
+<span class="directive">public</span> <span class="directive">static</span> <span class="type">boolean</span> isValidYear(<span class="type">int</span> test) {
+        <span class="keyword">return</span> test &gt;= YEAR_LOWER_BOUND;
+    }</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The year should be later than 2018.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>check for valid days</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The code below shows all static values used to check for the validity of a given date.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> BIG_MONTH_DAY = <span class="integer">31</span>;
+<span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> SMALL_MONTH_DAY = <span class="integer">30</span>;
+<span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> FEB_LEAP_YEAR_DAY = <span class="integer">29</span>;
+<span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> FEB_NONLEAP_YEAR_DAY = <span class="integer">28</span>;
+<span class="directive">private</span>  <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span><span class="type">[]</span> BIG_MONTH = {<span class="string"><span class="delimiter">&quot;</span><span class="content">01</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">03</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">05</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">07</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">08</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">10</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">12</span><span class="delimiter">&quot;</span></span>};
+<span class="directive">private</span>  <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span><span class="type">[]</span> SMALL_MONTH = {<span class="string"><span class="delimiter">&quot;</span><span class="content">04</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">06</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">09</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">11</span><span class="delimiter">&quot;</span></span>};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The code below shows actual implementation on validating values for a given date.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="predefined-type">Boolean</span> isValidDaysInMonth(<span class="predefined-type">String</span> test) {
+        <span class="type">int</span> testYear = getYear(test);
+        <span class="predefined-type">String</span> testMonth = getMonth(test);
+        <span class="type">int</span> testDay = getDay(test);
+        <span class="type">int</span> daysInMonth;
+
+        <span class="keyword">if</span> (<span class="predefined-type">Arrays</span>.asList(BIG_MONTH).contains(testMonth)) {
+            daysInMonth = BIG_MONTH_DAY;
+        } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="predefined-type">Arrays</span>.asList(SMALL_MONTH).contains(testMonth)) {
+            daysInMonth = SMALL_MONTH_DAY;
+        } <span class="keyword">else</span> {
+            <span class="keyword">if</span> (isLeapYear(testYear)) {
+                daysInMonth = FEB_LEAP_YEAR_DAY;
+            } <span class="keyword">else</span> {
+                daysInMonth = FEB_NONLEAP_YEAR_DAY;
+            }
+        }
+        <span class="keyword">return</span> testDay &lt;= daysInMonth;
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By checking whether the given month is big, small or February, we can compare the day entered with the last day in the month.
+If the the day given is less than or equal to the last day in the month then the date entered by the user can be considered valid.</p>
+</div>
+<div class="paragraph">
+<p>The code below shows how to determine a leap year:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> LEAP_YEAR_DIVIDER = <span class="integer">4</span>;
+<span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> CENTURY_YEAR_DIVIDER = <span class="integer">100</span>;
+<span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> CENTURY_LEAP_YEAR_DIVIDER = <span class="integer">400</span>;
+<span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="type">int</span> LEAP_YEAR_REMAINDER = <span class="integer">0</span>;
+
+ <span class="directive">public</span> <span class="directive">static</span> <span class="type">boolean</span> isLeapYear(<span class="type">int</span> test) {
+    <span class="keyword">if</span> ((test % CENTURY_LEAP_YEAR_DIVIDER == LEAP_YEAR_REMAINDER)
+        || ((test % LEAP_YEAR_DIVIDER == LEAP_YEAR_REMAINDER)
+        &amp;&amp; (test % CENTURY_YEAR_DIVIDER != LEAP_YEAR_REMAINDER))) {
+        <span class="keyword">return</span> <span class="predefined-constant">true</span>;
+    } <span class="keyword">else</span> {
+        <span class="keyword">return</span> <span class="predefined-constant">false</span>;
+    }
+ }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The method to check for a valid time is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> TIME_VALIDATION_REGEX = <span class="string"><span class="delimiter">&quot;</span><span class="content">([01]?[0-9]|2[0-3]):([0-5][0-9])</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By checking the time regex, only time entered in the format of HH:MM will be accepted.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Time is expressed in 24 hour format hence hour ranges from 00 to 23 and minute from 01 to 60.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The diagram(Figure 4-13) below shows the class diagram of duration.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AppointmentClassDemo2.png" alt="AppointmentClassDemo2" width="500">
+</div>
+<div class="title">Figure 4-13. Duration Class Diagram Snippet</div>
+</div>
+<div class="paragraph">
+<p>The method to check for a valid duration is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> DURATION_VALIDATION_REGEX = <span class="string"><span class="delimiter">&quot;</span><span class="content">(1[5-9]|[2-9][0-9]|1[01][0-9]|120)</span><span class="delimiter">&quot;</span></span>;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Duration can be either two or three digit number and the value is in minute.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The diagram figure 4-14 below shows the class diagram of appointment.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AppointmentClassDemo3.png" alt="AppointmentClassDemo3" width="500">
+</div>
+<div class="title">Figure 4-14. Appointment Class Diagram Snippet</div>
+</div>
+<div class="paragraph">
+<p>To differentiate appointments, the equals method is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">boolean</span> equals(<span class="predefined-type">Object</span> other) {
+    ......
+    ......
+    Appointment otherAppointment = (Appointment) other;
+    <span class="keyword">return</span> otherAppointment.getDate().equals(<span class="local-variable">this</span>.getDate())
+           &amp;&amp; otherAppointment.getTime().equals(<span class="local-variable">this</span>.getTime());
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only date and time are responsible for duplicate appointments.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Logic component</strong><br>
+The following sequence diagram figure 4-15 shows how the schedule command works.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScheduleLogicSequenceDiagram.png" alt="ScheduleLogicSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4-15. Sequence Diagram of Interactions inside the Logic Component for <code>schedule date time duration</code> Command</div>
+</div>
+<div class="paragraph">
+<p>As you can see from the above diagram, the schedule command first goes to the <code>logicManager</code> and then gets parsed by the <code>ScheduleCommandParser</code>.
+After getting the appointment object from <code>Model</code>, the command result is returned to <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Storage component</strong><br>
+The following diagram figure 4-16 shows how the appointment is being stored in VetterAppointments.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AppointmentStorageClassDiagram.png" alt="AppointmentStorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 4-16. Appointment Storage Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>As shown in the above diagram figure 4-16, appointments are saved and read back in xml format.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-appointment-class"><a class="link" href="#aspect-implementation-of-appointment-class">Aspect: Implementation of appointment class</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1 (current choice): </strong> Use aggregation association</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: All objects such as date, time, duration and description can survive individually which means ending one entity will not effect the other entity.
+Aggregation also helps to reduce class coupling.</p>
+</li>
+<li>
+<p>Cons: The association is weak.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2: </strong>Use composition association</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It ensures a strong association between all parts.</p>
+</li>
+<li>
+<p>Cons: The composed objects cannot exist without the other entity.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="aspect-implementation-of-date-and-time-classes"><a class="link" href="#aspect-implementation-of-date-and-time-classes">Aspect: Implementation of date and time classes</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong> Alternative 1: </strong>(current choice) Use self defined classes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: You have the full knowledge of the implementation of the methods and characteristic of attributes. As a result, you can customize the class to make it answer quries more efficiently.</p>
+</li>
+<li>
+<p>Cons: It is easier to make mistake when implementing the methods.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong> Alternative 2: </strong> Use java class library</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is very simple to use. You only care about the functions rather than the implementation.</p>
+</li>
+<li>
+<p>Cons: The lack of the knowledge about implementation make the debugging hardr. In addition, you may need to create extra methods in order to perform certain functions that are not defined in the class.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2018-04-12 09:13:08 UTC
+</div>
+</div>
+</body>
+</html>
