@@ -94,7 +94,7 @@ right program for you.<br></p>
 The program helps to organize all of your appointments and
 display only important information to you. The program strips away any unnecessary clutter
 and allows you to focus on what matters to you the most; your clients, the animals under your
-care and their appointments, and your staff. This allows the program to help you out on managing your clients.<br></p>
+care and their appointments, as well as your staff. This allows the program to help you out on managing your clients.<br></p>
 </div>
 <div class="paragraph">
 <p>The program works by typing in commands and executing them. It is also supported by a beautiful design
@@ -834,8 +834,31 @@ The client index must be a positive integer
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Date format: YYYY-MM-DD<br>
-Time format: HH:MM
+The date is in YYYY-MM-DD format.Year(YYYY) must be later than the current year "2018"<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The time is in HH:MM format and adapts the 24-hour format from 00:00 to 23:59.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The duration can be any valid integer numbers from 15 to 120.<br>
 </td>
 </tr>
 </table>
@@ -846,19 +869,17 @@ Time format: HH:MM
 <div class="paragraph">
 <p>Here is an example on how you can use the <code>schedule</code> command to mark appointment dates:<br></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>schedule da/2018-01-02 tm/14:30 du/60 desc/Sterilize Garfield when he&#8217;s feeling better.</code><br></p>
-</li>
-</ul>
+<div class="literalblock">
+<div class="content">
+<pre>`schedule da/2018-01-02 tm/14:30 du/60 desc/Sterilize Garfield when he's feeling better.`</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Executing the <code>schedule</code> command will result in an appointment card being created like figure 20 below.</p>
+<p>Figure 20 below shows the outcome after scheduling an appointment.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/userguide_scheduleCommand_image.PNG" alt="userguide scheduleCommand image" width="1000">
+<img src="images/userguide_schedule.PNG" alt="userguide schedule" width="1000">
 </div>
 <div class="title">Figure 20. The appointment card being created after the command.</div>
 </div>
@@ -1216,15 +1237,16 @@ Index provided must be a positive integer.<br>
 </td>
 <td class="content">
 At least one parameter must be provided.<br>
+eg. <code>reschedule 1</code> is an invalid command.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><strong>Description:</strong> Reschedules the specified appointment.</p>
+<p><strong>Description:</strong> Reschedules or amends the description of the specified appointment.</p>
 </div>
 <div class="paragraph">
-<p>Here is an example on using the command:<br></p>
+<p>Here are some examples on using the command:<br></p>
 </div>
 <div class="ulist">
 <ul>
@@ -1234,19 +1256,47 @@ At least one parameter must be provided.<br>
 </ul>
 </div>
 <div class="paragraph">
-<p>Figure 32 below shows the current state of the program before executing <code>reschedule 1 tm/1530</code>.</p>
+<p>Figure 32 below shows the current state of the appointment card before rescheduling.<br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/userguide_rescheduleCommand_image.PNG" alt="userguide rescheduleCommand image" width="1000">
+<img src="images/userguide_reschedule1.1.PNG" alt="userguide reschedule1.1" width="1000">
 </div>
 <div class="title">Figure 32. Current state of program before executing <code>reschedule</code></div>
 </div>
+<div class="paragraph">
+<p>Figure 33 below shows the outcome after rescheduling the appointment.<br></p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/userguide_rescheduleCommand_image.PNG" alt="userguide rescheduleCommand image" width="1000">
+<img src="images/userguide_reschedule1.2.PNG" alt="userguide reschedule1.2" width="1000">
 </div>
 <div class="title">Figure 33. Current state of program before executing <code>reschedule</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>reschedule 1 da/2018-01-03 du/90</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Figure 34 below shows the current state of the appointment card before rescheduling.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/userguide_reschedule2.1.PNG" alt="userguide reschedule2.1" width="1000">
+</div>
+<div class="title">Figure 34. Current state of program before executing <code>reschedule</code></div>
+</div>
+<div class="paragraph">
+<p>Figure 35 below shows the outcome after rescheduling the appointment.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/userguide_reschedule2.2.PNG" alt="userguide reschedule2.2" width="1000">
+</div>
+<div class="title">Figure 35. Current state of program before executing <code>reschedule</code></div>
 </div>
 </div>
 <div class="sect3">
@@ -1274,7 +1324,7 @@ At least one parameter must be provided.<br>
 <div class="content">
 <img src="images/userguide_sortpCommand_image.PNG" alt="userguide sortpCommand image" width="500">
 </div>
-<div class="title">Figure 34. Populated pet list view</div>
+<div class="title">Figure 36. Populated pet list view</div>
 </div>
 <div class="paragraph">
 <p>Figure 35 below shows the outcome after executing <code>sortp</code>.</p>
@@ -1283,7 +1333,7 @@ At least one parameter must be provided.<br>
 <div class="content">
 <img src="images/userguide_sortpCommand_image.PNG" alt="userguide sortpCommand image" width="500">
 </div>
-<div class="title">Figure 35. Sorted pet list</div>
+<div class="title">Figure 37. Sorted pet list</div>
 </div>
 </div>
 </div>
@@ -1594,7 +1644,7 @@ clients, staff, pets and appointments. They&#8217;re solely for the program.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 05:52:21 UTC
+Last updated 2018-04-12 06:51:52 UTC
 </div>
 </div>
 </body>

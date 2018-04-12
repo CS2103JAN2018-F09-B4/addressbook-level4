@@ -263,68 +263,6 @@ The client index must be a positive integer
 </div>
 <div class="title">Figure 2. The pet list of the program after executing the <code>addp</code> example commands.</div>
 </div>
-<div class="sect3">
-<h4 id="adding-an-appointment-to-a-pet-code-addappttopet-code-code-since-v1-3-code"><a class="link" href="#adding-an-appointment-to-a-pet-code-addappttopet-code-code-since-v1-3-code">Adding an appointment to a pet: <code>addappttopet</code> <code>Since v1.3</code></a></h4>
-<div class="paragraph">
-<p><strong>Command format:</strong> <code>addappttopet appt/APPOINTMENT_INDEX p/PET_INDEX</code><br></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Both appointment and pet indexes must be a positive integer.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Description:</strong> Adds an appointment to a specified pet.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You need to schedule an appointment first before executing <code>addappttopet</code> command.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Here&#8217;s an example on using the <code>addappttopet</code> command:<br></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>addappttopet appt/1 p/1</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Figure 21 below shows the status of the program before executing the command given in the example above.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/userguide_scheduleCommand_image.PNG" alt="userguide scheduleCommand image" width="1000">
-</div>
-<div class="title">Figure 3. Current state of pet and appointment status in the program.</div>
-</div>
-<div class="paragraph">
-<p>Executing the command <code>addappttopet appt/1 p/1</code> will result in the following output like figure 22 below.
-Now the appointment is booked for Garfield.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/userguide_addappttopetCommand_image.PNG" alt="userguide addappttopetCommand image" width="1000">
-</div>
-<div class="title">Figure 4. The appointment card being updated after the command.</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -599,10 +537,8 @@ All pet information will be displayed in the UI in a <code>PetListPanel</code>. 
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="aspect-implementation-of-appointment-class-pet-class-client-class"><a class="link" href="#aspect-implementation-of-appointment-class-pet-class-client-class">Aspect: Implementation of Appointment class,  Pet class &amp; Client class</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-appointment-class-pet-class-client-class"><a class="link" href="#aspect-implementation-of-appointment-class-pet-class-client-class">Aspect: Implementation of Appointment class,  Pet class &amp; Client class</a></h5>
 <div class="ulist">
 <ul>
 <li>
@@ -645,9 +581,10 @@ on other class components.</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 05:52:21 UTC
+Last updated 2018-04-12 06:51:52 UTC
 </div>
 </div>
 </body>
