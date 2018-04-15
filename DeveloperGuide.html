@@ -48,9 +48,10 @@
 <li><a href="#pet-component-feature">4.2. Pet component feature</a></li>
 <li><a href="#list-and-display-clients-pets-and-vet-technicians">4.3. List and display clients, pets and vet technicians</a></li>
 <li><a href="#schedule-unschedule-and-reschedule-appointments-feature">4.4. Schedule, unschedule and reschedule appointments feature</a></li>
-<li><a href="#autocomplete-feature">4.5. Autocomplete feature</a></li>
-<li><a href="#logging">4.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
+<li><a href="#client-vet-technician-pet-appointment-entity">4.5. Client, vet technician, pet, appointment entity</a></li>
+<li><a href="#autocomplete-feature">4.6. Autocomplete feature</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1626,15 +1627,78 @@ Aggregation also helps to reduce class coupling.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">4.5. Autocomplete feature</a></h3>
+<h3 id="client-vet-technician-pet-appointment-entity"><a class="link" href="#client-vet-technician-pet-appointment-entity">4.5. Client, vet technician, pet, appointment entity</a></h3>
 <div class="sect3">
 <h4 id="reasons-for-implementation-3"><a class="link" href="#reasons-for-implementation-3">4.5.1. Reasons for implementation</a></h4>
+<div class="paragraph">
+<p>VetterAppointments requires to manage clients, vet technicians, pets and appointments in the application. An implementation of these objects are required for the application to be able to process the data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.2. Current implementation</a></h4>
+<div class="paragraph">
+<p>The entities of VetterAppointments are contained within the <code>AddressBook</code> class. <code>AddressBook</code> maintains the collections of <code>Person</code>, <code>Appointment</code>, <code>ClientOwnPet</code> and <code>Pet</code>.</p>
+</div>
+<div class="paragraph">
+<p>Figure 4-17 below shows the class diagram of how the entities are connected in VetterAppointments.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DataObjectClassDiagram.png" alt="DataObjectClassDiagram" width="800">
+</div>
+<div class="title">Figure 4-17. Entity Relationship Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>As seen from figure 4-17 VetTechnician` and <code>Client</code> are sub classes of the <code>Person</code> class. <code>ClientOwnPet</code> is an association class that associates the ownership of the <code>Pet</code> to the <code>Client</code>. <code>Appointment</code> will contain the <code>VetTechnician</code> and <code>ClientOwnPet</code> that will have the associated <code>Client</code> and <code>Pet</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.3. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-entity-data-model"><a class="link" href="#aspect-implementation-of-entity-data-model">Aspect: Implementation of entity data model</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Only couple entity if necessary</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Low coupling. Classes will have lesser dependency between entities.</p>
+</li>
+<li>
+<p>Cons: New developers will need to thoroughly understand the class interactions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Couple all entities.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Classes can easily access highly coupled classes.</p>
+</li>
+<li>
+<p>Cons: High coupling. Integration and testing will be harder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">4.6. Autocomplete feature</a></h3>
+<div class="sect3">
+<h4 id="reasons-for-implementation-4"><a class="link" href="#reasons-for-implementation-4">4.6.1. Reasons for implementation</a></h4>
 <div class="paragraph">
 <p>The autocomplete feature will allow vets to type their commands quicker as some of the commands require several input from the vet. With the autocomplete feature, vets will be able to execute commands faster to save time.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.5.2. Current implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.6.2. Current implementation</a></h4>
 <div class="paragraph">
 <p>The autocomplete mechanism is facilitated by <code>AutoCompleteManager</code>, which resides inside <code>LogicManager</code>. It supports the auto completion of incomplete commands by providing a list of auto completed command from a given incomplete command.</p>
 </div>
@@ -1643,13 +1707,13 @@ Aggregation also helps to reduce class coupling.</p>
 The <code>Trie</code> only supports the auto completion of commands provided by <code>AutoCompleteManager</code>. The <code>CommandParameterSyntaxHandler</code> which resides in <code>AutocompleteManager</code> supports the auto completion of parameters for commands.</p>
 </div>
 <div class="paragraph">
-<p>Figure 4-17 shows the class diagram of the autocomplete implementation.</p>
+<p>Figure 4-18 shows the class diagram of the autocomplete implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LogicAutoCompleteClassDiagram.png" alt="LogicAutoCompleteClassDiagram" width="800">
 </div>
-<div class="title">Figure 4-17. AutoComplete Implementation Class Diagram</div>
+<div class="title">Figure 4-18. AutoComplete Implementation Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>CommandBox</code> will interact with the AutoCompleteManager from using the <code>LogicManager</code>.
@@ -1686,9 +1750,18 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 <div class="paragraph">
 <p>The <code>isTabDoubleTap()</code> method will check if the user presses tab twice in quick succession. If true, the <code>CommandBox</code> will show a list of command suggestions for the current user input.</p>
 </div>
+<div class="paragraph">
+<p>Figure 4-19 shows the sequence diagram of how the autocomplete operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4-19. AutoComplete Sequence Diagram</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.3. Design considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.3. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-autocomplete-capability"><a class="link" href="#aspect-implementation-of-autocomplete-capability">Aspect: Implementation of autocomplete capability</a></h5>
 <div class="ulist">
@@ -1758,12 +1831,12 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="paragraph">
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>).</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>).</p>
 </div>
 <div class="paragraph">
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level.
@@ -1790,7 +1863,7 @@ Currently log messages are output through the <code>Console</code> and to a <cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3406,7 +3479,7 @@ Expected: Similar to previous</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 12:41:47 UTC
+Last updated 2018-04-15 03:27:20 UTC
 </div>
 </div>
 </body>

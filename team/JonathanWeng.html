@@ -269,13 +269,13 @@ In this scenario you can type <code>addv</code> and press <kbd>Tab</kbd> to auto
 The <code>Trie</code> only supports the auto completion of commands provided by <code>AutoCompleteManager</code>. The <code>CommandParameterSyntaxHandler</code> which resides in <code>AutocompleteManager</code> supports the auto completion of parameters for commands.</p>
 </div>
 <div class="paragraph">
-<p>Figure 4-17 shows the class diagram of the autocomplete implementation.</p>
+<p>Figure 4-18 shows the class diagram of the autocomplete implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/LogicAutoCompleteClassDiagram.png" alt="LogicAutoCompleteClassDiagram" width="800">
 </div>
-<div class="title">Figure 4-17. AutoComplete Implementation Class Diagram</div>
+<div class="title">Figure 4-18. AutoComplete Implementation Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>CommandBox</code> will interact with the AutoCompleteManager from using the <code>LogicManager</code>.
@@ -311,6 +311,15 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 </div>
 <div class="paragraph">
 <p>The <code>isTabDoubleTap()</code> method will check if the user presses tab twice in quick succession. If true, the <code>CommandBox</code> will show a list of command suggestions for the current user input.</p>
+</div>
+<div class="paragraph">
+<p>Figure 4-19 shows the sequence diagram of how the autocomplete operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4-19. AutoComplete Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -388,7 +397,7 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 12:41:47 UTC
+Last updated 2018-04-15 03:27:20 UTC
 </div>
 </div>
 </body>
