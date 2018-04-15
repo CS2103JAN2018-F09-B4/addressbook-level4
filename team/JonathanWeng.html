@@ -28,7 +28,10 @@
 <p>VetterAppointments is a desktop application made for vets to manage appointments, clients, pets and staff. The application has a graphical user interface (GUI) created with JavaFX and works via a command line interface (CLI) where users can enter single line commands to interact with the application.<br></p>
 </div>
 <div class="paragraph">
-<p>This project is part of a NUS CS2103T module. VetterAppointments was created by building upon an existing code base of the AddressBook-Level4 project by <a href="https://github.com/se-edu/">SE-EDU</a> initiative. The application is written in Java and has about 20kLOC.</p>
+<p>This project is part of a NUS CS2103T module. VetterAppointments was created by building upon an existing code base of the AddressBook-Level 4 project by <a href="https://github.com/se-edu/">SE-EDU</a> initiative. The application is written in Java and has about 20kLOC.</p>
+</div>
+<div class="paragraph">
+<p>This portfolio showcases of some notable contributions that I have made for the CS2103T project. It can be used for the evaluation of my coursework and learning progress from the CS2103T module.</p>
 </div>
 </div>
 </div>
@@ -38,7 +41,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added the <strong>Autocomplete</strong> capability</p>
+<p><strong>Major enhancement</strong>: added the <strong>autocomplete</strong> functionality<br></p>
 <div class="ulist">
 <ul>
 <li>
@@ -48,13 +51,13 @@
 <p>Justification: This feature improves the product significantly because some commands of the application are long. A user can quickly enter the command they wish to type by using this autocomplete feature.</p>
 </li>
 <li>
-<p>Highlights: This enchancement is an additional component to the existing code base, little modification of the exisiting code base was required. However, the modification of the UI logic was required to handle the tab keypress.</p>
+<p>Highlights: This enhancement is an additional component to the existing code base, little modification of the existing code base was required. However, the modification of the UI logic was required to handle the tab key press.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added the support for adding and removing clients and vet technicians in the application.<br></p>
+<p><strong>Minor enhancement</strong>: added the support for <strong>adding and removing clients and vet technicians</strong> in the application<br></p>
 <div class="ulist">
 <ul>
 <li>
@@ -140,13 +143,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a Travis CI to the team repo</p>
-</li>
-<li>
-<p>Integrated a Appveyor to the team repo</p>
-</li>
-<li>
-<p>Integrated a Coveralls to the team repo</p>
+<p>Integrated Travis CI, Appveyor, Coveralls to the team repo</p>
 </li>
 </ul>
 </div>
@@ -171,11 +168,82 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<div class="sect3">
+<h4 id="removing-a-client-or-vet-technician-code-delete-code-code-since-v1-1-code"><a class="link" href="#removing-a-client-or-vet-technician-code-delete-code-code-since-v1-1-code">Removing a client or vet technician: <code>delete</code> <code>Since v1.1</code></a></h4>
+<div class="paragraph">
+<p><strong>Command format:</strong> <code>delete INDEX</code><br></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The index must be a positive integer.<br>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect1">
-<h2 id="keyboard-shortcuts"><a class="link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></h2>
-<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Description:</strong> Deletes a person in the program according to the index provided.<br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>delete</code> command only deletes the person on the currently viewed person listing.
+<code>delete</code> command deletes a client when viewing the Client list. Likewise it deletes
+the vet technician when viewing the Vet Tech list.<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Here is an example of using the command <code>delete</code>:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Figure 5 below shows the result of the command box notification of the program when <code>delete 1</code> is executed.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_deleteCommand_image.PNG" alt="userguide deleteCommand image" width="1000">
+</div>
+<div class="title">Figure 5. Executing the <code>delete</code> command on index 1.</div>
+</div>
+<div class="paragraph">
+<p>Figure 6 below shows the status of client list before executing the <code>delete 1</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_addCommand_image.PNG" alt="userguide addCommand image" width="400">
+</div>
+<div class="title">Figure 6. Program status before executing <code>delete 1</code> command.</div>
+</div>
+<div class="paragraph">
+<p>Figure 7 below shows the result of the client list being updated upon executing the <code>delete 1</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/userguide_deleteCommand_image2.PNG" alt="userguide deleteCommand image2" width="400">
+</div>
+<div class="title">Figure 7. The client list after deleting Alice Peterson from the program.</div>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="keyboard-shortcuts"><a class="link" href="#keyboard-shortcuts">Keyboard Shortcuts</a></h3>
 <div class="paragraph">
 <p>This section shows you the different keyboard shortcuts that are available in VetterAppointments.<br></p>
 </div>
@@ -184,8 +252,8 @@
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 75%;">
+<col style="width: 25%;">
 </colgroup>
 <tbody>
 <tr>
@@ -205,7 +273,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Control</kbd>+<kbd>Tab</kbd></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Switches panel selection backwards</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switches panel selection backward</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>Shift</kbd>+<kbd>Tab</kbd></p></td>
 </tr>
 </tbody>
@@ -238,6 +306,7 @@ In this scenario you can type <code>addv</code> and press <kbd>Tab</kbd> to auto
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
@@ -251,12 +320,13 @@ In this scenario you can type <code>addv</code> and press <kbd>Tab</kbd> to auto
 </tr>
 </tbody>
 </table>
+<hr>
 <div class="sect2">
 <h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">Autocomplete feature</a></h3>
 <div class="sect3">
 <h4 id="reasons-for-implementation"><a class="link" href="#reasons-for-implementation">Reasons for implementation</a></h4>
 <div class="paragraph">
-<p>The autocomplete feature will allow vets to type their commands quicker as some of the commands require several input from the vet. With the autocomplete feature, vets will be able to execute commands faster to save time.</p>
+<p>The autocomplete feature will allow vets to type their commands quicker as some of the commands require several inputs from the vet. With the autocomplete feature, vets will be able to execute commands faster to save time.</p>
 </div>
 </div>
 <div class="sect3">
@@ -265,7 +335,7 @@ In this scenario you can type <code>addv</code> and press <kbd>Tab</kbd> to auto
 <p>The autocomplete mechanism is facilitated by <code>AutoCompleteManager</code>, which resides inside <code>LogicManager</code>. It supports the auto completion of incomplete commands by providing a list of auto completed command from a given incomplete command.</p>
 </div>
 <div class="paragraph">
-<p>A underlying <code>Trie</code> data structure is used to facilitate the <code>AutoCompleteManager</code> functionality.
+<p>An underlying <code>Trie</code> data structure is used to facilitate the <code>AutoCompleteManager</code> functionality.
 The <code>Trie</code> only supports the auto completion of commands provided by <code>AutoCompleteManager</code>. The <code>CommandParameterSyntaxHandler</code> which resides in <code>AutocompleteManager</code> supports the auto completion of parameters for commands.</p>
 </div>
 <div class="paragraph">
@@ -275,7 +345,7 @@ The <code>Trie</code> only supports the auto completion of commands provided by 
 <div class="content">
 <img src="../images/LogicAutoCompleteClassDiagram.png" alt="LogicAutoCompleteClassDiagram" width="800">
 </div>
-<div class="title">Figure 4-18. AutoComplete Implementation Class Diagram</div>
+<div class="title">Figure 4-18. Autocomplete Implementation Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>CommandBox</code> will interact with the AutoCompleteManager from using the <code>LogicManager</code>.
@@ -319,7 +389,7 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 <div class="content">
 <img src="../images/AutoCompleteSequenceDiagram.png" alt="AutoCompleteSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 4-19. AutoComplete Sequence Diagram</div>
+<div class="title">Figure 4-19. Autocomplete Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -336,7 +406,7 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 <p>Pros: The class will allow for more code abstraction and can also be implemented elsewhere.</p>
 </li>
 <li>
-<p>Cons: New developers will need to throughly understand the class interactions.</p>
+<p>Cons: New developers will need to thoroughly understand the class interactions.</p>
 </li>
 </ul>
 </div>
@@ -389,6 +459,70 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 </li>
 </ul>
 </div>
+<hr>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="client-vet-technician-pet-appointment-entity"><a class="link" href="#client-vet-technician-pet-appointment-entity">Client, vet technician, pet, appointment entity</a></h3>
+<div class="sect3">
+<h4 id="reasons-for-implementation-2"><a class="link" href="#reasons-for-implementation-2">Reasons for implementation</a></h4>
+<div class="paragraph">
+<p>VetterAppointments requires to manage clients, vet technicians, pets and appointments in the application. An implementation of these objects is required for the application to be able to process the data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current implementation</a></h4>
+<div class="paragraph">
+<p>The entities of VetterAppointments are contained within the <code>AddressBook</code> class. <code>AddressBook</code> maintains the collections of <code>Person</code>, <code>Appointment</code>, <code>ClientOwnPet</code> and <code>Pet</code>.</p>
+</div>
+<div class="paragraph">
+<p>Figure 4-17 below shows the class diagram of how the entities are connected in VetterAppointments.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DataObjectClassDiagram.png" alt="DataObjectClassDiagram" width="800">
+</div>
+<div class="title">Figure 4-17. Entity Relationship Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>As seen from figure 4-17 VetTechnician` and <code>Client</code> are sub classes of the <code>Person</code> class. <code>ClientOwnPet</code> is an association class that associates the ownership of the <code>Pet</code> to the <code>Client</code>. <code>Appointment</code> will contain the <code>VetTechnician</code> and <code>ClientOwnPet</code> that will have the associated <code>Client</code> and <code>Pet</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-entity-data-model"><a class="link" href="#aspect-implementation-of-entity-data-model">Aspect: Implementation of entity data model</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Only couple entities if necessary</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Low coupling. Classes will have lesser dependency between entities.</p>
+</li>
+<li>
+<p>Cons: New developers will need to thoroughly understand the class interactions.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Couple all entities</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Classes can easily access highly coupled classes.</p>
+</li>
+<li>
+<p>Cons: High coupling. Integration and testing will be harder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -397,7 +531,7 @@ When the user presses tab in the command box area, the <code>CommandBox</code> w
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 12:28:43 UTC
+Last updated 2018-04-15 13:21:01 UTC
 </div>
 </div>
 </body>
