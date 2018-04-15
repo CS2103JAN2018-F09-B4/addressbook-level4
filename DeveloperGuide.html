@@ -1063,29 +1063,89 @@ The <code>Pet</code> object interacts with several commands in the program.<br><
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>addp</code></p>
+<p><code>addp</code>: Adds a <code>Pet</code> into a <code>Client</code> through a wrapper class called <code>ClientOwnPetAssociation</code> and into <code>UniquePetList</code>.</p>
 </li>
 <li>
-<p><code>deletep</code></p>
+<p><code>deletep</code>: Removes the <code>Pet</code> object from both the wrapper class and <code>UniquePetList</code>.</p>
 </li>
 <li>
-<p><code>addappttopet</code></p>
+<p><code>addappttopet</code>: Adds the <code>ClientOwnPetAssociation</code> wrapper into the <code>Appointment</code> class.<br>
+To adhere to defensive programming practices, the <code>addappttopet</code> does the following:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Creates a copy of the specified <code>Appointment</code>.</p>
 </li>
 <li>
-<p><code>removeapptfrompet</code></p>
+<p>Adds the <code>ClientOwnPet</code> to the copy</p>
 </li>
 <li>
-<p><code>sortp</code></p>
+<p>Replaces the original <code>Appointment</code> with the copy.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>removeapptfrompet</code>: Removes the <code>ClientOwnPetAssociation</code> from the <code>Appointment</code>.<br>
+To adhere to defensive programming practices the <code>removeapptfrom</code> does the following:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Creates a copy of the specified <code>Appointment</code>.</p>
+</li>
+<li>
+<p>Removes the <code>ClientOwnPetAssociation</code> from the copy.</p>
+</li>
+<li>
+<p>Replaces the original with the cop.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>sortp</code>: Sorts the pet list.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Storage component</strong><br>
-All pet details will be stored in a separate XML file.</p>
+<p>The <code>addappttopet</code> command copies the <code>Appointment</code> object this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="keyword">for</span> (ClientOwnPet a : clientPetAssociations) {
+            <span class="keyword">if</span> (a.getPet().equals(pet)) {
+                isPresent = <span class="predefined-constant">true</span>;
+                <span class="keyword">if</span> (appointment.getClientOwnPet() == <span class="predefined-constant">null</span>) {
+                    Appointment appointmentCopy = <span class="keyword">new</span> Appointment(appointment);
+                    appointmentCopy.setClientOwnPet(a);
+                    appointments.setAppointment(appointment, appointmentCopy);
+                    isAdded = <span class="predefined-constant">true</span>;
+                }
+            }
+}</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p><strong>UI component</strong><br>
-All pet information will be displayed in the UI in a <code>PetListPanel</code>. All changes made to the pet will be reflected immediately after interacting with the commands.</p>
+<p>The <code>removeapptfrompet</code> command copies the <code>Appointment</code> object in a similar way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="directive">public</span> <span class="type">void</span> removeAppointmentFromPet(Appointment appointment) <span class="directive">throws</span>
+            AppointmentNotFoundException, DuplicateAppointmentException, AppointmentDoesNotHavePetException {
+        <span class="keyword">if</span> (!appointments.contains(appointment)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> AppointmentNotFoundException();
+        } <span class="keyword">else</span> {
+            Appointment appointmentCopy = <span class="keyword">new</span> Appointment(appointment);
+
+            <span class="keyword">if</span> (appointmentCopy.getClientOwnPet() == <span class="predefined-constant">null</span>) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> AppointmentDoesNotHavePetException();
+            } <span class="keyword">else</span> {
+                appointmentCopy.setClientOwnPetToNull();
+                appointments.setAppointment(appointment, appointmentCopy);
+            }
+        }
+ }</code></pre>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -3479,7 +3539,7 @@ Expected: Similar to previous</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 03:27:20 UTC
+Last updated 2018-04-15 03:50:36 UTC
 </div>
 </div>
 </body>
