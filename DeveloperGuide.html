@@ -2873,16 +2873,7 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <p>Vet requests to add an appointment</p>
 </li>
 <li>
-<p>VetterAppointments provides a list of pets to add the appointment to</p>
-</li>
-<li>
-<p>Vet enters the index of the pet that the appointment is tied to</p>
-</li>
-<li>
-<p>VetterAppointments provides a list of Vet Technicians to add the appointment to</p>
-</li>
-<li>
-<p>Vet enters the index of the Vet Technician that the appointment is assigned to, or leaves it blank if he/she wants to add it later</p>
+<p>VetterAppointments adds an appointment to the system</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2916,17 +2907,7 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. VetterAppointments asks the Vet if he/she wishes to override the existing appointment</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1a. Vet types 'yes'</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-<li>
-<p>1b1b. Vet types 'no'</p>
+<p>1b1. VetterAppointments shows an error message</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2936,56 +2917,70 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 </li>
 </ul>
 </div>
+<h3 id="use-case-assign-pet-to-appointment" class="discrete">Use case: Assign pet to appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vet requests to assign a pet index to a specific appointment index</p>
 </li>
-</ul>
+<li>
+<p>VetterAppointments assigns the pet to the appointment</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
 </div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty</p>
+<p>1a. The format of command is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. VetterAppointments shows an error message</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ul>
 </div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The pet index is invalid</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. VetterAppointments shows an error message</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
 </li>
 </ul>
 </div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a. The list is empty</p>
+<p>1b. The pet index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. VetterAppointments shows an error message</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ul>
 </div>
+</li>
+</ul>
+</div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>5a. The Vet Technician index is invalid</p>
+<p>1c. The appointment index is invalid</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>5a1. VetterAppointments shows an error message</p>
+<p>1c1. VetterAppointments shows an error message</p>
 <div class="paragraph">
-<p>Use case resumes at step 4.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -3001,12 +2996,6 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <ol class="arabic">
 <li>
 <p>Vet requests to assign a Vet Technician to a specific appointment</p>
-</li>
-<li>
-<p>VetterAppointments provides a list of Vet Technicians to assign the appointment to</p>
-</li>
-<li>
-<p>Vet enters the index of the associated Vet Technician</p>
 </li>
 <li>
 <p>VetterAppointments assigns the Vet Technician to the appointment</p>
@@ -3039,9 +3028,16 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty</p>
+<p>1b. The Vet Technician index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. VetterAppointments shows an error message</p>
 <div class="paragraph">
 <p>Use case ends.</p>
+</div>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -3049,13 +3045,13 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. The Vet Technician index is invalid</p>
+<p>1c. The appointment index is invalid</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. VetterAppointments shows an error message</p>
+<p>1c1. VetterAppointments shows an error message</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -3107,22 +3103,9 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. VetterAppointments asks the Vet if he/she wishes to override the existing appointment</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1b1a. Vet types 'yes'</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-<li>
-<p>1b1b. Vet types 'no'</p>
+<p>1b1. VetterAppointments shows an error message</p>
 <div class="paragraph">
 <p>Use case ends.</p>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ul>
@@ -3196,44 +3179,7 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 </li>
 </ul>
 </div>
-<h3 id="use-case-find-appointment-by-date" class="discrete">Use case: Find appointment by date</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Vet requests to find appointments for a specific date</p>
-</li>
-<li>
-<p>VetterAppointments shows a list of appointments on that date</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The format of command is invalid</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. VetterAppointments shows an error message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-find-appointment-by-client" class="discrete">Use case: Find appointment by client</h3>
+<h3 id="use-case-list-all-details-of-client" class="discrete">Use case: List all details of client</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3246,10 +3192,10 @@ date and time can be scheduled to help the vet maintain appropriate appointment 
 <p>VetterAppointments shows a list of clients</p>
 </li>
 <li>
-<p>Vet requests to find appointments for a specific client index</p>
+<p>Vet requests to list all details for a specific client index</p>
 </li>
 <li>
-<p>VetterAppointments shows a list of appointments for that client</p>
+<p>VetterAppointments shows a list of pets and appointments for that client</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3539,7 +3485,7 @@ Expected: Similar to previous</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 03:50:36 UTC
+Last updated 2018-04-15 06:00:15 UTC
 </div>
 </div>
 </body>
